@@ -92,6 +92,21 @@
 </g>
 <ellipse cx="300" cy="356" rx="160" ry="48" fill="#4FC3FF" opacity=".07" filter="url(#ksoft)"/>
 
+<!-- a flag planted on the surface, behind and to the left -->
+<g transform="translate(72 330)">
+  <path d="M0 0 L0 -62" stroke="#C7CEDB" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="0" cy="1" rx="7" ry="2.4" fill="#0E0D13" opacity=".8"/>
+  <g>
+    <path d="M2 -62 L40 -62 L40 -38 L2 -38Z" fill="#C81424"/>
+    <path d="M2 -62 L40 -62 L40 -60 L2 -60Z" fill="#FF5B5B" opacity=".5"/>
+    <g transform="translate(11 -53) scale(.30)">
+      <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z" fill="#FFD23F"/>
+    </g>
+    <path d="M23 -56 q4 -4 7 0 q-3 2 -3 5 q-3 -3 -4 -5Z" fill="#FFD23F"/>
+    <path d="M2 -62 L40 -62 L40 -38 L2 -38Z" fill="none" stroke="#7A0A12" stroke-width="1" opacity=".6"/>
+  </g>
+</g>
+
 <!-- ══ LUNAR MODULE ══ boxy descent stage, angular ascent stage, wide splayed legs ══ -->
 <g transform="translate(190 300)">
   <!-- cast shadow, away from the sun -->

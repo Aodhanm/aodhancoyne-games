@@ -47,8 +47,8 @@
 
  /* ── carpet: classic neon arcade pattern, laid in perspective ── */
  .floor{
-  position:absolute; left:-25%; right:-25%; bottom:0; height:46vh; z-index:0;
-  perspective:520px; perspective-origin:50% 0%;
+  position:absolute; left:-35%; right:-35%; bottom:0; height:54vh; z-index:0;
+  perspective:640px; perspective-origin:50% 0%;
  }
  .carpet{
   position:absolute; inset:0; transform:rotateX(66deg); transform-origin:50% 0%;
@@ -70,7 +70,7 @@
  }
 
  /* ───────────────────────── masthead ───────────────────────── */
- header{position:relative;z-index:3;text-align:center;padding:52px 22px 0}
+ header{position:relative;z-index:3;text-align:center;padding:40px 22px 0}
  .back{
   position:absolute;left:22px;top:22px;
   font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
@@ -103,13 +103,13 @@
  /* ───────────────────────── cabinets ───────────────────────── */
  .hall{
   position:relative;z-index:3;
-  display:flex;justify-content:center;align-items:flex-end;gap:clamp(18px,5vw,72px);
-  flex-wrap:wrap; padding:46px 22px 0; max-width:1280px; margin:0 auto;
+  display:flex;justify-content:center;align-items:flex-end;gap:clamp(28px,9vw,150px);
+  flex-wrap:wrap; padding:40px 22px 0; max-width:1460px; margin:0 auto;
  }
  .cab{
   --hue:var(--neon-c);
   --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
-  position:relative; width:min(430px,92vw); flex:0 1 430px;
+  position:relative; width:min(376px,90vw); flex:0 1 376px;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
@@ -124,6 +124,15 @@
  .cab > *{position:relative;z-index:1}
  .cab.left{transform:rotateY(7deg)}
  .cab.right{transform:rotateY(-7deg)}
+ /* hover: the machine steps forward and its marquee lifts */
+ .cab{transition:transform .3s cubic-bezier(.2,.7,.3,1), filter .3s ease}
+ .cab.lit.left {transform:rotateY(5deg)  scale(1.07) translateY(-10px)}
+ .cab.lit.right{transform:rotateY(-5deg) scale(1.07) translateY(-10px)}
+ .cab.lit{filter:drop-shadow(0 40px 40px rgba(0,0,0,.8)) drop-shadow(0 0 44px var(--hue))}
+ .cab.lit .marquee{box-shadow:0 8px 14px -6px rgba(0,0,0,.9), 0 0 58px -6px var(--hue)}
+ .cab.lit .screen{box-shadow:inset 0 0 44px rgba(0,0,0,.9), inset 0 0 90px -22px var(--hue), 0 0 30px -8px var(--hue)}
+ .cab.lit::after{opacity:.42}
+ @media(prefers-reduced-motion:reduce){ .cab{transition:none} .cab.lit.left,.cab.lit.right{transform:none} }
  @media(max-width:900px){ .cab.left,.cab.right{transform:none} }
 
  /* ── marquee: backlit plastic in a housing that overhangs the cabinet face ── */
@@ -205,33 +214,32 @@
  .cab.playing .screen::after{opacity:.45}
 
  /* insert coin overlay */
+ /* the glass itself is the button; the prompt sits low and small, out of the picture */
  .coin{
-  position:absolute;inset:0;z-index:5;display:grid;place-content:center;
-  background:radial-gradient(70% 55% at 50% 50%, rgba(4,3,10,.86) 0%, rgba(4,3,10,.66) 55%, rgba(4,3,10,.80) 100%);
+  position:absolute;inset:0;z-index:5;display:grid;align-content:end;justify-content:center;
+  padding-bottom:12px;
+  background:linear-gradient(180deg, transparent 0%, transparent 62%, rgba(4,3,10,.55) 100%);
   cursor:pointer;border:0;width:100%;font:inherit;color:inherit;text-align:center;
   transition:background .2s ease;
  }
  /* the text sits on its own plate so busy attract art can never swallow it */
  .coin b{
-  display:block;padding:13px 26px 12px;border:1px solid var(--hue);border-radius:3px;
-  background:rgba(4,3,10,.86);
-  box-shadow:0 0 22px -6px var(--hue), inset 0 0 24px -12px var(--hue);
+  display:block;padding:7px 15px 6px;border:1px solid var(--hue);border-radius:2px;
+  background:rgba(4,3,10,.72);
+  box-shadow:0 0 14px -6px var(--hue);
  }
  .coin span{
   display:block;
-  font-family:var(--disp);font-size:clamp(1rem,2.7vw,1.3rem);font-weight:700;
+  font-family:var(--disp);font-size:clamp(.7rem,1.6vw,.86rem);font-weight:700;
   letter-spacing:.2em;text-transform:uppercase;color:#fff;
   text-shadow:0 0 5px #fff,0 0 16px var(--hue),0 0 30px var(--hue);
   animation:blink 1.15s steps(1) infinite;
  }
- .coin small{
-  display:block;margin-top:7px;
-  font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
- }
+ .coin small{display:none}
  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.22}}
  @media(prefers-reduced-motion:reduce){ .coin span{animation:none} }
  .coin:hover,.coin:focus-visible{
-  background:radial-gradient(70% 55% at 50% 50%, rgba(4,3,10,.62) 0%, rgba(4,3,10,.44) 55%, rgba(4,3,10,.66) 100%);
+  background:linear-gradient(180deg, transparent 0%, transparent 55%, rgba(4,3,10,.7) 100%);
   outline:0;
  }
  .coin:hover b,.coin:focus-visible b{box-shadow:0 0 32px -4px var(--hue), inset 0 0 30px -10px var(--hue)}
@@ -358,7 +366,7 @@
   padding:0 0 0;
  }
  .art{
-  position:relative; height:376px; overflow:hidden;
+  position:relative; height:330px; overflow:hidden;
   background:#07050E;
  }
  .art img{
@@ -458,7 +466,7 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-kedr.svg" alt="Kedr — Лунный корабль — Lunar Lander"></div></div>
    <div class="bezel">
     <div class="screen">
-     <div class="reel" data-hold="3200,2600,2600,4200"><img class="on" src="assets/attract-kedr.jpg" alt="Kedr title screen"><img src="assets/kedr-1-pad.jpg" alt="Kedr: the rocket on the pad"><img src="assets/kedr-2-ascent.jpg" alt="Kedr: ascent past the Moon"><img src="assets/kedr-3-orbit.jpg" alt="Kedr: in lunar orbit"><img src="assets/kedr-4-play.jpg" alt="Kedr: the descent, terrain and Earth"></div>
+     <div class="reel" data-hold="2600,2200,2200,3200,3400,2600"><img class="on" src="assets/attract-kedr.jpg" alt="Kedr title screen"><img src="assets/kedr-2-pad.jpg" alt="Kedr: the rocket on the pad"><img src="assets/kedr-3-ascent.jpg" alt="Kedr: ascent past the Moon"><img src="assets/kedr-4-sep.jpg" alt="Kedr: the lander separates"><img src="assets/kedr-5-descent.jpg" alt="Kedr: descending over the terrain"><img src="assets/kedr-6-over.jpg" alt="Kedr: crashed into the surface"></div>
      <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
       <b><span>Insert Coin</span><small>Press to play</small></b>
      </button>
@@ -481,7 +489,7 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-missile.svg" alt="조선인민 미사일 자위 모의훈련 — Missile Self-Defence Simulator"></div></div>
    <div class="bezel">
     <div class="screen">
-     <div class="reel" data-hold="3200,3000,3000"><img class="on" src="assets/attract-missile.jpg" alt="Missile title screen"><img src="assets/dprk-1-boat.jpg" alt="Missile: the boat, crew on deck"><img src="assets/dprk-2-erect.jpg" alt="Missile: the rocket raised on the deck"></div>
+     <div class="reel" data-hold="2600,2400,2600,3400,3000"><img class="on" src="assets/attract-missile.jpg" alt="Missile title screen"><img src="assets/dprk-2-boat.jpg" alt="Missile: the boat, crew on deck"><img src="assets/dprk-3-launch.jpg" alt="Missile: launch off the deck"><img src="assets/dprk-4-impact.jpg" alt="Missile: the target city burning"><img src="assets/dprk-5-after.jpg" alt="Missile: the aftermath"></div>
      <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
       <b><span>Insert Coin</span><small>Press to play</small></b>
      </button>
@@ -524,6 +532,8 @@
        assets/coin.mp3   one-shot, plays on Insert Coin
 ─────────────────────────────────────────────────────────────────── -->
 <audio id="room" loop preload="none"><source src="assets/room.mp3" type="audio/mpeg"></audio>
+<audio id="snd-kedr" loop preload="none" src="assets/hover-kedr.m4a"></audio>
+<audio id="snd-dprk" loop preload="none" src="assets/hover-dprk.m4a"></audio>
 <audio id="coin" preload="none"><source src="assets/coin.mp3" type="audio/mpeg"></audio>
 
 <script>
@@ -568,6 +578,36 @@
    // keyboard goes to the game, not the page
    setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 380);
   });
+ });
+
+ // Hover a machine: it steps forward and its own music comes up. Sound only
+ // once the speaker is on, because browsers will not play before a gesture.
+ document.querySelectorAll('.cab').forEach(function(cab){
+  var snd = document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk');
+  var fade;
+  function up(){
+   cab.classList.add('lit');
+   if(!on || !snd) return;
+   clearInterval(fade);
+   snd.volume = 0; snd.play().catch(function(){});
+   fade = setInterval(function(){
+    snd.volume = Math.min(.55, snd.volume + .06);
+    if(snd.volume >= .55) clearInterval(fade);
+   }, 60);
+  }
+  function down(){
+   cab.classList.remove('lit');
+   if(!snd) return;
+   clearInterval(fade);
+   fade = setInterval(function(){
+    snd.volume = Math.max(0, snd.volume - .08);
+    if(snd.volume <= 0){ clearInterval(fade); snd.pause(); snd.currentTime = 0; }
+   }, 55);
+  }
+  cab.addEventListener('mouseenter', up);
+  cab.addEventListener('mouseleave', down);
+  cab.addEventListener('focusin', up);
+  cab.addEventListener('focusout', down);
  });
 
  // Attract reel: hold each frame, cross-fade to the next, loop. Pauses while a

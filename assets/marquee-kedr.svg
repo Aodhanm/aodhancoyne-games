@@ -18,6 +18,15 @@
     <stop offset="0" stop-color="#FFFFFF"/><stop offset=".34" stop-color="#FFF2A0"/>
     <stop offset=".72" stop-color="#FFC21A"/><stop offset="1" stop-color="#FF8A12" stop-opacity="0"/>
   </radialGradient>
+  <radialGradient id="earthBig" cx=".34" cy=".28" r=".9">
+    <stop offset="0" stop-color="#CFF0FF"/><stop offset=".2" stop-color="#63BCF2"/>
+    <stop offset=".5" stop-color="#2379D6"/><stop offset=".8" stop-color="#10428E"/>
+    <stop offset="1" stop-color="#07204B"/>
+  </radialGradient>
+  <radialGradient id="sunSmall" cx=".4" cy=".35" r=".7">
+    <stop offset="0" stop-color="#FFFDE8"/><stop offset=".45" stop-color="#FFD23F"/>
+    <stop offset="1" stop-color="#F08A1E"/>
+  </radialGradient>
   <filter id="mqsoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
 </defs>
 
@@ -29,36 +38,41 @@
   <circle cx="700" cy="46" r="1.6"/><circle cx="736" cy="96" r="2"/><circle cx="392" cy="16" r="1.6"/>
   <circle cx="88"  cy="22" r="1.8"/><circle cx="30"  cy="60" r="1.4"/>
 </g>
-<g transform="translate(668 28)">
-  <circle r="13" fill="#4FC3FF" opacity=".22"/>
-  <circle r="9" fill="#1E6FD0"/>
-  <g clip-path="circle(9px at 0 0)">
-    <path d="M-7 -4 q3 -3 6 -1 q2 1 1 3 q-2 3 -5 2 q-3 -1 -2 -4Z" fill="#3E9E58"/>
-    <path d="M-1 2 q4 -2 6 2 q1 2 -2 4 q-4 2 -5 -1 q-1 -3 1 -5Z" fill="#3E9E58"/>
-    <circle r="9" fill="#031026" opacity=".55" transform="translate(7 0)"/>
+<g transform="translate(706 34)">
+  <circle r="20" fill="#FFC21A" opacity=".22" filter="url(#mqsoft)"/>
+  <circle r="10" fill="url(#sunSmall)"/>
+  <g stroke="#FFD23F" stroke-width="1.6" stroke-linecap="round" opacity=".75">
+    <path d="M0 -16 L0 -21"/><path d="M0 16 L0 21"/><path d="M-16 0 L-21 0"/><path d="M16 0 L21 0"/>
+    <path d="M-11 -11 L-15 -15"/><path d="M11 11 L15 15"/><path d="M11 -11 L15 -15"/><path d="M-11 11 L-15 15"/>
   </g>
-  <circle r="9" fill="none" stroke="#9FE2FF" stroke-width="1.2" opacity=".8"/>
 </g>
 <circle cx="724" cy="132" r="5" fill="#E8400A"/>
 <circle cx="404" cy="52" r="3.4" fill="#E8E3F0" opacity=".85"/>
 
-<!-- ── the plume: a broad painted arc rising behind the lander ── -->
-<g>
-  <path d="M690 176 C664 116 640 66 578 40 C516 14 452 44 428 96 C412 132 418 160 428 178Z"
-        fill="url(#plumeOuter)" opacity=".95"/>
-  <path d="M678 176 C656 122 636 80 586 58 C536 36 484 60 464 102 C452 130 456 158 464 178Z"
-        fill="url(#plumeInner)" opacity=".9"/>
-  <!-- licks of flame, flat poster shapes -->
-  <g fill="#FF6A0A" opacity=".85">
-    <path d="M470 74 q16 -22 40 -26 q-18 16 -22 34 q-12 -6 -18 -8Z"/>
-    <path d="M600 56 q26 6 40 30 q-26 -12 -44 -6 q4 -14 4 -24Z"/>
-    <path d="M440 126 q4 -26 22 -42 q-6 26 2 46 q-14 -6 -24 -4Z"/>
+<!-- ── Earth, large, hanging behind the lander ── -->
+<g transform="translate(546 104)">
+  <circle r="118" fill="#4FC3FF" opacity=".12" filter="url(#mqsoft)"/>
+  <circle r="86" fill="url(#earthBig)"/>
+  <g clip-path="circle(86px at 0 0)">
+    <!-- Africa and Europe, the face that reads fastest -->
+    <path d="M-14 -26 q17 -10 32 -4 q11 6 9 17 l13 6 q6 9 -4 15 l-11 4 q-2 15 -13 26
+             q-9 9 -17 22 q-6 11 -13 6 q-6 -6 -2 -17 q-9 -13 -11 -30 q-2 -17 -6 -26
+             q-4 -11 8 -13 q7 -2 15 -6Z" fill="#3E9E58" opacity=".95"/>
+    <path d="M-26 -56 q20 -7 37 -2 q7 4 2 9 q-11 6 -22 4 q-13 -2 -17 -11Z" fill="#3E9E58" opacity=".9"/>
+    <path d="M22 -32 q13 -4 19 6 q4 7 -6 11 q-11 4 -17 -4 q-4 -7 4 -13Z" fill="#C8A24E" opacity=".85"/>
+    <path d="M-22 -34 q26 -9 48 -2 q6 7 -4 13 q-24 7 -43 2 q-7 -6 -1 -13Z" fill="#D2AC5C" opacity=".5"/>
+    <path d="M31 15 q7 6 4 15 q-4 7 -9 2 q-4 -9 5 -17Z" fill="#3E9E58" opacity=".9"/>
+    <path d="M-82 4 q15 -9 24 2 q7 11 -2 26 q-9 17 -20 11 q-9 -6 -7 -20 q0 -11 5 -19Z" fill="#3E9E58" opacity=".8"/>
+    <g fill="#FFFFFF" opacity=".38">
+      <path d="M-82 -18 q35 -17 71 -4 q-30 20 -71 4Z"/>
+      <path d="M-30 48 q45 -15 78 6 q-39 19 -78 -6Z"/>
+      <path d="M-4 -70 q34 -9 60 4 q-30 15 -60 -4Z"/>
+    </g>
+    <path d="M-86 -62 q86 -22 172 0 l0 -26 l-172 0Z" fill="#FFFFFF" opacity=".5"/>
+    <path d="M-86 62 q86 22 172 0 l0 26 l-172 0Z" fill="#FFFFFF" opacity=".45"/>
+    <circle r="86" fill="#02040F" opacity=".55" transform="translate(72 0)"/>
   </g>
-  <g fill="#FFE066" opacity=".7">
-    <path d="M520 62 q18 -14 38 -12 q-18 12 -24 28 q-8 -10 -14 -16Z"/>
-    <path d="M556 128 q18 8 26 26 q-20 -8 -34 -2 q6 -12 8 -24Z"/>
-  </g>
-  <ellipse cx="560" cy="180" rx="130" ry="26" fill="#FFC21A" opacity=".35" filter="url(#mqsoft)"/>
+  <circle r="86" fill="none" stroke="#9FE2FF" stroke-width="2.6" opacity=".7"/>
 </g>
 
 <!-- ── lunar module, white line art, right of centre ── -->
