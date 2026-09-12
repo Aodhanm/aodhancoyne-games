@@ -210,14 +210,16 @@
    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%);
  }
  .cab.playing .screen::after{opacity:.45}
- /* a machine that has been stood down: frame torn out, glass dark but alive */
- .cab.asleep .screen{background:#04030A}
- .cab.asleep .screen::before{
-  content:"Standby";position:absolute;inset:0;z-index:1;
-  display:flex;align-items:center;justify-content:center;
-  font-size:9px;letter-spacing:.34em;text-transform:uppercase;
-  color:rgba(255,255,255,.14);
+ /* A machine stood down while you play the other one. Its frame is torn out,
+    so it costs nothing, but the glass still shows its own title screen: a real
+    capture of the game at the exact size the cabinet renders it. The screen
+    reads as on and holding, not switched off. */
+ .cab .still{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  display:none;z-index:0;
  }
+ .cab.held .still{display:block}
+ .cab.held .screen{background:#000}
 
  /* insert coin overlay */
  /* the glass itself is the button; the prompt sits low and small, out of the picture */
@@ -604,6 +606,7 @@
    <div class="bezel">
     <div class="screen">
      
+     <img class="still" src="assets/still-kedr.jpg" alt="" width="960" height="720" loading="lazy" decoding="async">
      <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
       
      </button>
@@ -628,6 +631,7 @@
    <div class="bezel">
     <div class="screen">
      
+     <img class="still" src="assets/still-dprk.jpg" alt="" width="960" height="720" loading="lazy" decoding="async">
      <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
       
      </button>
@@ -809,9 +813,8 @@
   current = cab;
   hushTracks();                       // never two tracks at once
 
-  if(!cab){ clearTimeout(wakeTimer); window.__arcade.resume(); return; }
+  if(!cab){ window.__arcade.resume(); return; }
   cab.classList.add('lit');
-  wakeSoon(cab);                      // the machine you look at is the one running
 
   // a game you are actually playing owns the sound; stay out of its way
   if(document.querySelector('.cab.playing')) { window.__arcade.hush(); return; }
@@ -929,60 +932,34 @@
   setTimeout(function(){ fit(screen); }, 400);   // again once it has laid out
  }
 
- /* Only one game runs at a time. Two canvas games drawing into two scaled
-    iframes is what makes the cabinets stutter, so the machine you are looking
-    at runs and the other has its frame torn out. A game actually in play is
-    never stood down. */
- var liveCab = null, wakeTimer = null;
-
- function sleep(cab){
+ /* Both machines run their attract, because the room is the point. But two
+    canvas games drawing at once is what costs frames, so the moment you start
+    one, the other's frame is torn out and its glass holds a still of its own
+    title screen. Stopping brings it back to life. */
+ function hold(cab){
   if(!cab || cab.classList.contains('playing')) return;
   var f = cab.querySelector('.screen iframe');
   if(f) f.remove();
-  cab.classList.add('asleep');
-  if(liveCab === cab) liveCab = null;
+  cab.classList.add('held');
  }
 
- function wake(cab){
+ function release(cab){
   if(!cab) return;
-  clearTimeout(wakeTimer);
-  if(liveCab && liveCab !== cab) sleep(liveCab);
-  cab.classList.remove('asleep');
+  cab.classList.remove('held');
   boot(cab);
-  liveCab = cab;
- }
-
- // settle before swapping, so sweeping the pointer across the hall does not
- // tear down and rebuild both frames on the way past
- function wakeSoon(cab){
-  clearTimeout(wakeTimer);
-  if(!cab || cab === liveCab) return;
-  if(document.querySelector('.cab.playing')) return;   // the game in play keeps it
-  wakeTimer = setTimeout(function(){ wake(cab); }, 260);
  }
 
  // wait until a cabinet is actually on screen, so opening the page does not
  // start two canvas games off in the wings
  if('IntersectionObserver' in window){
   var io = new IntersectionObserver(function(entries){
-   // entries arrive in observation order, not document order; sort so the
-   // leftmost machine is the one that comes up live on a cold load
-   entries.filter(function(e){ return e.isIntersecting; })
-    .sort(function(a,b){
-      return (a.target.compareDocumentPosition(b.target) & Node.DOCUMENT_POSITION_FOLLOWING) ? -1 : 1;
-    })
-    .forEach(function(e){
-     io.unobserve(e.target);
-     if(liveCab) e.target.classList.add('asleep');   // one at a time, always
-     else wake(e.target);
-    });
+   entries.forEach(function(e){
+    if(e.isIntersecting){ boot(e.target); io.unobserve(e.target); }
+   });
   }, {rootMargin: '250px'});
   document.querySelectorAll('.cab').forEach(function(c){ io.observe(c); });
  } else {
-  var firstCab = document.querySelector('.cab');
-  document.querySelectorAll('.cab').forEach(function(c){
-   if(c === firstCab) wake(c); else c.classList.add('asleep');
-  });
+  document.querySelectorAll('.cab').forEach(boot);
  }
 
  // the prompt just hands the keyboard to the game that is already running
@@ -995,12 +972,12 @@
    document.querySelectorAll('.cab').forEach(function(other){
     if(other === cab) return;
     other.classList.remove('playing');
-    sleep(other);                  // torn out, not reloaded: it stops costing frames
+    hold(other);                   // frame torn out, glass holds its title still
    });
 
    window.__arcade.hushAll();      // room and hover tracks off; the game owns the sound
    cab.classList.add('playing');
-   wake(cab);
+   release(cab);
    var tab = cab.querySelector('[data-act="tab"]'); if(tab) tab.href = btn.dataset.src;
    var f = screen.querySelector('iframe');
    if(f) setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 200);
@@ -1024,8 +1001,8 @@
     e.preventDefault();
     if(f) f.remove();
     cab.classList.remove('playing');
-    wake(cab);                       // back to the live attract, not a black screen
-    window.__arcade.resume();        // the room comes back up
+    document.querySelectorAll('.cab').forEach(release);   // the whole room comes back
+    window.__arcade.resume();
    }
    // data-act="tab" is a plain link; let it through
   });
