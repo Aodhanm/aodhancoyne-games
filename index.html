@@ -1,135 +1,465 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://games.aodhancoyne.com/">
-<title>Games — Aodhan Coyne</title>
-<meta name="description" content="Browser games by Aodhan Coyne. Each one a single self-contained HTML page, no install, no tracking.">
+<title>Arcade — Aodhan Coyne</title>
+<meta name="description" content="An arcade. Browser games by Aodhan Coyne, playable in the cabinet. No install, no tracking.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Games — Aodhan Coyne">
-<meta property="og:description" content="Browser games by Aodhan Coyne. Each one a single self-contained HTML page.">
+<meta property="og:title" content="Arcade — Aodhan Coyne">
+<meta property="og:description" content="Browser games by Aodhan Coyne, playable in the cabinet.">
 <meta property="og:url" content="https://games.aodhancoyne.com/">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='5' fill='%230E1A24'/%3E%3Cg fill='none' stroke='%23CBA64E' stroke-width='2.2' stroke-linecap='round'%3E%3Cline x1='9' y1='19' x2='15' y2='19'/%3E%3Cline x1='12' y1='16' x2='12' y2='22'/%3E%3Ccircle cx='21' cy='17.5' r='1.4' fill='%23CBA64E' stroke='none'/%3E%3Ccircle cx='24' cy='21' r='1.4' fill='%23CBA64E' stroke='none'/%3E%3C/g%3E%3C/svg%3E">
+<meta property="og:image" content="https://games.aodhancoyne.com/assets/attract-kedr.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230A0812'/%3E%3Crect x='7' y='6' width='18' height='13' rx='2' fill='%2300E5FF'/%3E%3Crect x='9.5' y='8.5' width='13' height='8' fill='%230A0812'/%3E%3Crect x='11' y='21' width='10' height='2.5' rx='1.2' fill='%23FF2D95'/%3E%3Ccircle cx='16' cy='27' r='2' fill='%23FFD23F'/%3E%3C/svg%3E">
 <style>
  :root{
-  --deep:#0A141C; --ground:#0E1A24; --plate:#152534; --plate-2:#1B2E3E;
-  --ink:#E7EDF1; --ink-soft:#AFC2CF; --faint:#8397A5;
-  --rule:#22333F; --rule-soft:#1A2934;
-  --accent:#CBA64E; --accent-hi:#E1BE68; --slate:#7FC0D6;
-  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-  --body:Charter,Georgia,"Iowan Old Style",Cambria,serif;
+  --void:#07060D; --room:#0D0A18; --wall:#140F24; --wall-lo:#0A0713;
+  --ink:#EDE9FB; --dim:#9A93B8; --faint:#645C85;
+  --neon-c:#00E5FF; --neon-m:#FF2D95; --neon-y:#FFD23F; --neon-g:#39FF88;
+  --cab-body:#171226; --cab-edge:#241B3C; --cab-dark:#0B0815;
   --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
+  --disp:"Futura","Avenir Next Condensed","Helvetica Neue",Impact,sans-serif;
  }
  *{box-sizing:border-box}
- html{-webkit-text-size-adjust:100%}
+ html,body{margin:0;height:100%}
  body{
-  margin:0; background:var(--ground); color:var(--ink-soft);
-  font-family:var(--body); font-size:17px; line-height:1.6;
-  background-image:radial-gradient(1000px 520px at 82% -12%,rgba(203,166,78,.07),transparent 62%),
-                   radial-gradient(820px 460px at -8% 108%,rgba(127,192,214,.05),transparent 58%);
-  background-attachment:fixed;
+  background:var(--void); color:var(--dim);
+  font-family:var(--mono); font-size:14px; line-height:1.5;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
  }
  .skip{position:absolute;left:-9999px}
- .skip:focus{left:8px;top:8px;background:var(--accent);color:var(--deep);padding:8px 14px;z-index:99;border-radius:4px}
- .wrap{max-width:800px;margin:0 auto;padding:0 24px}
+ .skip:focus{left:10px;top:10px;background:var(--neon-c);color:#000;padding:8px 14px;z-index:99;border-radius:3px}
 
- header{padding:62px 0 28px;border-bottom:1px solid var(--rule)}
+ /* ───────────────────────── the room ───────────────────────── */
+ .room{
+  position:relative; min-height:100vh; overflow:hidden;
+  background:
+   radial-gradient(120% 70% at 50% 0%, #1B1433 0%, #0C0917 55%, var(--void) 100%);
+ }
+ /* ceiling haze + neon spill */
+ .room::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+   radial-gradient(50% 34% at 18% 8%, rgba(255,45,149,.20), transparent 70%),
+   radial-gradient(50% 34% at 82% 6%, rgba(0,229,255,.18), transparent 70%),
+   radial-gradient(70% 40% at 50% 100%, rgba(255,210,63,.07), transparent 70%);
+ }
+
+ /* ── carpet: classic neon arcade pattern, laid in perspective ── */
+ .floor{
+  position:absolute; left:-25%; right:-25%; bottom:0; height:46vh; z-index:0;
+  perspective:520px; perspective-origin:50% 0%;
+ }
+ .carpet{
+  position:absolute; inset:0; transform:rotateX(66deg); transform-origin:50% 0%;
+  background-color:#0B0A20;
+  background-image:
+   radial-gradient(circle at 12% 22%, var(--neon-m) 0 3px, transparent 3.5px),
+   radial-gradient(circle at 62% 72%, var(--neon-c) 0 3px, transparent 3.5px),
+   radial-gradient(circle at 86% 32%, var(--neon-y) 0 2.5px, transparent 3px),
+   radial-gradient(circle at 36% 88%, var(--neon-g) 0 2.5px, transparent 3px),
+   linear-gradient(56deg, transparent 46%, rgba(0,229,255,.30) 46% 50%, transparent 50%),
+   linear-gradient(-56deg, transparent 46%, rgba(255,45,149,.28) 46% 50%, transparent 50%),
+   linear-gradient(0deg, transparent 47%, rgba(255,210,63,.16) 47% 49%, transparent 49%);
+  background-size:120px 120px,120px 120px,120px 120px,120px 120px,96px 96px,96px 96px,60px 60px;
+  box-shadow:inset 0 60px 90px -30px rgba(0,0,0,.85);
+ }
+ .floor::after{ /* fog the horizon so the tiling never reads as wallpaper */
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, var(--void) 0%, rgba(7,6,13,.72) 16%, transparent 60%);
+ }
+
+ /* ───────────────────────── masthead ───────────────────────── */
+ header{position:relative;z-index:3;text-align:center;padding:52px 22px 0}
  .back{
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--faint);text-decoration:none;display:inline-block;margin-bottom:24px;
+  position:absolute;left:22px;top:22px;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+  text-decoration:none;border-bottom:1px solid transparent;padding-bottom:2px;
  }
- .back:hover,.back:focus-visible{color:var(--accent);outline:0}
+ .back:hover,.back:focus-visible{color:var(--neon-c);border-bottom-color:var(--neon-c);outline:0}
+
+ .sign{
+  display:inline-block;padding:14px 34px 16px;border:2px solid rgba(0,229,255,.5);border-radius:6px;
+  background:rgba(10,7,20,.55);
+ }
  h1{
-  font-family:var(--serif);font-size:clamp(2rem,5.5vw,2.7rem);font-weight:600;
-  letter-spacing:-.02em;margin:0;color:var(--ink);line-height:1.08;
+  margin:0;font-family:var(--disp);font-size:clamp(2.2rem,7vw,3.9rem);font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:#FFF;line-height:1;
+  text-shadow:
+   0 0 6px #fff, 0 0 16px var(--neon-c), 0 0 34px var(--neon-c),
+   0 0 62px rgba(0,229,255,.55);
+  animation:flick 7s infinite steps(1);
  }
- .tagline{
-  font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--faint);margin-top:13px;
+ @keyframes flick{
+  0%,97%,100%{opacity:1}
+  97.5%{opacity:.55} 98%{opacity:1} 98.6%{opacity:.42} 99.1%{opacity:1}
+ }
+ .tag{
+  margin:11px 0 0;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--neon-m);
+  text-shadow:0 0 8px rgba(255,45,149,.75);
+ }
+ @media(prefers-reduced-motion:reduce){ h1{animation:none} }
+
+ /* ───────────────────────── cabinets ───────────────────────── */
+ .hall{
+  position:relative;z-index:3;
+  display:flex;justify-content:center;align-items:flex-end;gap:clamp(18px,5vw,72px);
+  flex-wrap:wrap; padding:46px 22px 0; max-width:1280px; margin:0 auto;
+ }
+ .cab{
+  --hue:var(--neon-c);
+  position:relative; width:min(430px,92vw); flex:0 1 430px;
+  display:flex; flex-direction:column; align-items:stretch;
+  filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
+ }
+ .cab.left{transform:rotateY(7deg)}
+ .cab.right{transform:rotateY(-7deg)}
+ @media(max-width:900px){ .cab.left,.cab.right{transform:none} }
+
+ /* marquee */
+ .marquee{
+  position:relative; border-radius:8px 8px 3px 3px; padding:13px 16px 12px; text-align:center;
+  background:linear-gradient(180deg,#241B3C,#15102A);
+  border:1px solid var(--cab-edge); border-bottom:0;
+  box-shadow:0 0 26px -6px var(--hue), inset 0 -16px 26px -18px var(--hue);
+ }
+ .marquee b{
+  display:block;font-family:var(--disp);font-size:clamp(1.15rem,3.4vw,1.7rem);font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:#fff;line-height:1.05;
+  text-shadow:0 0 5px #fff,0 0 15px var(--hue),0 0 34px var(--hue);
+ }
+ .marquee i{
+  display:block;font-style:normal;margin-top:5px;
+  font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--hue);opacity:.92;
  }
 
- main{padding:38px 0 0}
- .grid{display:grid;gap:16px;grid-template-columns:1fr}
- @media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
+ /* bezel + screen */
+ .bezel{
+  background:linear-gradient(180deg,#120E20,#0A0714);
+  border:1px solid var(--cab-edge); border-top:0;
+  padding:15px 15px 13px;
+ }
+ .screen{
+  position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:11px/16px;
+  background:#000; border:2px solid #05040A;
+  box-shadow:inset 0 0 44px rgba(0,0,0,.95), inset 0 0 90px -30px var(--hue);
+ }
+ .screen img{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
+ /* The games expect a desktop-sized viewport. Give the iframe a full logical
+    resolution and scale the whole thing down to fit the cabinet glass, rather
+    than handing the game a tiny viewport it will crop. */
+ .screen iframe{
+  position:absolute;top:0;left:0;border:0;display:block;
+  width:var(--vw,960px);height:var(--vh,720px);
+  transform:scale(var(--fit,1));transform-origin:0 0;
+ }
+ /* scanlines + glass curve */
+ .screen::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:4;
+  background:
+   repeating-linear-gradient(180deg, rgba(0,0,0,.32) 0 1px, transparent 1px 3px),
+   radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%);
+ }
+ .cab.playing .screen::after{opacity:.45}
 
- .game{
-  display:flex;flex-direction:column;text-decoration:none;color:inherit;
-  background:var(--plate);border:1px solid var(--rule);border-radius:10px;
-  padding:22px 22px 19px;
-  transition:border-color .16s ease,transform .16s ease,background .16s ease;
+ /* insert coin overlay */
+ .coin{
+  position:absolute;inset:0;z-index:5;display:grid;place-content:center;
+  background:radial-gradient(70% 55% at 50% 50%, rgba(4,3,10,.86) 0%, rgba(4,3,10,.66) 55%, rgba(4,3,10,.80) 100%);
+  cursor:pointer;border:0;width:100%;font:inherit;color:inherit;text-align:center;
+  transition:background .2s ease;
  }
- .game:hover,.game:focus-visible{
-  border-color:var(--accent);transform:translateY(-2px);background:var(--plate-2);outline:0;
+ /* the text sits on its own plate so busy attract art can never swallow it */
+ .coin b{
+  display:block;padding:13px 26px 12px;border:1px solid var(--hue);border-radius:3px;
+  background:rgba(4,3,10,.86);
+  box-shadow:0 0 22px -6px var(--hue), inset 0 0 24px -12px var(--hue);
  }
- .game .kicker{
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--accent);margin-bottom:11px;
+ .coin span{
+  display:block;
+  font-family:var(--disp);font-size:clamp(1rem,2.7vw,1.3rem);font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:#fff;
+  text-shadow:0 0 5px #fff,0 0 16px var(--hue),0 0 30px var(--hue);
+  animation:blink 1.15s steps(1) infinite;
  }
- .game h2{
-  font-family:var(--serif);font-size:1.28em;font-weight:600;margin:0 0 3px;
-  color:var(--ink);letter-spacing:-.01em;
+ .coin small{
+  display:block;margin-top:7px;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);
  }
- .game .native{
-  font-size:.9em;color:var(--faint);margin:0 0 11px;
+ @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.22}}
+ @media(prefers-reduced-motion:reduce){ .coin span{animation:none} }
+ .coin:hover,.coin:focus-visible{
+  background:radial-gradient(70% 55% at 50% 50%, rgba(4,3,10,.62) 0%, rgba(4,3,10,.44) 55%, rgba(4,3,10,.66) 100%);
+  outline:0;
  }
- .game p.desc{margin:0;font-size:.93em;line-height:1.55;flex:1}
- .game .play{
-  font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;
-  color:var(--accent);margin-top:16px;padding-top:13px;border-top:1px solid var(--rule-soft);
- }
- .game:hover .play{color:var(--accent-hi)}
+ .coin:hover b,.coin:focus-visible b{box-shadow:0 0 32px -4px var(--hue), inset 0 0 30px -10px var(--hue)}
+ .cab.playing .coin{display:none}
 
- footer{
-  border-top:1px solid var(--rule);margin-top:48px;padding:24px 0 60px;
-  font-size:.87em;color:var(--faint);
+ /* control panel */
+ .panel{
+  position:relative;
+  background:linear-gradient(180deg,#1D1633 0%,#140F26 62%,#0D0918 100%);
+  border:1px solid var(--cab-edge);border-top:0;
+  padding:17px 22px 15px;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
  }
- footer a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
- footer a:hover,footer a:focus-visible{border-bottom-color:var(--accent);outline:0}
- footer p{margin:0;max-width:62ch;line-height:1.5}
- a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+ .stick{position:relative;width:26px;height:40px;flex:none}
+ .stick::before{ /* shaft */
+  content:"";position:absolute;left:50%;bottom:7px;width:5px;height:26px;margin-left:-2.5px;
+  background:linear-gradient(90deg,#4A4260,#8A82A8,#4A4260);border-radius:3px;
+ }
+ .stick::after{ /* ball top */
+  content:"";position:absolute;left:50%;top:0;width:19px;height:19px;margin-left:-9.5px;border-radius:50%;
+  background:radial-gradient(circle at 34% 30%, #fff 0 8%, var(--neon-m) 40%, #8C0F4C 100%);
+  box-shadow:0 0 14px -2px var(--neon-m);
+ }
+ .stick i{ /* dust washer */
+  position:absolute;left:50%;bottom:3px;width:24px;height:7px;margin-left:-12px;border-radius:50%;
+  background:#2A2340;box-shadow:inset 0 1px 0 rgba(255,255,255,.09);
+ }
+ .btns{display:flex;gap:10px}
+ .btns i{
+  width:20px;height:20px;border-radius:50%;display:block;
+  box-shadow:0 2px 0 rgba(0,0,0,.55), inset 0 -3px 5px rgba(0,0,0,.4), 0 0 12px -3px currentColor;
+ }
+ .btns i:nth-child(1){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-y) 45%,#8A6A00 100%);color:var(--neon-y)}
+ .btns i:nth-child(2){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-g) 45%,#0B6B34 100%);color:var(--neon-g)}
+ .btns i:nth-child(3){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-c) 45%,#065C6B 100%);color:var(--neon-c)}
+ .keys{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.7}
+ /* shown only once a cabinet is playing: the escape hatches */
+ .acts{display:none;gap:8px;flex-wrap:wrap;justify-content:center;flex:1}
+ .cab.playing .acts{display:flex}
+ .cab.playing .keys{display:none}
+ /* the joystick and buttons are decoration; give their room to the controls */
+ .cab.playing .stick,.cab.playing .btns{display:none}
+ .acts a,.acts button{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--dim);background:rgba(4,3,10,.55);border:1px solid var(--cab-edge);
+  border-radius:3px;padding:6px 9px;cursor:pointer;text-decoration:none;line-height:1;
+ }
+ .acts a:hover,.acts button:hover,.acts a:focus-visible,.acts button:focus-visible{
+  color:var(--hue);border-color:var(--hue);outline:0;
+ }
+
+ /* body + coin door */
+ .body{
+  background:linear-gradient(180deg,#120E1F,#0A0714 70%,#07050E);
+  border:1px solid var(--cab-edge);border-top:0;border-radius:0 0 5px 5px;
+  height:74px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+ }
+ .door{
+  width:104px;height:36px;border-radius:3px;
+  background:linear-gradient(180deg,#2B2344,#171127);
+  border:1px solid #352A55;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+ }
+ .slot{width:3px;height:17px;background:#05040A;border-radius:2px;box-shadow:inset 0 0 3px #000}
+ .door em{font-style:normal;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+ /* the light pooling on the carpet under each cabinet */
+ .cab::after{
+  content:"";position:absolute;left:6%;right:6%;bottom:-26px;height:34px;z-index:-1;
+  background:radial-gradient(60% 100% at 50% 0%, var(--hue), transparent 72%);
+  opacity:.20;filter:blur(11px);
+ }
+
+ /* per-cabinet hue */
+ .cab.kedr{--hue:#FF3B3B}
+ .cab.dprk{--hue:#FFD23F}
+
+ /* ───────────────────────── chrome ───────────────────────── */
+ .rail{
+  position:relative;z-index:3;max-width:1280px;margin:0 auto;
+  padding:54px 22px 70px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+ }
+ .rail a{color:var(--dim);text-decoration:none;border-bottom:1px solid transparent}
+ .rail a:hover,.rail a:focus-visible{color:var(--neon-c);border-bottom-color:var(--neon-c);outline:0}
+
+ /* speaker toggle */
+ .spk{
+  position:fixed;right:16px;bottom:16px;z-index:20;
+  width:44px;height:44px;border-radius:50%;cursor:pointer;
+  background:rgba(13,10,24,.9);border:1px solid var(--cab-edge);color:var(--dim);
+  display:grid;place-content:center;transition:color .2s,border-color .2s,box-shadow .2s;
+ }
+ .spk:hover,.spk:focus-visible{color:var(--neon-c);border-color:var(--neon-c);box-shadow:0 0 18px -4px var(--neon-c);outline:0}
+ .spk[data-on="1"]{color:var(--neon-g);border-color:var(--neon-g);box-shadow:0 0 18px -4px var(--neon-g)}
+ .spk svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+ .spk .wave{opacity:0} .spk[data-on="1"] .wave{opacity:1}
+ .spk .slash{opacity:1} .spk[data-on="1"] .slash{opacity:0}
 </style>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#hall">Skip to the cabinets</a>
 
-<header>
- <div class="wrap">
+<div class="room">
+ <div class="floor"><div class="carpet"></div></div>
+
+ <header>
   <a class="back" href="https://aodhancoyne.com/">&larr; aodhancoyne.com</a>
-  <h1>Games</h1>
-  <div class="tagline">Browser games &middot; no install &middot; no tracking</div>
+  <div class="sign">
+   <h1>Arcade</h1>
+   <p class="tag">Two machines &middot; no coins required</p>
+  </div>
+ </header>
+
+ <main class="hall" id="hall">
+
+  <article class="cab kedr left">
+   <div class="marquee"><b>Kedr</b><i>Лунный корабль &middot; Lunar Lander</i></div>
+   <div class="bezel">
+    <div class="screen">
+     <img src="assets/attract-kedr.jpg" alt="KEDR title screen: a red CCCP map beneath a hammer-and-sickle star, with a rocket and the moon">
+     <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
+      <b><span>Insert Coin</span><small>Press to play</small></b>
+     </button>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="stick"><i></i></div>
+    <div class="btns"><i></i><i></i><i></i></div>
+    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
+    <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
+   </div>
+   <div class="body"><div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div></div>
+  </article>
+
+  <article class="cab dprk right">
+   <div class="marquee"><b>Missile</b><i>조선인민 미사일 자위 모의훈련</i></div>
+   <div class="bezel">
+    <div class="screen">
+     <img src="assets/attract-missile.jpg" alt="Missile game title screen: a dawn over mountains with the national emblem">
+     <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
+      <b><span>Insert Coin</span><small>Press to play</small></b>
+     </button>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="stick"><i></i></div>
+    <div class="btns"><i></i><i></i><i></i></div>
+    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
+    <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
+   </div>
+   <div class="body"><div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div></div>
+  </article>
+
+ </main>
+
+ <div class="rail">
+  <div>Source on <a href="https://github.com/Aodhanm">GitHub</a></div>
+  <div>Built by Aodhan Coyne &middot; <a href="https://aodhancoyne.com/">aodhancoyne.com</a></div>
  </div>
-</header>
+</div>
 
-<main id="main" class="wrap">
- <div class="grid">
+<button class="spk" id="spk" data-on="0" aria-pressed="false" aria-label="Room sound">
+ <svg viewBox="0 0 24 24" aria-hidden="true">
+  <path d="M4 9v6h4l5 4V5L8 9H4z"/>
+  <g class="wave"><path d="M16.5 8.8a4.5 4.5 0 0 1 0 6.4"/><path d="M19 6.3a8 8 0 0 1 0 11.4"/></g>
+  <path class="slash" d="M17 9.5l4.5 5m0-5l-4.5 5"/>
+ </svg>
+</button>
 
-  <a class="game" href="https://aodhanm.github.io/KDER/">
-   <div class="kicker">Arcade &middot; physics</div>
-   <h2>Lunar Lander</h2>
-   <p class="native">KEDR</p>
-   <p class="desc">A lunar landing game. Manage thrust and fuel against gravity and bring
-      the craft down intact.</p>
-   <div class="play">Play &rarr;</div>
-  </a>
+<!-- ── AUDIO GOES HERE ─────────────────────────────────────────────
+     Drop files in assets/ and point these at them. Nothing plays until
+     a source exists, and nothing autoplays: browsers block that anyway,
+     so the speaker button is the only thing that starts sound.
+       assets/room.mp3   ambient arcade room tone, loops
+       assets/coin.mp3   one-shot, plays on Insert Coin
+─────────────────────────────────────────────────────────────────── -->
+<audio id="room" loop preload="none"><source src="assets/room.mp3" type="audio/mpeg"></audio>
+<audio id="coin" preload="none"><source src="assets/coin.mp3" type="audio/mpeg"></audio>
 
-  <a class="game" href="https://aodhanm.github.io/nk-missile-game/">
-   <div class="kicker">Arcade &middot; satire</div>
-   <h2>Missile Self-Defence Simulator</h2>
-   <p class="native" lang="ko">조선인민 미사일 자위 모의훈련</p>
-   <p class="desc">A single-file HTML5 game. Korean People's Missile Self-Defence
-      Simulator.</p>
-   <div class="play">Play &rarr;</div>
-  </a>
+<script>
+(function(){
+ var room=document.getElementById('room'),
+     coinSfx=document.getElementById('coin'),
+     spk=document.getElementById('spk'),
+     on=false;
 
- </div>
-</main>
+ function haveSource(a){
+  var s=a.querySelector('source');
+  return !!(s && s.getAttribute('src'));
+ }
 
-<footer>
- <div class="wrap">
-  <p>Source for each game is on <a href="https://github.com/Aodhanm">GitHub</a>.
-     Back to <a href="https://aodhancoyne.com/">aodhancoyne.com</a>.</p>
- </div>
-</footer>
+ spk.addEventListener('click', function(){
+  on=!on;
+  spk.dataset.on = on ? '1' : '0';
+  spk.setAttribute('aria-pressed', String(on));
+  if(!haveSource(room)) return;              // no file yet: button still toggles state
+  if(on){ room.volume=.35; room.play().catch(function(){}); }
+  else { room.pause(); }
+ });
 
+ // Insert Coin: swap the attract still for the live game
+ document.querySelectorAll('.coin').forEach(function(btn){
+  btn.addEventListener('click', function(){
+   var screen=btn.closest('.screen'),
+       cab=btn.closest('.cab'),
+       src=btn.dataset.src;
+
+   if(on && haveSource(coinSfx)){ try{ coinSfx.currentTime=0; coinSfx.volume=.6; coinSfx.play(); }catch(e){} }
+
+   var f=document.createElement('iframe');
+   f.src=src;
+   f.title=cab.querySelector('.marquee b').textContent + ' — game';
+   f.setAttribute('allow','autoplay; fullscreen');
+   f.setAttribute('allowfullscreen','');
+   screen.appendChild(f);
+   cab.classList.add('playing');
+   fit(screen);
+   var tab=cab.querySelector('[data-act="tab"]'); if(tab) tab.href=src;
+   // keyboard goes to the game, not the page
+   setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 380);
+  });
+ });
+
+ // Escape hatches: fullscreen, open in a real tab, stop and return to attract.
+ document.querySelectorAll('.acts').forEach(function(acts){
+  var cab=acts.closest('.cab'), screen=cab.querySelector('.screen');
+  acts.addEventListener('click', function(e){
+   var el=e.target.closest('[data-act]'); if(!el) return;
+   var act=el.dataset.act, f=screen.querySelector('iframe');
+   if(act==='full'){
+    e.preventDefault();
+    var target=screen;
+    if(target.requestFullscreen) target.requestFullscreen().catch(function(){});
+    else if(target.webkitRequestFullscreen) target.webkitRequestFullscreen();
+    setTimeout(function(){ fit(screen); if(f) f.focus(); }, 260);
+   }
+   if(act==='stop'){
+    e.preventDefault();
+    if(f) f.remove();
+    cab.classList.remove('playing');
+   }
+   // data-act="tab" is a plain link; let it through
+  });
+ });
+ document.addEventListener('fullscreenchange', function(){
+  document.querySelectorAll('.cab.playing .screen').forEach(fit);
+ });
+
+ // Scale the oversized iframe so the whole game fits the cabinet glass.
+ var VW=960, VH=720;                       // logical viewport handed to the game
+ function fit(screen){
+  var f=screen.querySelector('iframe');
+  if(!f) return;
+  var r=screen.getBoundingClientRect();
+  if(!r.width) return;
+  var s=Math.min(r.width/VW, r.height/VH);
+  screen.style.setProperty('--vw', VW+'px');
+  screen.style.setProperty('--vh', VH+'px');
+  screen.style.setProperty('--fit', s);
+  // centre the scaled frame inside the glass
+  f.style.left = Math.round((r.width  - VW*s)/2) + 'px';
+  f.style.top  = Math.round((r.height - VH*s)/2) + 'px';
+ }
+ var t;
+ addEventListener('resize', function(){
+  clearTimeout(t);
+  t=setTimeout(function(){ document.querySelectorAll('.cab.playing .screen').forEach(fit); }, 120);
+ });
+})();
+</script>
 </body></html>
