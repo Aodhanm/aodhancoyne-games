@@ -213,19 +213,15 @@
 
  /* insert coin overlay */
  /* the glass itself is the button; the prompt sits low and small, out of the picture */
+ /* the glass is the button: no label, just a cursor and a faint lift on hover */
  .coin{
-  position:absolute;inset:0;z-index:5;display:grid;align-content:end;justify-content:center;
-  padding-bottom:12px;
-  background:linear-gradient(180deg, transparent 0%, transparent 62%, rgba(4,3,10,.55) 100%);
+  position:absolute;inset:0;z-index:5;
+  background:transparent;
   cursor:pointer;border:0;width:100%;font:inherit;color:inherit;text-align:center;
   transition:background .2s ease;
  }
  /* the text sits on its own plate so busy attract art can never swallow it */
- .coin b{
-  display:block;padding:7px 15px 6px;border:1px solid var(--hue);border-radius:2px;
-  background:rgba(4,3,10,.72);
-  box-shadow:0 0 14px -6px var(--hue);
- }
+
  .coin span{
   display:block;
   font-family:var(--disp);font-size:clamp(.7rem,1.6vw,.86rem);font-weight:700;
@@ -236,10 +232,8 @@
  .coin small{display:none}
  @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.22}}
  @media(prefers-reduced-motion:reduce){ .coin span{animation:none} }
- .coin:hover,.coin:focus-visible{
-  background:linear-gradient(180deg, transparent 0%, transparent 55%, rgba(4,3,10,.7) 100%);
-  outline:0;
- }
+ .coin:hover{background:rgba(255,255,255,.04)}
+ .coin:focus-visible{outline:2px solid var(--hue);outline-offset:-3px}
  .coin:hover b,.coin:focus-visible b{box-shadow:0 0 32px -4px var(--hue), inset 0 0 30px -10px var(--hue)}
  .cab.playing .coin{display:none}
 
@@ -466,7 +460,7 @@
     <div class="screen">
      
      <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
-      <b><span>Click to play</span></b>
+      
      </button>
     </div>
    </div>
@@ -489,7 +483,7 @@
     <div class="screen">
      
      <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
-      <b><span>Click to play</span></b>
+      
      </button>
     </div>
    </div>
@@ -627,8 +621,20 @@
  // expose for the hover handlers below
  window.__arcade = {
   isMuted: function(){ return muted; },
-  duck:    function(){ if(started) fadeTo(room, DUCK_VOL, 0.03); },
-  unduck:  function(){ if(started) fadeTo(room, ROOM_VOL, 0.02); },
+  // hard stop, not a duck: only one source is ever audible
+  hush:    function(){ clearInterval(room._fade); room.pause(); },
+  hushAll: function(){
+   clearInterval(room._fade); room.pause();
+   ['snd-kedr','snd-dprk'].forEach(function(id){
+    var a = document.getElementById(id);
+    if(a){ clearInterval(a._fade); a.pause(); a.currentTime = 0; }
+   });
+  },
+  resume:  function(){
+   if(muted || !started || document.querySelector('.cab.playing')) return;
+   room.play().catch(function(){});
+   fadeTo(room, ROOM_VOL, 0.03);
+  },
   fadeTo:  fadeTo
  };
 
@@ -642,22 +648,28 @@
   return cab ? document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk') : null;
  }
 
+ // stop every hover track outright; used before starting anything else
+ function hushTracks(){
+  ['snd-kedr','snd-dprk'].forEach(function(id){
+   var a = document.getElementById(id);
+   if(a){ clearInterval(a._fade); a.pause(); a.currentTime = 0; }
+  });
+ }
+
  function select(cab){
   if(cab === current) return;
-  // stand the old one down
-  if(current){
-   current.classList.remove('lit');
-   var prev = sndFor(current);
-   if(prev){
-    window.__arcade.fadeTo(prev, 0, 0.07);
-    (function(a){ setTimeout(function(){ if(a.volume === 0){ a.pause(); a.currentTime = 0; } }, 700); })(prev);
-   }
-  }
+  if(current) current.classList.remove('lit');
   current = cab;
-  if(!cab){ window.__arcade.unduck(); return; }
+  hushTracks();                       // never two tracks at once
+
+  if(!cab){ window.__arcade.resume(); return; }
   cab.classList.add('lit');
+
+  // a game you are actually playing owns the sound; stay out of its way
+  if(document.querySelector('.cab.playing')) { window.__arcade.hush(); return; }
   if(window.__arcade.isMuted()) return;
-  window.__arcade.duck();
+
+  window.__arcade.hush();             // room off, not ducked
   var snd = sndFor(cab);
   if(!snd) return;
   snd.volume = 0;
@@ -714,6 +726,17 @@
  document.querySelectorAll('.coin').forEach(function(btn){
   btn.addEventListener('click', function(){
    var cab = btn.closest('.cab'), screen = cab.querySelector('.screen');
+
+   // stand the other machine down first: reloading its frame silences whatever
+   // audio it had started, so two games can never be heard together
+   document.querySelectorAll('.cab').forEach(function(other){
+    if(other === cab) return;
+    other.classList.remove('playing');
+    var of = other.querySelector('.screen iframe');
+    if(of){ of.remove(); boot(other); }
+   });
+
+   window.__arcade.hushAll();      // room and hover tracks off; the game owns the sound
    boot(cab);
    cab.classList.add('playing');
    var tab = cab.querySelector('[data-act="tab"]'); if(tab) tab.href = btn.dataset.src;
@@ -740,6 +763,7 @@
     if(f) f.remove();
     cab.classList.remove('playing');
     boot(cab);                       // back to the live attract, not a black screen
+    window.__arcade.resume();        // the room comes back up
    }
    // data-act="tab" is a plain link; let it through
   });
