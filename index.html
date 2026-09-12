@@ -532,6 +532,7 @@
        assets/coin.mp3   one-shot, plays on Insert Coin
 ─────────────────────────────────────────────────────────────────── -->
 <audio id="room" loop preload="none"><source src="assets/room.mp3" type="audio/mpeg"></audio>
+<!-- each game's own title-screen track, lifted from its repo -->
 <audio id="snd-kedr" loop preload="none" src="assets/hover-kedr.m4a"></audio>
 <audio id="snd-dprk" loop preload="none" src="assets/hover-dprk.m4a"></audio>
 <audio id="coin" preload="none"><source src="assets/coin.mp3" type="audio/mpeg"></audio>
@@ -548,13 +549,24 @@
   return !!(s && s.getAttribute('src'));
  }
 
+ // the speaker is a mute switch: sound is on by default, the button silences it
+ spk.dataset.on = '1';
+ spk.setAttribute('aria-pressed', 'true');
+ spk.setAttribute('aria-label', 'Mute');
  spk.addEventListener('click', function(){
-  on=!on;
-  spk.dataset.on = on ? '1' : '0';
-  spk.setAttribute('aria-pressed', String(on));
-  if(!haveSource(room)) return;              // no file yet: button still toggles state
-  if(on){ room.volume=.35; room.play().catch(function(){}); }
-  else { room.pause(); }
+  muted = !muted;
+  on = !muted;
+  spk.dataset.on = muted ? '0' : '1';
+  spk.setAttribute('aria-pressed', String(!muted));
+  spk.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
+  if(muted){
+   ['snd-kedr','snd-dprk'].forEach(function(id){
+    var a=document.getElementById(id); if(a){ a.pause(); a.currentTime=0; }
+   });
+   room.pause();
+  } else if(haveSource(room)){
+   room.volume=.35; room.play().catch(function(){});
+  }
  });
 
  // Insert Coin: swap the attract still for the live game
@@ -580,14 +592,19 @@
   });
  });
 
- // Hover a machine: it steps forward and its own music comes up. Sound only
- // once the speaker is on, because browsers will not play before a gesture.
+ // Hover a machine: it steps forward and its own music comes up.
+ // No priming needed: a browser unlocks audio for the whole document after any
+ // user gesture, so the first click anywhere makes every later hover audible.
+ // (An earlier version primed the clips on first pointerdown and its deferred
+ // pause() was killing the sound a hover had just started.)
+ var muted = false;
+
  document.querySelectorAll('.cab').forEach(function(cab){
   var snd = document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk');
   var fade;
   function up(){
    cab.classList.add('lit');
-   if(!on || !snd) return;
+   if(muted || !snd) return;
    clearInterval(fade);
    snd.volume = 0; snd.play().catch(function(){});
    fade = setInterval(function(){
