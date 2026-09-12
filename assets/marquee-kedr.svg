@@ -29,10 +29,18 @@
   <circle cx="700" cy="46" r="1.6"/><circle cx="736" cy="96" r="2"/><circle cx="392" cy="16" r="1.6"/>
   <circle cx="88"  cy="22" r="1.8"/><circle cx="30"  cy="60" r="1.4"/>
 </g>
-<circle cx="666" cy="26" r="7" fill="#FF8A12"/>
-<circle cx="668" cy="24" r="4.6" fill="#FFC21A"/>
+<g transform="translate(668 28)">
+  <circle r="13" fill="#4FC3FF" opacity=".22"/>
+  <circle r="9" fill="#1E6FD0"/>
+  <g clip-path="circle(9px at 0 0)">
+    <path d="M-7 -4 q3 -3 6 -1 q2 1 1 3 q-2 3 -5 2 q-3 -1 -2 -4Z" fill="#3E9E58"/>
+    <path d="M-1 2 q4 -2 6 2 q1 2 -2 4 q-4 2 -5 -1 q-1 -3 1 -5Z" fill="#3E9E58"/>
+    <circle r="9" fill="#031026" opacity=".55" transform="translate(7 0)"/>
+  </g>
+  <circle r="9" fill="none" stroke="#9FE2FF" stroke-width="1.2" opacity=".8"/>
+</g>
 <circle cx="724" cy="132" r="5" fill="#E8400A"/>
-<circle cx="404" cy="52" r="4" fill="#FFD23F"/>
+<circle cx="404" cy="52" r="3.4" fill="#E8E3F0" opacity=".85"/>
 
 <!-- ── the plume: a broad painted arc rising behind the lander ── -->
 <g>

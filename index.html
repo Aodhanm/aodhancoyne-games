@@ -183,6 +183,10 @@
   box-shadow:inset 0 0 44px rgba(0,0,0,.95), inset 0 0 90px -30px var(--hue);
  }
  .screen img{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
+ /* attract reel: frames stacked, only the current one shown */
+ .screen .reel img{opacity:0;transition:opacity .55s ease}
+ .screen .reel img.on{opacity:1}
+ .cab.playing .reel{display:none}
  /* The games expect a desktop-sized viewport. Give the iframe a full logical
     resolution and scale the whole thing down to fit the cabinet glass, rather
     than handing the game a tiny viewport it will crop. */
@@ -454,7 +458,7 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-kedr.svg" alt="Kedr — Лунный корабль — Lunar Lander"></div></div>
    <div class="bezel">
     <div class="screen">
-     <img src="assets/attract-kedr.jpg" alt="KEDR title screen: a red CCCP map beneath a hammer-and-sickle star, with a rocket and the moon">
+     <div class="reel" data-hold="3200,2600,2600,4200"><img class="on" src="assets/attract-kedr.jpg" alt="Kedr title screen"><img src="assets/kedr-1-pad.jpg" alt="Kedr: the rocket on the pad"><img src="assets/kedr-2-ascent.jpg" alt="Kedr: ascent past the Moon"><img src="assets/kedr-3-orbit.jpg" alt="Kedr: in lunar orbit"><img src="assets/kedr-4-play.jpg" alt="Kedr: the descent, terrain and Earth"></div>
      <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
       <b><span>Insert Coin</span><small>Press to play</small></b>
      </button>
@@ -477,7 +481,7 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-missile.svg" alt="조선인민 미사일 자위 모의훈련 — Missile Self-Defence Simulator"></div></div>
    <div class="bezel">
     <div class="screen">
-     <img src="assets/attract-missile.jpg" alt="Missile game title screen: a dawn over mountains with the national emblem">
+     <div class="reel" data-hold="3200,3000,3000"><img class="on" src="assets/attract-missile.jpg" alt="Missile title screen"><img src="assets/dprk-1-boat.jpg" alt="Missile: the boat, crew on deck"><img src="assets/dprk-2-erect.jpg" alt="Missile: the rocket raised on the deck"></div>
      <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
       <b><span>Insert Coin</span><small>Press to play</small></b>
      </button>
@@ -563,6 +567,30 @@
    var tab=cab.querySelector('[data-act="tab"]'); if(tab) tab.href=src;
    // keyboard goes to the game, not the page
    setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 380);
+  });
+ });
+
+ // Attract reel: hold each frame, cross-fade to the next, loop. Pauses while a
+ // game is actually running, and honours prefers-reduced-motion by standing still.
+ var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+ document.querySelectorAll('.reel').forEach(function(reel){
+  var frames = [].slice.call(reel.querySelectorAll('img'));
+  if(still || frames.length < 2) return;
+  var holds = (reel.dataset.hold||'').split(',').map(Number);
+  var i = 0, timer;
+  function step(){
+   var cab = reel.closest('.cab');
+   if(cab && cab.classList.contains('playing')) return;      // stop once a coin is in
+   frames[i].classList.remove('on');
+   i = (i + 1) % frames.length;
+   frames[i].classList.add('on');
+   timer = setTimeout(step, holds[i] || 3000);
+  }
+  timer = setTimeout(step, holds[0] || 3000);
+  // don't burn frames while the tab is hidden
+  document.addEventListener('visibilitychange', function(){
+   if(document.hidden){ clearTimeout(timer); }
+   else { clearTimeout(timer); timer = setTimeout(step, 900); }
   });
  });
 

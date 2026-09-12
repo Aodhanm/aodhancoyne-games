@@ -1,18 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520" role="img" aria-label="Cabinet art: a submarine surfaced at dusk launching a missile over a city skyline">
 <defs>
   <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#02040D"/><stop offset=".22" stop-color="#0A1230"/>
-    <stop offset=".46" stop-color="#2A2252"/><stop offset=".6" stop-color="#6B2352"/>
-    <stop offset=".7" stop-color="#C4402A"/><stop offset=".77" stop-color="#F08A1E"/>
-    <stop offset=".8" stop-color="#FFC745"/>
+    <stop offset="0" stop-color="#050912"/><stop offset=".26" stop-color="#060B18"/>
+    <stop offset=".5" stop-color="#0D1A36"/><stop offset=".68" stop-color="#11284E"/>
+    <stop offset=".78" stop-color="#1B3A66"/><stop offset=".82" stop-color="#2A5A8C"/>
   </linearGradient>
   <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#3E4E72"/><stop offset=".1" stop-color="#1B2B50"/>
     <stop offset=".45" stop-color="#0B1836"/><stop offset="1" stop-color="#02050F"/>
   </linearGradient>
   <radialGradient id="sundisc" cx=".5" cy=".5" r=".5">
-    <stop offset="0" stop-color="#FFF8CF"/><stop offset=".42" stop-color="#FFD24A"/>
-    <stop offset=".78" stop-color="#FF8A1E"/><stop offset="1" stop-color="#E04A10"/>
+    <stop offset="0" stop-color="#F4F8FF"/><stop offset=".42" stop-color="#C9DCF2"/>
+    <stop offset=".78" stop-color="#8FB4D8"/><stop offset="1" stop-color="#4C7FC4"/>
   </radialGradient>
   <linearGradient id="subHull" x1="0" y1="0" x2="0" y2="1">
     <stop offset="0" stop-color="#98A0B2"/><stop offset=".2" stop-color="#5C6373"/>
@@ -56,12 +55,23 @@
 
 <!-- cloud bands -->
 <g opacity=".45">
-  <path d="M-10 196 q90 -16 180 0 q90 16 240 -4 l0 14 q-150 22 -240 4 q-90 -18 -180 0Z" fill="#8A2E5E" opacity=".55"/>
-  <path d="M-10 234 q120 -12 220 2 q100 14 200 -6 l0 11 q-100 20 -200 6 q-100 -14 -220 -2Z" fill="#C4402A" opacity=".45"/>
+  <path d="M-10 196 q90 -16 180 0 q90 16 240 -4 l0 14 q-150 22 -240 4 q-90 -18 -180 0Z" fill="#1E3A66" opacity=".6"/>
+  <path d="M-10 234 q120 -12 220 2 q100 14 200 -6 l0 11 q-100 20 -200 6 q-100 -14 -220 -2Z" fill="#2A5A8C" opacity=".45"/>
 </g>
 
-<circle cx="300" cy="318" r="100" fill="#FF8A1E" opacity=".2" filter="url(#ms)"/>
+<circle cx="300" cy="318" r="100" fill="#5C9BD6" opacity=".18" filter="url(#ms)"/>
 <circle cx="300" cy="318" r="44" fill="url(#sundisc)"/>
+
+<!-- radar rings, echoing the marquee -->
+<g transform="translate(96 352)" opacity=".5">
+  <g fill="none" stroke="#39FF88" stroke-width="1.2">
+    <circle r="40"/><circle r="70"/><circle r="102"/>
+  </g>
+  <g stroke="#39FF88" stroke-width="1" opacity=".5">
+    <path d="M-102 0 L102 0"/><path d="M-72 -72 L72 72"/><path d="M72 -72 L-72 72"/>
+  </g>
+  <path d="M0 0 L-96 -34 A102 102 0 0 1 -34 -96Z" fill="#39FF88" opacity=".12"/>
+</g>
 
 <!-- skyline -->
 <g>
@@ -78,11 +88,11 @@
   <g stroke="#090C18" stroke-width="3">
     <path d="M90 226 L90 202"/><path d="M186 216 L186 188"/><path d="M257 232 L257 212"/>
   </g>
-  <g fill="#FF9A2E" opacity=".55">
+  <g fill="#8FB4D8" opacity=".6">
     <rect x="98" y="226" width="2" height="118"/><rect x="196" y="216" width="2" height="128"/>
     <rect x="264" y="232" width="2" height="112"/><rect x="336" y="258" width="2" height="86"/>
   </g>
-  <g fill="#FFD23F" opacity=".9">
+  <g fill="#FFD98A" opacity=".8">
     <rect x="35" y="256" width="3" height="4.5"/><rect x="40" y="272" width="3" height="4.5"/>
     <rect x="85" y="240" width="3" height="4.5"/><rect x="92" y="258" width="3" height="4.5"/>
     <rect x="128" y="250" width="3" height="4.5"/><rect x="138" y="268" width="3" height="4.5"/>
@@ -91,11 +101,11 @@
     <rect x="305" y="260" width="3" height="4.5"/><rect x="348" y="272" width="3" height="4.5"/>
   </g>
 </g>
-<rect x="0" y="322" width="400" height="26" fill="#FF7A1A" opacity=".22" filter="url(#ms)"/>
+<rect x="0" y="322" width="400" height="26" fill="#4C7FC4" opacity=".22" filter="url(#ms)"/>
 
 <!-- sea -->
 <rect x="0" y="344" width="400" height="176" fill="url(#water)"/>
-<g fill="#FFC745" opacity=".32">
+<g fill="#BCD8F2" opacity=".26">
   <rect x="290" y="352" width="20" height="3" rx="1.5"/><rect x="284" y="368" width="32" height="3" rx="1.5"/>
   <rect x="276" y="386" width="46" height="3.5" rx="1.75"/><rect x="266" y="408" width="64" height="3.5" rx="1.75"/>
   <rect x="254" y="434" width="86" height="4" rx="2"/><rect x="240" y="466" width="112" height="4" rx="2"/>
@@ -114,13 +124,13 @@
   <ellipse cx="0" cy="26" rx="164" ry="20" fill="#081733" opacity=".9"/>
   <ellipse cx="0" cy="20" rx="142" ry="12" fill="#5FD0FF" opacity=".16"/>
   <path d="M-140 14 C-104 -16 104 -16 140 14 C100 32 -100 32 -140 14Z" fill="url(#subHull)"/>
-  <path d="M-140 14 C-104 -16 104 -16 140 14" fill="none" stroke="#FFC745" stroke-width="2.6" opacity=".6"/>
+  <path d="M-140 14 C-104 -16 104 -16 140 14" fill="none" stroke="#BCD8F2" stroke-width="2.6" opacity=".6"/>
   <path d="M-140 14 C-100 30 100 30 140 14" fill="none" stroke="#BFE4FF" stroke-width="2.6" opacity=".45"/>
   <path d="M-140 14 C-104 -16 104 -16 140 14 C104 -4 -104 -4 -140 14Z" fill="#99A1B2" opacity=".45"/>
   <!-- sail -->
   <path d="M-28 -4 L-21 -58 L21 -58 L28 -4Z" fill="url(#sailGrad)"/>
   <path d="M-21 -58 L21 -58 L20 -52 L-20 -52Z" fill="#B7BDCA" opacity=".7"/>
-  <path d="M21 -58 L28 -4" stroke="#FFC745" stroke-width="2.2" opacity=".7" fill="none"/>
+  <path d="M21 -58 L28 -4" stroke="#BCD8F2" stroke-width="2.2" opacity=".7" fill="none"/>
   <!-- proper DPRK flag on the sail: blue / white / red with white disc and red star -->
   <g transform="translate(0 -34)">
     <rect x="-18" y="-11" width="36" height="22" fill="#024FA2"/>
@@ -178,5 +188,5 @@
 </g>
 
 <rect width="400" height="520" filter="url(#grain2)" opacity=".05" style="mix-blend-mode:overlay"/>
-<rect x="3" y="3" width="394" height="514" fill="none" stroke="#FFC745" stroke-width="2.5" opacity=".45"/>
+<rect x="3" y="3" width="394" height="514" fill="none" stroke="#39FF88" stroke-width="2.5" opacity=".4"/>
 </svg>
