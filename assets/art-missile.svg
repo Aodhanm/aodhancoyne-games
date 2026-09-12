@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 620" width="400" height="620" role="img" aria-label="Arcade side art: a submarine surfacing and launching a missile, a city skyline burning on the horizon">
+<defs>
+  <linearGradient id="msky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#04070F"/>
+    <stop offset=".26" stop-color="#0B1B3E"/>
+    <stop offset=".50" stop-color="#2E2060"/>
+    <stop offset=".66" stop-color="#8A2050"/>
+    <stop offset=".76" stop-color="#E8541A"/>
+    <stop offset=".82" stop-color="#FFC02B"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#0E3A63"/>
+    <stop offset=".22" stop-color="#0A2246"/>
+    <stop offset="1"   stop-color="#02060F"/>
+  </linearGradient>
+  <radialGradient id="sun" cx=".5" cy=".5" r=".5">
+    <stop offset="0"   stop-color="#FFF3B0"/>
+    <stop offset=".5"  stop-color="#FFC02B"/>
+    <stop offset="1"   stop-color="#FF6A16"/>
+  </radialGradient>
+  <linearGradient id="mhull" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#9AA4BA"/>
+    <stop offset=".26" stop-color="#66707F"/>
+    <stop offset=".7"  stop-color="#333A47"/>
+    <stop offset="1"   stop-color="#161A22"/>
+  </linearGradient>
+  <linearGradient id="mbody" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"   stop-color="#7C8496"/>
+    <stop offset=".3"  stop-color="#EDEFF4"/>
+    <stop offset=".62" stop-color="#C2C8D4"/>
+    <stop offset="1"   stop-color="#5B6272"/>
+  </linearGradient>
+  <linearGradient id="mflame" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#FFFFFF"/>
+    <stop offset=".2"  stop-color="#FFF0A8"/>
+    <stop offset=".5"  stop-color="#FFA71C"/>
+    <stop offset=".8"  stop-color="#FF4A10"/>
+    <stop offset="1"   stop-color="#9E1006" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="mglow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="8" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="msoft" x="-70%" y="-70%" width="240%" height="240%">
+    <feGaussianBlur stdDeviation="18"/>
+  </filter>
+</defs>
+
+<rect width="400" height="620" fill="url(#msky)"/>
+
+<!-- stars, upper band only -->
+<g fill="#FFFFFF">
+  <circle cx="44"  cy="38"  r="1.8" opacity=".9"/>
+  <circle cx="132" cy="76"  r="1.2" opacity=".6"/>
+  <circle cx="228" cy="34"  r="1.5" opacity=".75"/>
+  <circle cx="322" cy="66"  r="1.2" opacity=".6"/>
+  <circle cx="368" cy="26"  r="1.9" opacity=".9"/>
+  <circle cx="76"  cy="120" r="1.1" opacity=".5"/>
+  <circle cx="282" cy="122" r="1.1" opacity=".45"/>
+</g>
+
+<!-- setting sun behind the city -->
+<circle cx="286" cy="376" r="58" fill="url(#sun)" opacity=".95"/>
+<circle cx="286" cy="376" r="80" fill="#FF7A1A" opacity=".28" filter="url(#msoft)"/>
+
+<!-- city skyline on the horizon -->
+<g>
+  <g fill="#0A0D1C">
+    <rect x="8"   y="318" width="26" height="98"/>
+    <rect x="38"  y="286" width="20" height="130"/>
+    <rect x="62"  y="330" width="30" height="86"/>
+    <rect x="96"  y="262" width="24" height="154"/>
+    <rect x="124" y="306" width="18" height="110"/>
+    <rect x="146" y="276" width="30" height="140"/>
+    <rect x="180" y="322" width="22" height="94"/>
+    <rect x="206" y="252" width="28" height="164"/>
+    <rect x="238" y="300" width="20" height="116"/>
+    <rect x="262" y="330" width="26" height="86"/>
+    <rect x="292" y="272" width="22" height="144"/>
+    <rect x="318" y="312" width="30" height="104"/>
+    <rect x="352" y="290" width="22" height="126"/>
+    <rect x="378" y="334" width="20" height="82"/>
+  </g>
+  <!-- antenna masts -->
+  <g stroke="#0A0D1C" stroke-width="3">
+    <path d="M108 262 L108 238"/><path d="M220 252 L220 222"/><path d="M303 272 L303 250"/>
+  </g>
+  <!-- lit windows -->
+  <g fill="#FFD23F" opacity=".92">
+    <rect x="44"  y="300" width="4" height="6"/><rect x="52" y="316" width="4" height="6"/>
+    <rect x="102" y="278" width="4" height="6"/><rect x="110" y="296" width="4" height="6"/>
+    <rect x="104" y="330" width="4" height="6"/><rect x="152" y="292" width="4" height="6"/>
+    <rect x="164" y="310" width="4" height="6"/><rect x="212" y="268" width="4" height="6"/>
+    <rect x="222" y="288" width="4" height="6"/><rect x="214" y="326" width="4" height="6"/>
+    <rect x="298" y="288" width="4" height="6"/><rect x="306" y="318" width="4" height="6"/>
+    <rect x="358" y="306" width="4" height="6"/><rect x="366" y="332" width="4" height="6"/>
+    <rect x="70"  y="348" width="4" height="6"/><rect x="326" y="330" width="4" height="6"/>
+  </g>
+</g>
+<!-- city haze -->
+<rect x="0" y="392" width="400" height="34" fill="#FF6A16" opacity=".22" filter="url(#msoft)"/>
+
+<!-- ── sea ── -->
+<rect x="0" y="416" width="400" height="204" fill="url(#sea)"/>
+<!-- sun glitter path: a narrow column widening toward the viewer -->
+<g fill="#FFC02B" opacity=".30">
+  <rect x="276" y="424" width="22" height="3" rx="1.5"/>
+  <rect x="271" y="440" width="32" height="3" rx="1.5"/>
+  <rect x="264" y="458" width="46" height="3.5" rx="1.75"/>
+  <rect x="256" y="480" width="62" height="3.5" rx="1.75"/>
+  <rect x="246" y="506" width="82" height="4" rx="2"/>
+  <rect x="234" y="538" width="106" height="4" rx="2"/>
+  <rect x="220" y="574" width="134" height="4.5" rx="2.25"/>
+</g>
+<!-- wave lines -->
+<g stroke="#33E0FF" opacity=".35" stroke-linecap="round">
+  <path d="M12 448 q16 -6 32 0 t32 0"  stroke-width="2.5" fill="none"/>
+  <path d="M18 492 q20 -7 40 0 t40 0"  stroke-width="2.5" fill="none"/>
+  <path d="M8 556  q24 -8 48 0 t48 0"  stroke-width="3"   fill="none"/>
+  <path d="M250 600 q24 -8 48 0 t48 0" stroke-width="3"   fill="none"/>
+</g>
+
+<!-- ── submarine, surfaced ── -->
+<g transform="translate(158 522) scale(1.12)">
+  <!-- bow wave -->
+  <ellipse cx="0" cy="34" rx="146" ry="17" fill="#0B2A4E" opacity=".85"/>
+  <ellipse cx="0" cy="30" rx="124" ry="11" fill="#33E0FF" opacity=".30"/>
+  <!-- rim light off the sun, so the hull separates from the water -->
+  <path d="M-132 18 C-96 -12 96 -12 132 18" fill="none" stroke="#FFC02B" stroke-width="3" opacity=".55"/>
+  <!-- hull -->
+  <path d="M-132 18 C-96 -12 96 -12 132 18 C96 34 -96 34 -132 18Z" fill="url(#mhull)"/>
+  <path d="M-132 18 C-96 -12 96 -12 132 18" fill="none" stroke="#8C95A8" stroke-width="2.5" opacity=".9"/>
+  <!-- conning tower -->
+  <path d="M-26 -6 L-18 -58 L20 -58 L28 -6Z" fill="url(#mhull)"/>
+  <path d="M-18 -58 L20 -58" stroke="#9AA3B6" stroke-width="3"/>
+  <!-- periscope + mast -->
+  <g stroke="#AEB6C6" stroke-width="3.4" stroke-linecap="round">
+    <path d="M-6 -58 L-6 -88"/><path d="M10 -58 L10 -76"/>
+  </g>
+  <!-- red star on the sail -->
+  <g transform="translate(1 -34) scale(.42)">
+    <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z" fill="#FF1F2E"/>
+  </g>
+  <!-- open launch hatch, aft -->
+  <ellipse cx="62" cy="4" rx="20" ry="7" fill="#05070E"/>
+  <ellipse cx="62" cy="4" rx="20" ry="7" fill="none" stroke="#8C95A8" stroke-width="2"/>
+  <!-- hull plating -->
+  <g stroke="#20252F" opacity=".55" stroke-width="1.6">
+    <path d="M-96 6 L-96 26"/><path d="M-56 0 L-56 30"/><path d="M96 6 L96 26"/>
+  </g>
+</g>
+
+<!-- launch smoke at the hatch -->
+<g opacity=".8">
+  <ellipse cx="212" cy="500" rx="54" ry="26" fill="#C9D2E0" opacity=".28" filter="url(#msoft)"/>
+  <ellipse cx="212" cy="486" rx="34" ry="18" fill="#FFFFFF" opacity=".22" filter="url(#msoft)"/>
+</g>
+
+<!-- ── the missile, climbing left-to-right ── -->
+<g transform="translate(236 300) rotate(20)">
+  <!-- exhaust plume -->
+  <g transform="translate(0 62)">
+    <path d="M-22 0 C-15 86 -7 148 0 196 C7 148 15 86 22 0Z" fill="url(#mflame)" opacity=".95"/>
+    <path d="M-11 0 C-8 62 -3 104 0 132 C3 104 8 62 11 0Z" fill="#FFF6C2" opacity=".95"/>
+    <path d="M-5 0 C-3.5 42 -1.5 68 0 88 C1.5 68 3.5 42 5 0Z" fill="#FFFFFF"/>
+  </g>
+  <!-- fins -->
+  <path d="M-17 20 L-40 76 L-17 66Z" fill="#B01018"/>
+  <path d="M17 20 L40 76 L17 66Z"    fill="#7C0A11"/>
+  <!-- body -->
+  <rect x="-17" y="-72" width="34" height="134" rx="5" fill="url(#mbody)"/>
+  <!-- nose -->
+  <path d="M-17 -72 C-17 -112 -6 -140 0 -152 C6 -140 17 -112 17 -72Z" fill="#D81420"/>
+  <!-- bands -->
+  <rect x="-17" y="-40" width="34" height="8" fill="#D81420" opacity=".9"/>
+  <rect x="-17" y="16"  width="34" height="6" fill="#2B313C" opacity=".7"/>
+  <!-- highlight -->
+  <rect x="-10" y="-66" width="5" height="124" rx="2.5" fill="#FFFFFF" opacity=".55"/>
+</g>
+
+<!-- contrail arc back to the boat -->
+<path d="M214 492 C222 430 232 380 248 330" fill="none" stroke="#FFFFFF"
+      stroke-width="9" opacity=".16" stroke-linecap="round" filter="url(#msoft)"/>
+
+<!-- targeting reticle over the city -->
+<g stroke="#39FF88" stroke-width="2.2" fill="none" opacity=".85" filter="url(#mglow)">
+  <circle cx="112" cy="300" r="26"/>
+  <path d="M112 264 L112 282 M112 318 L112 336 M76 300 L94 300 M130 300 L148 300"/>
+</g>
+
+<rect x="3" y="3" width="394" height="614" fill="none" stroke="#FFD23F" stroke-width="2.5" opacity=".5"/>
+</svg>

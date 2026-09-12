@@ -108,36 +108,72 @@
  }
  .cab{
   --hue:var(--neon-c);
+  --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
   position:relative; width:min(430px,92vw); flex:0 1 430px;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
+ /* T-molding: the trim capping the leading plywood edges, full height */
+ .cab::before{
+  content:"";position:absolute;left:-5px;right:-5px;top:26px;bottom:0;z-index:0;
+  border-left:5px solid var(--tmold);border-right:5px solid var(--tmold);
+  border-radius:4px;
+  box-shadow:inset 2px 0 3px -1px rgba(0,0,0,.55), inset -2px 0 3px -1px rgba(0,0,0,.55);
+  opacity:.92;
+ }
+ .cab > *{position:relative;z-index:1}
  .cab.left{transform:rotateY(7deg)}
  .cab.right{transform:rotateY(-7deg)}
  @media(max-width:900px){ .cab.left,.cab.right{transform:none} }
 
- /* marquee */
+ /* ── marquee: backlit plastic in a housing that overhangs the cabinet face ── */
  .marquee{
-  position:relative; border-radius:8px 8px 3px 3px; padding:13px 16px 12px; text-align:center;
-  background:linear-gradient(180deg,#241B3C,#15102A);
-  border:1px solid var(--cab-edge); border-bottom:0;
-  box-shadow:0 0 26px -6px var(--hue), inset 0 -16px 26px -18px var(--hue);
+  position:relative; margin:0 -10px; padding:4px 4px 5px;
+  background:linear-gradient(180deg,#0E0B18 0%,#181327 42%,#0A0713 100%);
+  border:1px solid #2A2142; border-radius:4px 4px 2px 2px;
+  box-shadow:0 8px 14px -6px rgba(0,0,0,.9), 0 0 30px -10px var(--hue);
+ }
+ .marquee .glass{
+  position:relative; overflow:hidden; border-radius:2px; padding:12px 14px 11px; text-align:center;
+  background:
+   linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.03) 26%, rgba(0,0,0,.28) 100%),
+   linear-gradient(180deg,#2E2348,#1A1330);
+  box-shadow:inset 0 0 34px -6px var(--hue), inset 0 0 0 1px rgba(255,255,255,.07);
+ }
+ /* the fluorescent tube behind the plastic */
+ .marquee .glass::before{
+  content:"";position:absolute;left:8%;right:8%;top:-14px;height:26px;border-radius:50%;
+  background:var(--hue);opacity:.28;filter:blur(11px);pointer-events:none;
  }
  .marquee b{
-  display:block;font-family:var(--disp);font-size:clamp(1.15rem,3.4vw,1.7rem);font-weight:700;
+  position:relative;display:block;
+  font-family:var(--disp);font-size:clamp(1.15rem,3.4vw,1.72rem);font-weight:700;
   letter-spacing:.16em;text-transform:uppercase;color:#fff;line-height:1.05;
   text-shadow:0 0 5px #fff,0 0 15px var(--hue),0 0 34px var(--hue);
  }
  .marquee i{
-  display:block;font-style:normal;margin-top:5px;
-  font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--hue);opacity:.92;
+  position:relative;display:block;font-style:normal;margin-top:5px;
+  font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--hue);opacity:.95;
  }
 
- /* bezel + screen */
+ /* ── bezel: the monitor sits recessed behind printed card ── */
  .bezel{
-  background:linear-gradient(180deg,#120E20,#0A0714);
-  border:1px solid var(--cab-edge); border-top:0;
-  padding:15px 15px 13px;
+  position:relative;
+  background:
+   radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.05), transparent 60%),
+   linear-gradient(180deg,#141021,#0B0814);
+  border-left:1px solid var(--cab-edge); border-right:1px solid var(--cab-edge);
+  padding:20px 20px 18px;
+ }
+ /* shadow the marquee housing casts down onto the bezel */
+ .bezel::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:22px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(0,0,0,.85),transparent);
+ }
+ /* a thin printed stripe along the bezel, like screened cabinet art */
+ .bezel::after{
+  content:"";position:absolute;left:20px;right:20px;bottom:7px;height:3px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--hue),transparent);opacity:.5;
  }
  .screen{
   position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:11px/16px;
@@ -195,14 +231,25 @@
  .coin:hover b,.coin:focus-visible b{box-shadow:0 0 32px -4px var(--hue), inset 0 0 30px -10px var(--hue)}
  .cab.playing .coin{display:none}
 
- /* control panel */
+ /* ── control panel: juts forward of the cabinet face, sloped toward the player ── */
  .panel{
-  position:relative;
-  background:linear-gradient(180deg,#1D1633 0%,#140F26 62%,#0D0918 100%);
-  border:1px solid var(--cab-edge);border-top:0;
-  padding:17px 22px 15px;
+  position:relative; margin:0 -14px; z-index:2;
+  background:
+   linear-gradient(180deg, rgba(255,255,255,.10) 0 2px, transparent 2px),
+   linear-gradient(180deg,#2A2044 0%,#1B1531 46%,#100C1E 100%);
+  border:1px solid #2E2449;border-radius:3px 3px 5px 5px;
+  padding:18px 22px 17px;
   display:flex;align-items:center;justify-content:space-between;gap:18px;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+  box-shadow:
+   0 12px 20px -10px rgba(0,0,0,.95),
+   inset 0 1px 0 rgba(255,255,255,.13),
+   inset 0 -14px 22px -16px #000;
+ }
+ /* the front lip of the panel, seen because it overhangs */
+ .panel::after{
+  content:"";position:absolute;left:0;right:0;bottom:-7px;height:7px;
+  background:linear-gradient(180deg,#0E0A1A,#06040C);
+  border-left:1px solid #2E2449;border-right:1px solid #2E2449;border-radius:0 0 4px 4px;
  }
  .stick{position:relative;width:26px;height:40px;flex:none}
  .stick::before{ /* shaft */
@@ -242,21 +289,59 @@
   color:var(--hue);border-color:var(--hue);outline:0;
  }
 
- /* body + coin door */
+ /* ── lower cabinet: the big printed art panel, coin door, kick plate ── */
  .body{
-  background:linear-gradient(180deg,#120E1F,#0A0714 70%,#07050E);
-  border:1px solid var(--cab-edge);border-top:0;border-radius:0 0 5px 5px;
-  height:74px;position:relative;
-  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  background:#0A0714;
+  border-left:1px solid var(--cab-edge);border-right:1px solid var(--cab-edge);
+  padding:0 0 0;
  }
+ .art{
+  position:relative; height:300px; overflow:hidden;
+  background:#07050E;
+ }
+ .art img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 47%;
+  display:block;
+ }
+ /* the room is dark, so the printed vinyl only catches a little light */
+ .art::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+   linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.10) 22%, rgba(0,0,0,.06) 62%, rgba(0,0,0,.62) 100%),
+   linear-gradient(90deg, rgba(0,0,0,.45) 0%, transparent 22%, transparent 74%, rgba(0,0,0,.5) 100%);
+ }
+ /* coin door, set into the art panel */
  .door{
-  width:104px;height:36px;border-radius:3px;
-  background:linear-gradient(180deg,#2B2344,#171127);
-  border:1px solid #352A55;
-  display:flex;align-items:center;justify-content:center;gap:9px;
+  position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;
+  width:132px;padding:8px 10px 9px;border-radius:3px;
+  background:linear-gradient(180deg,#5A5F6E 0%,#3A3F4C 18%,#23272F 60%,#171A21 100%);
+  border:1px solid #6A707F;
+  box-shadow:0 4px 10px -3px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.28);
+  display:flex;align-items:center;justify-content:center;gap:10px;
  }
- .slot{width:3px;height:17px;background:#05040A;border-radius:2px;box-shadow:inset 0 0 3px #000}
- .door em{font-style:normal;font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+ .slot{
+  width:5px;height:19px;border-radius:2px;
+  background:linear-gradient(180deg,#05060A,#12151C);
+  box-shadow:inset 0 0 4px #000, 0 1px 0 rgba(255,255,255,.22);
+ }
+ .door em{
+  font-style:normal;font-size:7px;letter-spacing:.14em;text-transform:uppercase;
+  color:#C9CEDA;text-shadow:0 1px 0 rgba(0,0,0,.8);
+ }
+ /* coin return cup */
+ .door::after{
+  content:"";position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);
+  width:52px;height:9px;border-radius:0 0 4px 4px;
+  background:linear-gradient(180deg,#20242C,#0D1015);border:1px solid #4E5462;border-top:0;
+ }
+ /* kick plate */
+ .kick{
+  height:26px;
+  background:linear-gradient(180deg,#15111F,#08060F);
+  border-top:1px solid rgba(255,255,255,.06);
+  box-shadow:inset 0 8px 12px -8px #000;
+ }
  /* the light pooling on the carpet under each cabinet */
  .cab::after{
   content:"";position:absolute;left:6%;right:6%;bottom:-26px;height:34px;z-index:-1;
@@ -264,9 +349,11 @@
   opacity:.20;filter:blur(11px);
  }
 
- /* per-cabinet hue */
- .cab.kedr{--hue:#FF3B3B}
- .cab.dprk{--hue:#FFD23F}
+ /* per-cabinet hue, trim, and art crop */
+ .cab.kedr{--hue:#FF3B3B; --tmold:#D8DCE6}
+ .cab.dprk{--hue:#FFD23F; --tmold:#2A2F3C}
+ .cab.kedr .art img{object-position:50% 46%}
+ .cab.dprk .art img{object-position:50% 68%}   /* lower, so the boat is in frame */
 
  /* ───────────────────────── chrome ───────────────────────── */
  .rail{
@@ -301,14 +388,13 @@
   <a class="back" href="https://aodhancoyne.com/">&larr; aodhancoyne.com</a>
   <div class="sign">
    <h1>Arcade</h1>
-   <p class="tag">Two machines &middot; no coins required</p>
   </div>
  </header>
 
  <main class="hall" id="hall">
 
   <article class="cab kedr left">
-   <div class="marquee"><b>Kedr</b><i>Лунный корабль &middot; Lunar Lander</i></div>
+   <div class="marquee"><div class="glass"><b>Kedr</b><i>Лунный корабль &middot; Lunar Lander</i></div></div>
    <div class="bezel">
     <div class="screen">
      <img src="assets/attract-kedr.jpg" alt="KEDR title screen: a red CCCP map beneath a hammer-and-sickle star, with a rocket and the moon">
@@ -323,11 +409,15 @@
     <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
-   <div class="body"><div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div></div>
+   <div class="body">
+     <div class="art"><img src="assets/art-kedr.svg" alt="Cabinet art: a rocket climbing into space"></div>
+     <div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div>
+    </div>
+    <div class="kick"></div>
   </article>
 
   <article class="cab dprk right">
-   <div class="marquee"><b>Missile</b><i>조선인민 미사일 자위 모의훈련</i></div>
+   <div class="marquee"><div class="glass"><b>Missile</b><i>조선인민 미사일 자위 모의훈련</i></div></div>
    <div class="bezel">
     <div class="screen">
      <img src="assets/attract-missile.jpg" alt="Missile game title screen: a dawn over mountains with the national emblem">
@@ -342,7 +432,11 @@
     <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
-   <div class="body"><div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div></div>
+   <div class="body">
+     <div class="art"><img src="assets/art-missile.svg" alt="Cabinet art: a submarine launching a missile over a city skyline"></div>
+     <div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div>
+    </div>
+    <div class="kick"></div>
   </article>
 
  </main>
