@@ -1,97 +1,118 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150" role="img" aria-label="Marquee: KEDR, in Cyrillic, with a lunar lander and a red star">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" width="760" height="190" role="img" aria-label="Marquee: КЕДР, Лунный корабль, with a lunar module descending on a flame plume over a mountain ridge">
 <defs>
-  <linearGradient id="mqbg" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0"   stop-color="#100612"/>
-    <stop offset=".42" stop-color="#3A0A18"/>
-    <stop offset=".72" stop-color="#7E1020"/>
-    <stop offset="1"   stop-color="#B8161F"/>
+  <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#E6E9F0"/>
+    <stop offset=".62" stop-color="#AFB6C4"/><stop offset="1" stop-color="#F2F4F8"/>
   </linearGradient>
-  <linearGradient id="letter" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0"   stop-color="#FFF6D8"/>
-    <stop offset=".32" stop-color="#FFD23F"/>
-    <stop offset=".58" stop-color="#F0A81C"/>
-    <stop offset=".72" stop-color="#FFE694"/>
-    <stop offset="1"   stop-color="#C97C0A"/>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFF4C4"/><stop offset=".3" stop-color="#FFD23F"/>
+    <stop offset=".56" stop-color="#F5A81A"/><stop offset=".74" stop-color="#FFDE72"/>
+    <stop offset="1" stop-color="#C97C0A"/>
   </linearGradient>
-  <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#FFD23F" stop-opacity=".55"/>
-    <stop offset="1" stop-color="#FFD23F" stop-opacity="0"/>
-  </linearGradient>
-  <filter id="mqglow" x="-40%" y="-60%" width="180%" height="220%">
-    <feGaussianBlur stdDeviation="5" result="b"/>
-    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  <filter id="mqsoft" x="-60%" y="-80%" width="220%" height="260%">
-    <feGaussianBlur stdDeviation="14"/>
-  </filter>
+  <radialGradient id="plumeOuter" cx=".5" cy=".84" r=".72">
+    <stop offset="0" stop-color="#FFF06A"/><stop offset=".3" stop-color="#FFC21A"/>
+    <stop offset=".62" stop-color="#FF7A10"/><stop offset=".88" stop-color="#E8400A"/>
+    <stop offset="1" stop-color="#E8400A" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="plumeInner" cx=".5" cy=".86" r=".66">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".34" stop-color="#FFF2A0"/>
+    <stop offset=".72" stop-color="#FFC21A"/><stop offset="1" stop-color="#FF8A12" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="mqsoft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
 </defs>
 
-<rect width="760" height="150" fill="url(#mqbg)"/>
+<rect width="760" height="190" fill="#000000"/>
 
-<!-- constructivist rays fanning from the lower left -->
-<g opacity=".55">
-  <path d="M0 150 L118 6 L160 18Z"  fill="url(#ray)"/>
-  <path d="M0 150 L214 2 L256 20Z"  fill="url(#ray)" opacity=".7"/>
-  <path d="M0 150 L330 10 L372 30Z" fill="url(#ray)" opacity=".5"/>
-  <path d="M0 150 L470 18 L512 42Z" fill="url(#ray)" opacity=".35"/>
+<!-- scattered stars and small planets, as on the original -->
+<g fill="#FFFFFF">
+  <circle cx="470" cy="24" r="3"/><circle cx="512" cy="52" r="1.8"/><circle cx="620" cy="18" r="2.2"/>
+  <circle cx="700" cy="46" r="1.6"/><circle cx="736" cy="96" r="2"/><circle cx="392" cy="16" r="1.6"/>
+  <circle cx="88"  cy="22" r="1.8"/><circle cx="30"  cy="60" r="1.4"/>
 </g>
-<ellipse cx="120" cy="150" rx="220" ry="96" fill="#FFB020" opacity=".16" filter="url(#mqsoft)"/>
+<circle cx="666" cy="26" r="7" fill="#FF8A12"/>
+<circle cx="668" cy="24" r="4.6" fill="#FFC21A"/>
+<circle cx="724" cy="132" r="5" fill="#E8400A"/>
+<circle cx="404" cy="52" r="4" fill="#FFD23F"/>
 
-<!-- stars -->
-<g fill="#FFFFFF" opacity=".85">
-  <circle cx="602" cy="26" r="1.8"/><circle cx="656" cy="58" r="1.2"/>
-  <circle cx="712" cy="22" r="1.5"/><circle cx="576" cy="70" r="1"/>
-  <circle cx="686" cy="96" r="1.2"/>
-</g>
-
-<!-- the Moon, right side -->
-<circle cx="672" cy="74" r="40" fill="#E2DEE8" opacity=".92"/>
-<circle cx="672" cy="74" r="40" fill="#8B8796" opacity=".4" clip-path="inset(0 0 0 54%)"/>
-<g fill="#A29DAE" opacity=".7">
-  <circle cx="660" cy="62" r="7"/><circle cx="684" cy="88" r="5"/><circle cx="666" cy="92" r="3.4"/>
-</g>
-
-<!-- the lander, small, descending toward the title -->
-<g transform="translate(596 92) scale(.42)">
-  <g stroke="#C7CEDB" stroke-width="8" stroke-linecap="round" fill="none">
-    <path d="M-22 26 L-58 84"/><path d="M22 26 L58 84"/>
+<!-- ── the plume: a broad painted arc rising behind the lander ── -->
+<g>
+  <path d="M690 176 C664 116 640 66 578 40 C516 14 452 44 428 96 C412 132 418 160 428 178Z"
+        fill="url(#plumeOuter)" opacity=".95"/>
+  <path d="M678 176 C656 122 636 80 586 58 C536 36 484 60 464 102 C452 130 456 158 464 178Z"
+        fill="url(#plumeInner)" opacity=".9"/>
+  <!-- licks of flame, flat poster shapes -->
+  <g fill="#FF6A0A" opacity=".85">
+    <path d="M470 74 q16 -22 40 -26 q-18 16 -22 34 q-12 -6 -18 -8Z"/>
+    <path d="M600 56 q26 6 40 30 q-26 -12 -44 -6 q4 -14 4 -24Z"/>
+    <path d="M440 126 q4 -26 22 -42 q-6 26 2 46 q-14 -6 -24 -4Z"/>
   </g>
-  <path d="M-44 -6 L44 -6 L36 34 L-36 34Z" fill="#E0A82A"/>
-  <path d="M-44 -6 L44 -6 L42 1 L-42 1Z" fill="#FFF0B8" opacity=".7"/>
-  <circle cx="0" cy="-38" r="32" fill="#AEB6C6"/>
-  <circle cx="0" cy="-38" r="32" fill="#3B4150" opacity=".38" clip-path="inset(0 0 0 58%)"/>
-  <circle cx="-4" cy="-38" r="10" fill="#08101F"/>
-  <path d="M-16 34 L16 34 L10 56 L-10 56Z" fill="#8891A3"/>
-  <path d="M-12 56 C-8 82 -4 96 0 108 C4 96 8 82 12 56Z" fill="#FFF0B8" opacity=".85"/>
+  <g fill="#FFE066" opacity=".7">
+    <path d="M520 62 q18 -14 38 -12 q-18 12 -24 28 q-8 -10 -14 -16Z"/>
+    <path d="M556 128 q18 8 26 26 q-20 -8 -34 -2 q6 -12 8 -24Z"/>
+  </g>
+  <ellipse cx="560" cy="180" rx="130" ry="26" fill="#FFC21A" opacity=".35" filter="url(#mqsoft)"/>
 </g>
 
-<!-- red star, left -->
-<g transform="translate(84 74) scale(1.5)" filter="url(#mqglow)">
-  <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z"
-        fill="#E8121E" stroke="#FFD23F" stroke-width="2.6" stroke-linejoin="round"/>
+<!-- ── lunar module, white line art, right of centre ── -->
+<g transform="translate(596 96) scale(.82)">
+  <!-- descent stage -->
+  <path d="M-38 22 L-30 -4 L30 -4 L38 22 L30 42 L-30 42Z" fill="#F4F6FA" stroke="#0A0A0A" stroke-width="2.4"/>
+  <g stroke="#0A0A0A" stroke-width="1.6" opacity=".8">
+    <path d="M-22 -4 L-19 42"/><path d="M-6 -4 L-5 42"/><path d="M8 -4 L7 42"/><path d="M22 -4 L18 42"/>
+  </g>
+  <!-- legs and pads -->
+  <g stroke="#F4F6FA" stroke-width="4.4" stroke-linecap="round" fill="none">
+    <path d="M-32 22 L-66 76"/><path d="M32 22 L66 76"/><path d="M-20 36 L-46 74"/><path d="M20 36 L46 74"/>
+  </g>
+  <g fill="#F4F6FA" stroke="#0A0A0A" stroke-width="1.8">
+    <ellipse cx="-66" cy="78" rx="13" ry="4.6"/><ellipse cx="66" cy="78" rx="13" ry="4.6"/>
+    <ellipse cx="-46" cy="76" rx="10" ry="3.8"/><ellipse cx="46" cy="76" rx="10" ry="3.8"/>
+  </g>
+  <!-- engine + exhaust -->
+  <path d="M-10 42 L10 42 L7 58 L-7 58Z" fill="#F4F6FA" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M-14 58 C-10 84 -5 100 0 114 C5 100 10 84 14 58Z" fill="#FFF2A0"/>
+  <!-- ascent stage -->
+  <path d="M-24 -4 L-27 -26 L-18 -40 L18 -40 L27 -26 L24 -4Z" fill="#F4F6FA" stroke="#0A0A0A" stroke-width="2.4"/>
+  <g fill="#0A0A0A">
+    <path d="M-17 -30 L-6 -33 L-7 -21 L-17 -20Z"/><path d="M6 -33 L17 -30 L17 -20 L8 -21Z"/>
+  </g>
+  <rect x="-7" y="-16" width="14" height="12" rx="2" fill="#F4F6FA" stroke="#0A0A0A" stroke-width="1.8"/>
+  <!-- antenna -->
+  <path d="M20 -42 L32 -60" stroke="#F4F6FA" stroke-width="2.6" stroke-linecap="round"/>
+  <ellipse cx="34" cy="-63" rx="10" ry="5.4" fill="#F4F6FA" stroke="#0A0A0A" stroke-width="1.8" transform="rotate(-34 34 -63)"/>
+  <path d="M0 -44 L0 -56" stroke="#F4F6FA" stroke-width="2.6" stroke-linecap="round"/>
+  <!-- red star, the one thing that is ours -->
+  <g transform="translate(0 -10) scale(.2)">
+    <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z" fill="#E01020"/>
+  </g>
 </g>
 
-<!-- ── КЕДР ── set in a heavy face, screen-printed: offset shadow, gold fill, dark keyline -->
-<g transform="translate(378 78)" text-anchor="middle">
-  <text x="5" y="7"
-        font-family="'Helvetica Neue',Helvetica,Arial,'Arial Black',sans-serif"
-        font-size="66" font-weight="800" letter-spacing="9"
-        fill="#5A0A10" opacity=".9">КЕДР</text>
-  <text x="0" y="0"
-        font-family="'Helvetica Neue',Helvetica,Arial,'Arial Black',sans-serif"
-        font-size="66" font-weight="800" letter-spacing="9"
-        fill="url(#letter)" stroke="#7A1010" stroke-width="2.4" paint-order="stroke">КЕДР</text>
+<!-- ── jagged ridge across the base ── -->
+<path d="M0 190 L0 168 L34 148 L62 166 L92 140 L124 164 L152 150 L186 172 L214 156 L248 176
+         L286 152 L318 174 L352 160 L384 178 L420 158 L452 176 L492 162 L524 180 L566 164
+         L602 182 L644 166 L684 184 L722 170 L760 186 L760 190Z"
+      fill="#F4F6FA"/>
+<path d="M0 190 L0 176 L34 158 L62 174 L92 152 L124 172 L152 160 L186 180 L214 166 L248 182
+         L286 162 L318 180 L352 168 L384 184 L420 166 L452 182 L492 170 L524 186 L566 172
+         L602 186 L644 174 L684 188 L722 178 L760 190Z"
+      fill="#C9CDD6"/>
+
+<!-- ── title: ЛУННЫЙ КОРАБЛЬ in silver above КЕДР in gold ── -->
+<g transform="translate(40 62)">
+  <text x="6" y="5" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-size="30" font-weight="800" letter-spacing="1.5" fill="#000000">ЛУННЫЙ</text>
+  <text x="0" y="0" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-size="30" font-weight="800" letter-spacing="1.5"
+        fill="url(#silver)" stroke="#000000" stroke-width="1.6" paint-order="stroke">ЛУННЫЙ</text>
+
+  <text x="7" y="63" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-size="70" font-weight="800" letter-spacing="3" fill="#000000">КЕДР</text>
+  <text x="0" y="56" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-size="70" font-weight="800" letter-spacing="3"
+        fill="url(#gold)" stroke="#000000" stroke-width="2.6" paint-order="stroke">КЕДР</text>
 </g>
 
-<!-- subtitle on a rule, clear of the title -->
-<g transform="translate(198 124)">
-  <path d="M0 0 h356" stroke="#FFD23F" stroke-width="1.5" opacity=".5"/>
-  <text x="0" y="-7" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
-        font-size="13" font-weight="600" letter-spacing="4.6" fill="#FFE9A8" opacity=".95">ЛУННЫЙ КОРАБЛЬ</text>
-  <text x="356" y="-7" text-anchor="end"
-        font-family="Futura,'Avenir Next',Helvetica,Arial,sans-serif"
-        font-size="10.5" letter-spacing="3.2" fill="#FFC04A" opacity=".8">LUNAR LANDER</text>
-</g>
-
-<rect x="1.5" y="1.5" width="757" height="147" fill="none" stroke="#FFD23F" stroke-width="3" opacity=".45"/>
+<!-- credit line, as on the original -->
+<text x="16" y="184" font-family="Helvetica,Arial,sans-serif" font-size="7"
+      letter-spacing=".8" fill="#0A0A0A" opacity=".85">AODHAN COYNE · MMXXVI</text>
 </svg>

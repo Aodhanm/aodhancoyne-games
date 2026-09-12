@@ -253,6 +253,61 @@
   background:linear-gradient(180deg,#0E0A1A,#06040C);
   border-left:1px solid #2E2449;border-right:1px solid #2E2449;border-radius:0 0 4px 4px;
  }
+ /* ── KEDR: the Lunar Lander layout — a tall thrust lever, rotate buttons, abort ── */
+ .lever{position:relative;width:34px;height:52px;flex:none}
+ .lever .slot{
+  position:absolute;left:50%;top:4px;width:7px;height:42px;margin-left:-3.5px;border-radius:4px;
+  background:#05060A;box-shadow:inset 0 0 5px #000, 0 1px 0 rgba(255,255,255,.12);
+ }
+ .lever .arm{
+  position:absolute;left:50%;top:8px;width:5px;height:30px;margin-left:-2.5px;border-radius:3px;
+  background:linear-gradient(90deg,#4A5162,#A7AFC4,#4A5162);
+ }
+ .lever .grip{
+  position:absolute;left:50%;top:0;width:23px;height:15px;margin-left:-11.5px;border-radius:5px;
+  background:linear-gradient(180deg,#E9EDF5 0%,#AEB6C6 55%,#666E80 100%);
+  box-shadow:0 2px 5px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.7);
+ }
+ .lever i{
+  position:absolute;left:50%;bottom:-13px;transform:translateX(-50%);
+  font-style:normal;font-size:7px;letter-spacing:.12em;color:var(--faint);white-space:nowrap;
+ }
+ .sqbtns{display:flex;gap:9px}
+ .sqbtns i{
+  width:26px;height:18px;border-radius:3px;display:block;position:relative;
+  box-shadow:0 2px 0 rgba(0,0,0,.6), inset 0 -2px 4px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.45);
+ }
+ .sqbtns i.rot{background:linear-gradient(180deg,#E9EDF5,#9AA3B6)}
+ .sqbtns i.abort{background:linear-gradient(180deg,#FF6B60,#B21208)}
+
+ /* ── MISSILE: trackball and fire buttons ── */
+ .ball{
+  position:relative;width:54px;height:54px;flex:none;border-radius:50%;
+  background:radial-gradient(circle at 34% 28%, #FFFFFF 0 6%, #6FD3F5 26%, #1B7FA8 62%, #06334A 100%);
+  box-shadow:
+   inset 0 -6px 12px rgba(0,0,0,.55), inset 0 3px 8px rgba(255,255,255,.35),
+   0 3px 8px rgba(0,0,0,.7), 0 0 20px -6px #2FC0EE;
+ }
+ /* the bezel the ball sits in */
+ .ball::before{
+  content:"";position:absolute;inset:-7px;border-radius:50%;
+  background:radial-gradient(circle, transparent 58%, #0B0E16 60%);
+  box-shadow:inset 0 2px 4px rgba(0,0,0,.9);
+ }
+ .ball i{
+  position:absolute;left:50%;bottom:-15px;transform:translateX(-50%);
+  font-style:normal;font-size:7px;letter-spacing:.12em;color:var(--faint);white-space:nowrap;
+ }
+ .fire{display:flex;gap:10px}
+ .fire i{
+  width:28px;height:28px;border-radius:5px;display:block;
+  box-shadow:0 3px 0 rgba(0,0,0,.6), inset 0 -3px 6px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.5);
+ }
+ .fire i:nth-child(1){background:linear-gradient(180deg,#FF8A80,#C41208)}
+ .fire i:nth-child(2){background:linear-gradient(180deg,#FFE27A,#C98A06)}
+ .fire i:nth-child(3){background:linear-gradient(180deg,#8CF0B4,#0E8A48)}
+ .cab.playing .lever,.cab.playing .sqbtns,.cab.playing .ball,.cab.playing .fire{display:none}
+
  .stick{position:relative;width:26px;height:40px;flex:none}
  .stick::before{ /* shaft */
   content:"";position:absolute;left:50%;bottom:7px;width:5px;height:26px;margin-left:-2.5px;
@@ -299,7 +354,7 @@
   padding:0 0 0;
  }
  .art{
-  position:relative; height:300px; overflow:hidden;
+  position:relative; height:376px; overflow:hidden;
   background:#07050E;
  }
  .art img{
@@ -354,8 +409,8 @@
  /* per-cabinet hue, trim, and art crop */
  .cab.kedr{--hue:#FF3B3B; --tmold:#D8DCE6}
  .cab.dprk{--hue:#FFD23F; --tmold:#2A2F3C}
- .cab.kedr .art img{object-position:50% 52%}   /* Earth above, lander on the surface */
- .cab.dprk .art img{object-position:50% 84%}   /* low enough to hold the boat */
+ .cab.kedr .art img{object-position:50% 46%}
+ .cab.dprk .art img{object-position:50% 62%}
 
  /* ───────────────────────── chrome ───────────────────────── */
  .rail{
@@ -406,9 +461,9 @@
     </div>
    </div>
    <div class="panel">
-    <div class="stick"><i></i></div>
-    <div class="btns"><i></i><i></i><i></i></div>
-    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
+    <div class="lever"><span class="slot"></span><span class="arm"></span><span class="grip"></span><i>THRUST</i></div>
+    <div class="sqbtns"><i class="rot"></i><i class="rot"></i><i class="abort"></i></div>
+    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust<br>a abort</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
    <div class="body">
@@ -429,9 +484,9 @@
     </div>
    </div>
    <div class="panel">
-    <div class="stick"><i></i></div>
-    <div class="btns"><i></i><i></i><i></i></div>
-    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust</div>
+    <div class="ball"><i>TRACK</i></div>
+    <div class="fire"><i></i><i></i><i></i></div>
+    <div class="keys">&larr; &rarr; aim<br>space fire<br>o options</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
    <div class="body">
