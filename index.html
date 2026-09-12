@@ -524,107 +524,149 @@
  </svg>
 </button>
 
-<!-- ── AUDIO GOES HERE ─────────────────────────────────────────────
-     Drop files in assets/ and point these at them. Nothing plays until
-     a source exists, and nothing autoplays: browsers block that anyway,
-     so the speaker button is the only thing that starts sound.
-       assets/room.mp3   ambient arcade room tone, loops
-       assets/coin.mp3   one-shot, plays on Insert Coin
-─────────────────────────────────────────────────────────────────── -->
-<audio id="room" loop preload="none"><source src="assets/room.mp3" type="audio/mpeg"></audio>
+<!-- Room ambience: eight one-minute samples taken from across an hour of 80s
+     arcade floor recording, mono AAC. Each visit starts at a random point and
+     re-seeks periodically, so you never hear the same stretch twice. -->
+<audio id="room" loop preload="auto" src="assets/room.m4a"></audio>
+
 <!-- each game's own title-screen track, lifted from its repo -->
 <audio id="snd-kedr" loop preload="none" src="assets/hover-kedr.m4a"></audio>
 <audio id="snd-dprk" loop preload="none" src="assets/hover-dprk.m4a"></audio>
-<audio id="coin" preload="none"><source src="assets/coin.mp3" type="audio/mpeg"></audio>
 
 <script>
 (function(){
- var room=document.getElementById('room'),
-     coinSfx=document.getElementById('coin'),
-     spk=document.getElementById('spk'),
-     on=false;
+ var room = document.getElementById('room'),
+     spk  = document.getElementById('spk'),
+     ROOM_VOL = 0.34,      // resting level of the arcade floor
+     DUCK_VOL = 0.10,      // pulled down while a cabinet is under the cursor
+     muted = false,
+     started = false;
 
- function haveSource(a){
-  var s=a.querySelector('source');
-  return !!(s && s.getAttribute('src'));
+ // Start somewhere random in the reel so no two visits sound alike. Duration is
+ // not known until metadata lands, so defer the seek if we are early.
+ function reseek(){
+  var d = room.duration;
+  if(d && isFinite(d) && d > 25){
+   try { room.currentTime = Math.random() * (d - 20); } catch(e){}
+  } else {
+   room.addEventListener('loadedmetadata', reseek, {once:true});
+  }
  }
 
- // the speaker is a mute switch: sound is on by default, the button silences it
+ function fadeTo(el, target, step){
+  clearInterval(el._fade);
+  el._fade = setInterval(function(){
+   var v = el.volume, d = target - v;
+   if(Math.abs(d) <= step){ el.volume = target; clearInterval(el._fade); return; }
+   el.volume = Math.min(1, Math.max(0, v + (d > 0 ? step : -step)));
+  }, 55);
+ }
+
+ var starting = false;
+ function startRoom(){
+  if(started || starting || muted) return;
+  starting = true;
+  reseek();
+  room.volume = 0;
+  room.play().then(function(){
+   started = true; starting = false;
+   reseek();                       // metadata is certainly in by now
+   fadeTo(room, ROOM_VOL, 0.02);
+  }).catch(function(){ starting = false; /* blocked until a gesture; retried below */ });
+ }
+
+ // Browsers will not play audio before the page has had a gesture, so try on
+ // load and then again on the first real interaction.
+ if(room.readyState >= 1) startRoom(); else room.addEventListener('loadedmetadata', startRoom, {once:true});
+ ['pointerdown','keydown','pointermove','touchstart'].forEach(function(ev){
+  addEventListener(ev, function once(){ startRoom(); if(started) removeEventListener(ev, once); }, {passive:true});
+ });
+
+ // Wander to a different part of the recording now and then.
+ setInterval(function(){
+  if(!started || muted || document.hidden) return;
+  var back = room.volume;
+  fadeTo(room, 0, 0.05);
+  setTimeout(function(){ reseek(); fadeTo(room, back, 0.03); }, 700);
+ }, 75000);
+
+ document.addEventListener('visibilitychange', function(){
+  if(document.hidden) room.pause();
+  else if(started && !muted) room.play().catch(function(){});
+ });
+
+ // Speaker button is a mute switch; sound is on by default.
  spk.dataset.on = '1';
- spk.setAttribute('aria-pressed', 'true');
- spk.setAttribute('aria-label', 'Mute');
+ spk.setAttribute('aria-pressed','true');
+ spk.setAttribute('aria-label','Mute');
  spk.addEventListener('click', function(){
   muted = !muted;
-  on = !muted;
   spk.dataset.on = muted ? '0' : '1';
   spk.setAttribute('aria-pressed', String(!muted));
   spk.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
   if(muted){
-   ['snd-kedr','snd-dprk'].forEach(function(id){
-    var a=document.getElementById(id); if(a){ a.pause(); a.currentTime=0; }
-   });
    room.pause();
-  } else if(haveSource(room)){
-   room.volume=.35; room.play().catch(function(){});
+   ['snd-kedr','snd-dprk'].forEach(function(id){
+    var a = document.getElementById(id); if(a){ a.pause(); a.currentTime = 0; }
+   });
+  } else {
+   started = false; starting = false; startRoom();
   }
  });
 
- // Insert Coin: swap the attract still for the live game
- document.querySelectorAll('.coin').forEach(function(btn){
-  btn.addEventListener('click', function(){
-   var screen=btn.closest('.screen'),
-       cab=btn.closest('.cab'),
-       src=btn.dataset.src;
+ // expose for the hover handlers below
+ window.__arcade = {
+  isMuted: function(){ return muted; },
+  duck:    function(){ if(started) fadeTo(room, DUCK_VOL, 0.03); },
+  unduck:  function(){ if(started) fadeTo(room, ROOM_VOL, 0.02); },
+  fadeTo:  fadeTo
+ };
 
-   if(on && haveSource(coinSfx)){ try{ coinSfx.currentTime=0; coinSfx.volume=.6; coinSfx.play(); }catch(e){} }
+ // Hover a machine: it steps forward, its own title track comes up, and the room
+ // ducks underneath. Delegated from the hall and tracking a single "current"
+ // cabinet, because per-element mouseenter/mouseleave can drop a leave event and
+ // then the room stays ducked and two machines end up lit at once.
+ var hall = document.getElementById('hall'), current = null;
 
-   var f=document.createElement('iframe');
-   f.src=src;
-   f.title=(cab.querySelector('.marquee img')||{alt:'Game'}).alt + ' — game';
-   f.setAttribute('allow','autoplay; fullscreen');
-   f.setAttribute('allowfullscreen','');
-   screen.appendChild(f);
-   cab.classList.add('playing');
-   fit(screen);
-   var tab=cab.querySelector('[data-act="tab"]'); if(tab) tab.href=src;
-   // keyboard goes to the game, not the page
-   setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 380);
+ function sndFor(cab){
+  return cab ? document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk') : null;
+ }
+
+ function select(cab){
+  if(cab === current) return;
+  // stand the old one down
+  if(current){
+   current.classList.remove('lit');
+   var prev = sndFor(current);
+   if(prev){
+    window.__arcade.fadeTo(prev, 0, 0.07);
+    (function(a){ setTimeout(function(){ if(a.volume === 0){ a.pause(); a.currentTime = 0; } }, 700); })(prev);
+   }
+  }
+  current = cab;
+  if(!cab){ window.__arcade.unduck(); return; }
+  cab.classList.add('lit');
+  if(window.__arcade.isMuted()) return;
+  window.__arcade.duck();
+  var snd = sndFor(cab);
+  if(!snd) return;
+  snd.volume = 0;
+  snd.play().then(function(){ window.__arcade.fadeTo(snd, 0.6, 0.05); }).catch(function(){});
+ }
+
+ if(hall){
+  hall.addEventListener('pointerover', function(e){
+   var cab = e.target.closest && e.target.closest('.cab');
+   if(cab) select(cab);
   });
- });
-
- // Hover a machine: it steps forward and its own music comes up.
- // No priming needed: a browser unlocks audio for the whole document after any
- // user gesture, so the first click anywhere makes every later hover audible.
- // (An earlier version primed the clips on first pointerdown and its deferred
- // pause() was killing the sound a hover had just started.)
- var muted = false;
-
+  hall.addEventListener('pointerleave', function(){ select(null); });
+ }
+ // focus works the same way for keyboard users
  document.querySelectorAll('.cab').forEach(function(cab){
-  var snd = document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk');
-  var fade;
-  function up(){
-   cab.classList.add('lit');
-   if(muted || !snd) return;
-   clearInterval(fade);
-   snd.volume = 0; snd.play().catch(function(){});
-   fade = setInterval(function(){
-    snd.volume = Math.min(.55, snd.volume + .06);
-    if(snd.volume >= .55) clearInterval(fade);
-   }, 60);
-  }
-  function down(){
-   cab.classList.remove('lit');
-   if(!snd) return;
-   clearInterval(fade);
-   fade = setInterval(function(){
-    snd.volume = Math.max(0, snd.volume - .08);
-    if(snd.volume <= 0){ clearInterval(fade); snd.pause(); snd.currentTime = 0; }
-   }, 55);
-  }
-  cab.addEventListener('mouseenter', up);
-  cab.addEventListener('mouseleave', down);
-  cab.addEventListener('focusin', up);
-  cab.addEventListener('focusout', down);
+  cab.addEventListener('focusin', function(){ select(cab); });
+ });
+ document.addEventListener('focusout', function(e){
+  if(current && !current.contains(e.relatedTarget)) select(null);
  });
 
  // Attract reel: hold each frame, cross-fade to the next, loop. Pauses while a
