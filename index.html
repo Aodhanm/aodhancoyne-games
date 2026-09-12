@@ -134,7 +134,8 @@
   box-shadow:0 8px 14px -6px rgba(0,0,0,.9), 0 0 30px -10px var(--hue);
  }
  .marquee .glass{
-  position:relative; overflow:hidden; border-radius:2px; padding:12px 14px 11px; text-align:center;
+  position:relative; overflow:hidden; border-radius:2px; padding:0; text-align:center;
+  line-height:0;
   background:
    linear-gradient(180deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.03) 26%, rgba(0,0,0,.28) 100%),
    linear-gradient(180deg,#2E2348,#1A1330);
@@ -145,6 +146,7 @@
   content:"";position:absolute;left:8%;right:8%;top:-14px;height:26px;border-radius:50%;
   background:var(--hue);opacity:.28;filter:blur(11px);pointer-events:none;
  }
+ .marquee .glass img{display:block;width:100%;height:auto}
  .marquee b{
   position:relative;display:block;
   font-family:var(--disp);font-size:clamp(1.15rem,3.4vw,1.72rem);font-weight:700;
@@ -352,8 +354,8 @@
  /* per-cabinet hue, trim, and art crop */
  .cab.kedr{--hue:#FF3B3B; --tmold:#D8DCE6}
  .cab.dprk{--hue:#FFD23F; --tmold:#2A2F3C}
- .cab.kedr .art img{object-position:50% 46%}
- .cab.dprk .art img{object-position:50% 68%}   /* lower, so the boat is in frame */
+ .cab.kedr .art img{object-position:50% 52%}   /* Earth above, lander on the surface */
+ .cab.dprk .art img{object-position:50% 84%}   /* low enough to hold the boat */
 
  /* ───────────────────────── chrome ───────────────────────── */
  .rail{
@@ -394,7 +396,7 @@
  <main class="hall" id="hall">
 
   <article class="cab kedr left">
-   <div class="marquee"><div class="glass"><b>Kedr</b><i>Лунный корабль &middot; Lunar Lander</i></div></div>
+   <div class="marquee"><div class="glass"><img src="assets/marquee-kedr.svg" alt="Kedr — Лунный корабль — Lunar Lander"></div></div>
    <div class="bezel">
     <div class="screen">
      <img src="assets/attract-kedr.jpg" alt="KEDR title screen: a red CCCP map beneath a hammer-and-sickle star, with a rocket and the moon">
@@ -417,7 +419,7 @@
   </article>
 
   <article class="cab dprk right">
-   <div class="marquee"><div class="glass"><b>Missile</b><i>조선인민 미사일 자위 모의훈련</i></div></div>
+   <div class="marquee"><div class="glass"><img src="assets/marquee-missile.svg" alt="조선인민 미사일 자위 모의훈련 — Missile Self-Defence Simulator"></div></div>
    <div class="bezel">
     <div class="screen">
      <img src="assets/attract-missile.jpg" alt="Missile game title screen: a dawn over mountains with the national emblem">
@@ -497,7 +499,7 @@
 
    var f=document.createElement('iframe');
    f.src=src;
-   f.title=cab.querySelector('.marquee b').textContent + ' — game';
+   f.title=(cab.querySelector('.marquee img')||{alt:'Game'}).alt + ' — game';
    f.setAttribute('allow','autoplay; fullscreen');
    f.setAttribute('allowfullscreen','');
    screen.appendChild(f);

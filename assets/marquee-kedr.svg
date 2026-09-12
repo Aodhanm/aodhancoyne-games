@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" width="760" height="150" role="img" aria-label="Marquee: KEDR, in Cyrillic, with a lunar lander and a red star">
+<defs>
+  <linearGradient id="mqbg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#100612"/>
+    <stop offset=".42" stop-color="#3A0A18"/>
+    <stop offset=".72" stop-color="#7E1020"/>
+    <stop offset="1"   stop-color="#B8161F"/>
+  </linearGradient>
+  <linearGradient id="letter" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#FFF6D8"/>
+    <stop offset=".32" stop-color="#FFD23F"/>
+    <stop offset=".58" stop-color="#F0A81C"/>
+    <stop offset=".72" stop-color="#FFE694"/>
+    <stop offset="1"   stop-color="#C97C0A"/>
+  </linearGradient>
+  <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFD23F" stop-opacity=".55"/>
+    <stop offset="1" stop-color="#FFD23F" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="mqglow" x="-40%" y="-60%" width="180%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="mqsoft" x="-60%" y="-80%" width="220%" height="260%">
+    <feGaussianBlur stdDeviation="14"/>
+  </filter>
+</defs>
+
+<rect width="760" height="150" fill="url(#mqbg)"/>
+
+<!-- constructivist rays fanning from the lower left -->
+<g opacity=".55">
+  <path d="M0 150 L118 6 L160 18Z"  fill="url(#ray)"/>
+  <path d="M0 150 L214 2 L256 20Z"  fill="url(#ray)" opacity=".7"/>
+  <path d="M0 150 L330 10 L372 30Z" fill="url(#ray)" opacity=".5"/>
+  <path d="M0 150 L470 18 L512 42Z" fill="url(#ray)" opacity=".35"/>
+</g>
+<ellipse cx="120" cy="150" rx="220" ry="96" fill="#FFB020" opacity=".16" filter="url(#mqsoft)"/>
+
+<!-- stars -->
+<g fill="#FFFFFF" opacity=".85">
+  <circle cx="602" cy="26" r="1.8"/><circle cx="656" cy="58" r="1.2"/>
+  <circle cx="712" cy="22" r="1.5"/><circle cx="576" cy="70" r="1"/>
+  <circle cx="686" cy="96" r="1.2"/>
+</g>
+
+<!-- the Moon, right side -->
+<circle cx="672" cy="74" r="40" fill="#E2DEE8" opacity=".92"/>
+<circle cx="672" cy="74" r="40" fill="#8B8796" opacity=".4" clip-path="inset(0 0 0 54%)"/>
+<g fill="#A29DAE" opacity=".7">
+  <circle cx="660" cy="62" r="7"/><circle cx="684" cy="88" r="5"/><circle cx="666" cy="92" r="3.4"/>
+</g>
+
+<!-- the lander, small, descending toward the title -->
+<g transform="translate(596 92) scale(.42)">
+  <g stroke="#C7CEDB" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M-22 26 L-58 84"/><path d="M22 26 L58 84"/>
+  </g>
+  <path d="M-44 -6 L44 -6 L36 34 L-36 34Z" fill="#E0A82A"/>
+  <path d="M-44 -6 L44 -6 L42 1 L-42 1Z" fill="#FFF0B8" opacity=".7"/>
+  <circle cx="0" cy="-38" r="32" fill="#AEB6C6"/>
+  <circle cx="0" cy="-38" r="32" fill="#3B4150" opacity=".38" clip-path="inset(0 0 0 58%)"/>
+  <circle cx="-4" cy="-38" r="10" fill="#08101F"/>
+  <path d="M-16 34 L16 34 L10 56 L-10 56Z" fill="#8891A3"/>
+  <path d="M-12 56 C-8 82 -4 96 0 108 C4 96 8 82 12 56Z" fill="#FFF0B8" opacity=".85"/>
+</g>
+
+<!-- red star, left -->
+<g transform="translate(84 74) scale(1.5)" filter="url(#mqglow)">
+  <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z"
+        fill="#E8121E" stroke="#FFD23F" stroke-width="2.6" stroke-linejoin="round"/>
+</g>
+
+<!-- ── КЕДР ── set in a heavy face, screen-printed: offset shadow, gold fill, dark keyline -->
+<g transform="translate(378 78)" text-anchor="middle">
+  <text x="5" y="7"
+        font-family="'Helvetica Neue',Helvetica,Arial,'Arial Black',sans-serif"
+        font-size="66" font-weight="800" letter-spacing="9"
+        fill="#5A0A10" opacity=".9">КЕДР</text>
+  <text x="0" y="0"
+        font-family="'Helvetica Neue',Helvetica,Arial,'Arial Black',sans-serif"
+        font-size="66" font-weight="800" letter-spacing="9"
+        fill="url(#letter)" stroke="#7A1010" stroke-width="2.4" paint-order="stroke">КЕДР</text>
+</g>
+
+<!-- subtitle on a rule, clear of the title -->
+<g transform="translate(198 124)">
+  <path d="M0 0 h356" stroke="#FFD23F" stroke-width="1.5" opacity=".5"/>
+  <text x="0" y="-7" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+        font-size="13" font-weight="600" letter-spacing="4.6" fill="#FFE9A8" opacity=".95">ЛУННЫЙ КОРАБЛЬ</text>
+  <text x="356" y="-7" text-anchor="end"
+        font-family="Futura,'Avenir Next',Helvetica,Arial,sans-serif"
+        font-size="10.5" letter-spacing="3.2" fill="#FFC04A" opacity=".8">LUNAR LANDER</text>
+</g>
+
+<rect x="1.5" y="1.5" width="757" height="147" fill="none" stroke="#FFD23F" stroke-width="3" opacity=".45"/>
+</svg>
