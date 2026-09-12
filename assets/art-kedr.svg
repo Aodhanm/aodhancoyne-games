@@ -60,9 +60,6 @@
       <path d="M-16 26 q24 -8 42 3 q-21 10 -42 -3Z"/>
       <path d="M-2 -38 q18 -5 32 2 q-16 8 -32 -2Z"/>
     </g>
-    <!-- ice caps -->
-    <path d="M-46 -36 q46 -11 92 0 l0 -12 l-92 0Z" fill="#FFFFFF" opacity=".6"/>
-    <path d="M-46 36 q46 11 92 0 l0 12 l-92 0Z" fill="#FFFFFF" opacity=".55"/>
     <circle r="46" fill="#02040F" opacity=".7" transform="translate(37 0)"/>
   </g>
   <circle r="46" fill="none" stroke="#9FE2FF" stroke-width="2" opacity=".7"/>

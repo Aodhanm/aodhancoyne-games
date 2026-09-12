@@ -62,8 +62,6 @@
       <path d="M-30 48 q45 -15 78 6 q-39 19 -78 -6Z"/>
       <path d="M-4 -70 q34 -9 60 4 q-30 15 -60 -4Z"/>
     </g>
-    <path d="M-86 -66 q86 -20 172 0 l0 -22 l-172 0Z" fill="#FFFFFF" opacity=".55"/>
-    <path d="M-86 66 q86 20 172 0 l0 22 l-172 0Z" fill="#FFFFFF" opacity=".5"/>
     <circle r="86" fill="#02040F" opacity=".5" transform="translate(72 0)"/>
   </g>
   <circle r="86" fill="none" stroke="#9FE2FF" stroke-width="2.6" opacity=".7"/>

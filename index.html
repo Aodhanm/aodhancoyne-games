@@ -70,7 +70,7 @@
  }
 
  /* ───────────────────────── masthead ───────────────────────── */
- header{position:relative;z-index:3;text-align:center;padding:40px 22px 0}
+ header{position:relative;z-index:3;text-align:center;padding:30px 22px 0}
  .back{
   position:absolute;left:22px;top:22px;
   font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
@@ -83,7 +83,7 @@
   background:rgba(10,7,20,.55);
  }
  h1{
-  margin:0;font-family:var(--disp);font-size:clamp(2.2rem,7vw,3.9rem);font-weight:700;
+  margin:0;font-family:var(--disp);font-size:clamp(1.9rem,5.6vw,3.1rem);font-weight:700;
   letter-spacing:.22em;text-transform:uppercase;color:#FFF;line-height:1;
   text-shadow:
    0 0 6px #fff, 0 0 16px var(--neon-c), 0 0 34px var(--neon-c),
@@ -103,13 +103,13 @@
  /* ───────────────────────── cabinets ───────────────────────── */
  .hall{
   position:relative;z-index:3;
-  display:flex;justify-content:center;align-items:flex-end;gap:clamp(28px,9vw,150px);
+  display:flex;justify-content:center;align-items:flex-end;gap:clamp(30px,10vw,168px);
   flex-wrap:wrap; padding:40px 22px 0; max-width:1460px; margin:0 auto;
  }
  .cab{
   --hue:var(--neon-c);
   --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
-  position:relative; width:min(376px,90vw); flex:0 1 376px;
+  position:relative; width:min(318px,84vw); flex:0 1 318px;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
@@ -192,10 +192,8 @@
   box-shadow:inset 0 0 44px rgba(0,0,0,.95), inset 0 0 90px -30px var(--hue);
  }
  .screen img{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
- /* attract reel: frames stacked, only the current one shown */
- .screen .reel img{opacity:0;transition:opacity .55s ease}
- .screen .reel img.on{opacity:1}
- .cab.playing .reel{display:none}
+ /* the screen runs the real game from load; the prompt just takes focus */
+ .cab.playing .coin{display:none}
  /* The games expect a desktop-sized viewport. Give the iframe a full logical
     resolution and scale the whole thing down to fit the cabinet glass, rather
     than handing the game a tiny viewport it will crop. */
@@ -366,7 +364,7 @@
   padding:0 0 0;
  }
  .art{
-  position:relative; height:330px; overflow:hidden;
+  position:relative; height:268px; overflow:hidden;
   background:#07050E;
  }
  .art img{
@@ -466,9 +464,9 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-kedr.svg" alt="Kedr — Лунный корабль — Lunar Lander"></div></div>
    <div class="bezel">
     <div class="screen">
-     <div class="reel" data-hold="2600,2200,2200,3200,3400,2600"><img class="on" src="assets/attract-kedr.jpg" alt="Kedr title screen"><img src="assets/kedr-2-pad.jpg" alt="Kedr: the rocket on the pad"><img src="assets/kedr-3-ascent.jpg" alt="Kedr: ascent past the Moon"><img src="assets/kedr-4-sep.jpg" alt="Kedr: the lander separates"><img src="assets/kedr-5-descent.jpg" alt="Kedr: descending over the terrain"><img src="assets/kedr-6-over.jpg" alt="Kedr: crashed into the surface"></div>
+     
      <button class="coin" data-src="https://aodhanm.github.io/KDER/" aria-label="Play Kedr">
-      <b><span>Insert Coin</span><small>Press to play</small></b>
+      <b><span>Click to play</span></b>
      </button>
     </div>
    </div>
@@ -489,9 +487,9 @@
    <div class="marquee"><div class="glass"><img src="assets/marquee-missile.svg" alt="조선인민 미사일 자위 모의훈련 — Missile Self-Defence Simulator"></div></div>
    <div class="bezel">
     <div class="screen">
-     <div class="reel" data-hold="2600,2400,2600,3400,3000"><img class="on" src="assets/attract-missile.jpg" alt="Missile title screen"><img src="assets/dprk-2-boat.jpg" alt="Missile: the boat, crew on deck"><img src="assets/dprk-3-launch.jpg" alt="Missile: launch off the deck"><img src="assets/dprk-4-impact.jpg" alt="Missile: the target city burning"><img src="assets/dprk-5-after.jpg" alt="Missile: the aftermath"></div>
+     
      <button class="coin" data-src="https://aodhanm.github.io/nk-missile-game/" aria-label="Play Missile">
-      <b><span>Insert Coin</span><small>Press to play</small></b>
+      <b><span>Click to play</span></b>
      </button>
     </div>
    </div>
@@ -578,9 +576,21 @@
  // Browsers will not play audio before the page has had a gesture, so try on
  // load and then again on the first real interaction.
  if(room.readyState >= 1) startRoom(); else room.addEventListener('loadedmetadata', startRoom, {once:true});
- ['pointerdown','keydown','pointermove','touchstart'].forEach(function(ev){
-  addEventListener(ev, function once(){ startRoom(); if(started) removeEventListener(ev, once); }, {passive:true});
+ // Every browser refuses audible playback until the page has had a user gesture.
+ // We try on load anyway (it succeeds outright once Chrome has learned you play
+ // media on this site) and otherwise catch the earliest possible moment: the
+ // first mouse movement, scroll, key, tap or focus. No click is required.
+ ['pointermove','mousemove','wheel','scroll','pointerdown','mousedown',
+  'keydown','touchstart','touchmove','focus'].forEach(function(ev){
+  addEventListener(ev, function once(){
+   startRoom();
+   if(started) ['pointermove','mousemove','wheel','scroll','pointerdown','mousedown',
+                'keydown','touchstart','touchmove','focus']
+                .forEach(function(e2){ removeEventListener(e2, once); });
+  }, {passive:true});
  });
+ // and retry when the tab is brought back to the front
+ document.addEventListener('visibilitychange', function(){ if(!document.hidden) startRoom(); });
 
  // Wander to a different part of the recording now and then.
  setInterval(function(){
@@ -669,27 +679,46 @@
   if(current && !current.contains(e.relatedTarget)) select(null);
  });
 
- // Attract reel: hold each frame, cross-fade to the next, loop. Pauses while a
- // game is actually running, and honours prefers-reduced-motion by standing still.
- var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
- document.querySelectorAll('.reel').forEach(function(reel){
-  var frames = [].slice.call(reel.querySelectorAll('img'));
-  if(still || frames.length < 2) return;
-  var holds = (reel.dataset.hold||'').split(',').map(Number);
-  var i = 0, timer;
-  function step(){
-   var cab = reel.closest('.cab');
-   if(cab && cab.classList.contains('playing')) return;      // stop once a coin is in
-   frames[i].classList.remove('on');
-   i = (i + 1) % frames.length;
-   frames[i].classList.add('on');
-   timer = setTimeout(step, holds[i] || 3000);
-  }
-  timer = setTimeout(step, holds[0] || 3000);
-  // don't burn frames while the tab is hidden
-  document.addEventListener('visibilitychange', function(){
-   if(document.hidden){ clearTimeout(timer); }
-   else { clearTimeout(timer); timer = setTimeout(step, 900); }
+ // The screen runs the real game, loaded once the cabinet scrolls into view.
+ // This is why it is live play rather than a slideshow: it IS the game, drawing
+ // its own animated title and attract. Clicking hands keyboard focus over.
+ function boot(cab){
+  var screen = cab.querySelector('.screen'),
+      btn    = cab.querySelector('.coin');
+  if(!screen || !btn || screen.querySelector('iframe')) return;
+  var f = document.createElement('iframe');
+  f.src = btn.dataset.src;
+  f.title = (cab.querySelector('.marquee img') || {alt:'Game'}).alt;
+  f.setAttribute('allow', 'autoplay; fullscreen');
+  f.setAttribute('allowfullscreen', '');
+  f.setAttribute('scrolling', 'no');
+  screen.appendChild(f);
+  fit(screen);
+  setTimeout(function(){ fit(screen); }, 400);   // again once it has laid out
+ }
+
+ // wait until a cabinet is actually on screen, so opening the page does not
+ // start two canvas games off in the wings
+ if('IntersectionObserver' in window){
+  var io = new IntersectionObserver(function(entries){
+   entries.forEach(function(e){
+    if(e.isIntersecting){ boot(e.target); io.unobserve(e.target); }
+   });
+  }, {rootMargin: '250px'});
+  document.querySelectorAll('.cab').forEach(function(c){ io.observe(c); });
+ } else {
+  document.querySelectorAll('.cab').forEach(boot);
+ }
+
+ // the prompt just hands the keyboard to the game that is already running
+ document.querySelectorAll('.coin').forEach(function(btn){
+  btn.addEventListener('click', function(){
+   var cab = btn.closest('.cab'), screen = cab.querySelector('.screen');
+   boot(cab);
+   cab.classList.add('playing');
+   var tab = cab.querySelector('[data-act="tab"]'); if(tab) tab.href = btn.dataset.src;
+   var f = screen.querySelector('iframe');
+   if(f) setTimeout(function(){ try{ f.contentWindow.focus(); }catch(e){} f.focus(); }, 200);
   });
  });
 
@@ -710,12 +739,13 @@
     e.preventDefault();
     if(f) f.remove();
     cab.classList.remove('playing');
+    boot(cab);                       // back to the live attract, not a black screen
    }
    // data-act="tab" is a plain link; let it through
   });
  });
  document.addEventListener('fullscreenchange', function(){
-  document.querySelectorAll('.cab.playing .screen').forEach(fit);
+  document.querySelectorAll('.screen').forEach(fit);
  });
 
  // Scale the oversized iframe so the whole game fits the cabinet glass.
@@ -736,7 +766,7 @@
  var t;
  addEventListener('resize', function(){
   clearTimeout(t);
-  t=setTimeout(function(){ document.querySelectorAll('.cab.playing .screen').forEach(fit); }, 120);
+  t=setTimeout(function(){ document.querySelectorAll('.screen').forEach(fit); }, 120);
  });
 })();
 </script>
