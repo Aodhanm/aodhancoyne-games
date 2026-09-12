@@ -79,11 +79,11 @@
  .back:hover,.back:focus-visible{color:var(--neon-c);border-bottom-color:var(--neon-c);outline:0}
 
  .sign{
-  display:inline-block;padding:14px 34px 16px;border:2px solid rgba(0,229,255,.5);border-radius:6px;
+  display:inline-block;padding:10px 26px 12px;border:2px solid rgba(0,229,255,.5);border-radius:6px;
   background:rgba(10,7,20,.55);
  }
  h1{
-  margin:0;font-family:var(--disp);font-size:clamp(1.9rem,5.6vw,3.1rem);font-weight:700;
+  margin:0;font-family:var(--disp);font-size:clamp(1.6rem,4.6vw,2.5rem);font-weight:700;
   letter-spacing:.22em;text-transform:uppercase;color:#FFF;line-height:1;
   text-shadow:
    0 0 6px #fff, 0 0 16px var(--neon-c), 0 0 34px var(--neon-c),
@@ -103,13 +103,13 @@
  /* ───────────────────────── cabinets ───────────────────────── */
  .hall{
   position:relative;z-index:3;
-  display:flex;justify-content:center;align-items:flex-end;gap:clamp(30px,10vw,168px);
-  flex-wrap:wrap; padding:40px 22px 0; max-width:1460px; margin:0 auto;
+  display:flex;justify-content:center;align-items:flex-end;gap:clamp(32px,11vw,190px);
+  flex-wrap:wrap; padding:34px 22px 0; max-width:1560px; margin:0 auto;
  }
  .cab{
   --hue:var(--neon-c);
   --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
-  position:relative; width:min(318px,84vw); flex:0 1 318px;
+  position:relative; width:min(262px,76vw); flex:0 1 262px;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
@@ -250,8 +250,8 @@
    linear-gradient(180deg, rgba(255,255,255,.10) 0 2px, transparent 2px),
    linear-gradient(180deg,#2A2044 0%,#1B1531 46%,#100C1E 100%);
   border:1px solid #2E2449;border-radius:3px 3px 5px 5px;
-  padding:18px 22px 17px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:15px 14px 14px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
   box-shadow:
    0 12px 20px -10px rgba(0,0,0,.95),
    inset 0 1px 0 rgba(255,255,255,.13),
@@ -340,7 +340,7 @@
  .btns i:nth-child(1){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-y) 45%,#8A6A00 100%);color:var(--neon-y)}
  .btns i:nth-child(2){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-g) 45%,#0B6B34 100%);color:var(--neon-g)}
  .btns i:nth-child(3){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-c) 45%,#065C6B 100%);color:var(--neon-c)}
- .keys{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.7}
+ .keys{font-size:8px;letter-spacing:.09em;white-space:nowrap;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.7}
  /* shown only once a cabinet is playing: the escape hatches */
  .acts{display:none;gap:8px;flex-wrap:wrap;justify-content:center;flex:1}
  .cab.playing .acts{display:flex}
@@ -364,7 +364,7 @@
   padding:0 0 0;
  }
  .art{
-  position:relative; height:268px; overflow:hidden;
+  position:relative; height:214px; overflow:hidden;
   background:#07050E;
  }
  .art img{
@@ -473,7 +473,7 @@
    <div class="panel">
     <div class="lever"><span class="slot"></span><span class="arm"></span><span class="grip"></span><i>THRUST</i></div>
     <div class="sqbtns"><i class="rot"></i><i class="rot"></i><i class="abort"></i></div>
-    <div class="keys">&larr; &rarr; rotate<br>&uarr; / space thrust<br>a abort</div>
+    <div class="keys">&larr;&rarr; rotate<br>&uarr; thrust<br>a abort</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
    <div class="body">
@@ -496,7 +496,7 @@
    <div class="panel">
     <div class="ball"><i>TRACK</i></div>
     <div class="fire"><i></i><i></i><i></i></div>
-    <div class="keys">&larr; &rarr; aim<br>space fire<br>o options</div>
+    <div class="keys">&larr;&rarr; aim<br>&uarr; thrust<br>o options</div>
     <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
    </div>
    <div class="body">

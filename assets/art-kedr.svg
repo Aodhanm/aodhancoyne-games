@@ -80,30 +80,6 @@
 </g>
 <ellipse cx="300" cy="356" rx="160" ry="48" fill="#4FC3FF" opacity=".07" filter="url(#ksoft)"/>
 
-<!-- USSR flag planted on the surface: 1:2 red field, gold hammer and sickle beneath a bordered star -->
-<g transform="translate(72 330)">
-  <path d="M0 0 L0 -66" stroke="#C7CEDB" stroke-width="2.6" stroke-linecap="round"/>
-  <ellipse cx="0" cy="1" rx="7" ry="2.4" fill="#0E0D13" opacity=".8"/>
-  <g transform="translate(2 -66)">
-    <rect width="52" height="26" fill="#CC0000"/>
-    <g transform="scale(.26)" fill="#FFD700">
-      <g transform="translate(40 19) scale(.60)">
-        <path d="M0 -22 L6.5 -6.8 23 -6.8 9.7 2.7 14.8 18.6 0 8.8 -14.8 18.6 -9.7 2.7 -23 -6.8 -6.5 -6.8Z"
-              stroke="#CC0000" stroke-width="2.4" stroke-linejoin="round"/>
-      </g>
-      <path d="M18 80 A 48 48 0 0 1 78 34 L 73 43 A 38 38 0 0 0 26 79 Z"/>
-      <path d="M78 34 L73 43 L84 41 Z"/>
-      <rect x="10" y="76" width="17" height="7.5" rx="3.5" transform="rotate(-18 18 80)"/>
-      <g transform="translate(42 58) rotate(38)">
-        <rect x="-4.2" y="-26" width="8.4" height="46" rx="3.4"/>
-        <path d="M-15 -38 L15 -38 L17 -26 L-17 -26 Z"/>
-      </g>
-    </g>
-    <rect width="52" height="2.4" fill="#FF6B6B" opacity=".3"/>
-    <rect width="52" height="26" fill="none" stroke="#7A0A12" stroke-width="1" opacity=".5"/>
-  </g>
-</g>
-
 <!-- ══ LUNAR MODULE ══ boxy descent stage, angular ascent stage, wide splayed legs ══ -->
 <g transform="translate(190 300)">
   <!-- cast shadow, away from the sun -->
