@@ -1,72 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 620" width="400" height="620" role="img" aria-label="Cabinet art: a Soviet lunar lander touching down on the Moon, Earth rising behind it">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 620" width="400" height="620" role="img" aria-label="Cabinet art: a lunar lander standing on the Moon, Earth in the black sky above a cratered horizon">
 <defs>
-  <!-- deep space, warmed slightly toward the horizon by earthlight -->
   <linearGradient id="space" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0"   stop-color="#01010A"/>
-    <stop offset=".38" stop-color="#060820"/>
-    <stop offset=".66" stop-color="#0C1030"/>
-    <stop offset=".84" stop-color="#141A3E"/>
+    <stop offset="0"   stop-color="#000008"/>
+    <stop offset=".5"  stop-color="#03051A"/>
+    <stop offset=".78" stop-color="#070B28"/>
   </linearGradient>
-  <!-- the Moon's regolith: lit hard from the right, falling to black at left -->
-  <linearGradient id="regolith" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0"   stop-color="#1C1B24"/>
-    <stop offset=".22" stop-color="#3A3945"/>
-    <stop offset=".52" stop-color="#6E6C78"/>
-    <stop offset=".78" stop-color="#A9A6AE"/>
-    <stop offset="1"   stop-color="#D6D2D6"/>
-  </linearGradient>
-  <linearGradient id="ground2" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0"   stop-color="#8B8894" stop-opacity=".95"/>
-    <stop offset=".3"  stop-color="#5E5C68"/>
-    <stop offset="1"   stop-color="#17161D"/>
+  <!-- regolith, lit hard from the right -->
+  <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0"   stop-color="#2B2A34"/>
+    <stop offset=".26" stop-color="#54525E"/>
+    <stop offset=".58" stop-color="#8E8B97"/>
+    <stop offset=".84" stop-color="#C2BFC7"/>
+    <stop offset="1"   stop-color="#E4E1E6"/>
   </linearGradient>
   <radialGradient id="earthDisc" cx=".36" cy=".30" r=".88">
-    <stop offset="0"   stop-color="#BCE9FF"/>
-    <stop offset=".22" stop-color="#59B4F0"/>
-    <stop offset=".52" stop-color="#2277D4"/>
-    <stop offset=".8"  stop-color="#12459A"/>
-    <stop offset="1"   stop-color="#08214F"/>
+    <stop offset="0"   stop-color="#CFF0FF"/>
+    <stop offset=".2"  stop-color="#63BCF2"/>
+    <stop offset=".5"  stop-color="#2379D6"/>
+    <stop offset=".8"  stop-color="#124A9E"/>
+    <stop offset="1"   stop-color="#0A2657"/>
   </radialGradient>
-  <radialGradient id="earthHalo" cx=".5" cy=".5" r=".5">
-    <stop offset=".68" stop-color="#4FC3FF" stop-opacity="0"/>
-    <stop offset=".84" stop-color="#4FC3FF" stop-opacity=".20"/>
-    <stop offset="1"   stop-color="#4FC3FF" stop-opacity="0"/>
-  </radialGradient>
-  <!-- lander skin: gold thermal blanket, crumpled -->
   <linearGradient id="foil" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0"   stop-color="#4A3306"/>
-    <stop offset=".18" stop-color="#B08018"/>
-    <stop offset=".38" stop-color="#FFE08A"/>
-    <stop offset=".56" stop-color="#E0A82A"/>
-    <stop offset=".78" stop-color="#8A5F10"/>
-    <stop offset="1"   stop-color="#3A2604"/>
+    <stop offset=".16" stop-color="#B98A1C"/>
+    <stop offset=".36" stop-color="#FFE594"/>
+    <stop offset=".58" stop-color="#E0A82A"/>
+    <stop offset=".8"  stop-color="#8A5F10"/>
+    <stop offset="1"   stop-color="#382404"/>
   </linearGradient>
   <linearGradient id="metal" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0"   stop-color="#3B4150"/>
-    <stop offset=".3"  stop-color="#96A0B4"/>
-    <stop offset=".55" stop-color="#D8DEE9"/>
-    <stop offset=".8"  stop-color="#7B8496"/>
-    <stop offset="1"   stop-color="#2C313D"/>
+    <stop offset="0"   stop-color="#333845"/>
+    <stop offset=".26" stop-color="#8F99AD"/>
+    <stop offset=".5"  stop-color="#E2E7F0"/>
+    <stop offset=".76" stop-color="#8A93A5"/>
+    <stop offset="1"   stop-color="#282D38"/>
   </linearGradient>
   <linearGradient id="plume" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0"   stop-color="#FFFFFF" stop-opacity=".95"/>
-    <stop offset=".24" stop-color="#BFE6FF" stop-opacity=".75"/>
-    <stop offset=".6"  stop-color="#5AA8E0" stop-opacity=".30"/>
-    <stop offset="1"   stop-color="#2A6090" stop-opacity="0"/>
+    <stop offset="0"   stop-color="#FFFFFF" stop-opacity=".9"/>
+    <stop offset=".35" stop-color="#BFE6FF" stop-opacity=".55"/>
+    <stop offset="1"   stop-color="#3A7FB8" stop-opacity="0"/>
   </linearGradient>
   <filter id="kglow" x="-70%" y="-70%" width="240%" height="240%">
-    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feGaussianBlur stdDeviation="6" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-  <filter id="ksoft" x="-80%" y="-80%" width="260%" height="260%">
-    <feGaussianBlur stdDeviation="20"/>
-  </filter>
-  <filter id="kdust" x="-50%" y="-50%" width="200%" height="200%">
-    <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="7" result="n"/>
-    <feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+  <filter id="ksoft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="kdust" x="-60%" y="-60%" width="220%" height="220%">
+    <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="16" xChannelSelector="R" yChannelSelector="G"/>
     <feGaussianBlur stdDeviation="5"/>
   </filter>
-  <!-- fine grain over the whole plate, so it reads as printed vinyl not vector -->
   <filter id="grain" x="0" y="0" width="100%" height="100%">
     <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="4" seed="3"/>
     <feColorMatrix type="saturate" values="0"/>
@@ -75,147 +58,130 @@
 
 <rect width="400" height="620" fill="url(#space)"/>
 
-<!-- stars -->
+<!-- stars, sparse: the sky is airless black -->
 <g fill="#FFFFFF">
-  <circle cx="30"  cy="40"  r="1.9" opacity=".95"/><circle cx="88" cy="96"  r="1.1" opacity=".55"/>
-  <circle cx="142" cy="28"  r="1.4" opacity=".8"/> <circle cx="196" cy="74" r="1"   opacity=".5"/>
-  <circle cx="248" cy="34"  r="1.6" opacity=".85"/><circle cx="314" cy="96" r="1.2" opacity=".6"/>
-  <circle cx="366" cy="46"  r="2"   opacity=".9"/> <circle cx="62"  cy="168" r="1.2" opacity=".55"/>
-  <circle cx="176" cy="150" r="1"   opacity=".45"/><circle cx="342" cy="176" r="1.3" opacity=".6"/>
-  <circle cx="20"  cy="238" r="1.1" opacity=".45"/><circle cx="386" cy="248" r="1.1" opacity=".45"/>
-</g>
-<g fill="#FFFFFF" opacity=".9">
-  <path d="M296 62 l2.6 8 8 2.6 -8 2.6 -2.6 8 -2.6 -8 -8 -2.6 8 -2.6z"/>
+  <circle cx="34"  cy="44"  r="1.8" opacity=".9"/><circle cx="128" cy="30" r="1.3" opacity=".7"/>
+  <circle cx="236" cy="56"  r="1.1" opacity=".55"/><circle cx="318" cy="28" r="1.6" opacity=".85"/>
+  <circle cx="372" cy="92"  r="1.2" opacity=".6"/> <circle cx="196" cy="112" r="1"  opacity=".45"/>
+  <circle cx="66"  cy="150" r="1.1" opacity=".5"/> <circle cx="348" cy="170" r="1.2" opacity=".55"/>
+  <circle cx="18"  cy="236" r="1"   opacity=".4"/>
 </g>
 
-<!-- Earth, low over the limb -->
-<g transform="translate(96 150)">
-  <circle r="96" fill="url(#earthHalo)" opacity=".9"/>
-  <circle r="70" fill="url(#earthDisc)"/>
-  <!-- continents -->
-  <g fill="#3E9E58" opacity=".9" clip-path="circle(70px at 0 0)">
-    <path d="M-46 -30 q16 -14 34 -6 q14 6 6 20 q-10 16 -30 12 q-16 -4 -10 -26Z"/>
-    <path d="M-8 6 q22 -8 34 8 q8 14 -8 24 q-20 12 -32 -6 q-8 -16 6 -26Z"/>
-    <path d="M24 -44 q18 -4 22 10 q2 12 -14 14 q-16 2 -16 -12 q0 -10 8 -12Z"/>
+<!-- ── Earth, unmistakable and high ── -->
+<g transform="translate(292 136)">
+  <circle r="88" fill="#4FC3FF" opacity=".14" filter="url(#ksoft)"/>
+  <circle r="58" fill="url(#earthDisc)"/>
+  <g clip-path="circle(58px at 0 0)">
+    <g fill="#3E9E58" opacity=".92">
+      <path d="M-40 -26 q14 -12 30 -5 q12 5 5 17 q-9 14 -26 10 q-14 -3 -9 -22Z"/>
+      <path d="M-6 6 q19 -7 29 7 q7 12 -7 21 q-17 10 -27 -5 q-7 -14 5 -23Z"/>
+      <path d="M20 -38 q16 -3 19 9 q2 10 -12 12 q-14 2 -14 -10 q0 -9 7 -11Z"/>
+    </g>
+    <g fill="#FFFFFF" opacity=".45">
+      <path d="M-56 -10 q24 -12 48 -2 q-20 14 -48 2Z"/>
+      <path d="M-18 34 q30 -10 53 4 q-26 12 -53 -4Z"/>
+      <path d="M8 -50 q22 -5 38 5 q-19 10 -38 -5Z"/>
+    </g>
+    <circle r="58" fill="#02040F" opacity=".7" transform="translate(46 0)"/>
   </g>
-  <!-- warm land in the sunlit quarter -->
-  <g fill="#C8A24E" opacity=".55" clip-path="circle(70px at 0 0)">
-    <path d="M-40 -24 q12 -8 22 -2 q8 6 0 14 q-12 8 -22 0 q-6 -6 0 -12Z"/>
-  </g>
-  <!-- cloud swirls -->
-  <g fill="#FFFFFF" opacity=".42" clip-path="circle(70px at 0 0)">
-    <path d="M-64 -12 q28 -14 56 -2 q-24 16 -56 2Z"/>
-    <path d="M-20 40 q34 -12 62 4 q-30 14 -62 -4Z"/>
-    <path d="M10 -58 q26 -6 44 6 q-22 12 -44 -6Z"/>
-    <path d="M-56 22 q24 -10 44 2 q-22 12 -44 -2Z"/>
-  </g>
-  <!-- terminator: only a thin crescent of night, so the disc stays readable -->
-  <circle r="70" fill="#02040F" opacity=".72" clip-path="inset(0 0 0 82%)"/>
-  <circle r="70" fill="none" stroke="#8FD8FF" stroke-width="2.4" opacity=".7"/>
+  <circle r="58" fill="none" stroke="#9FE2FF" stroke-width="2.2" opacity=".7"/>
 </g>
 
-<!-- ── lunar surface ── -->
+<!-- ── the Moon: a clean, close horizon so the place is never in doubt ── -->
 <g>
-  <!-- far ridge -->
-  <path d="M0 392 L54 372 L104 390 L150 366 L206 388 L252 370 L306 392 L358 374 L400 390 L400 420 L0 420Z"
-        fill="#2A2934" opacity=".9"/>
-  <!-- main plain -->
-  <path d="M0 418 C70 402 140 412 200 404 C266 396 330 410 400 400 L400 620 L0 620Z" fill="url(#ground2)"/>
-  <path d="M0 418 C70 402 140 412 200 404 C266 396 330 410 400 400 L400 470 L0 470Z" fill="url(#regolith)" opacity=".55"/>
-  <!-- craters, each a lit rim and a shadowed bowl -->
+  <!-- distant hills against black -->
+  <path d="M0 352 L46 330 L92 350 L140 324 L188 348 L238 326 L292 350 L342 330 L400 348 L400 380 L0 380Z"
+        fill="#232230"/>
+  <!-- the plain, curving away -->
+  <path d="M-20 402 Q200 356 420 402 L420 620 L-20 620Z" fill="url(#ground)"/>
+  <!-- horizon rim light -->
+  <path d="M-20 402 Q200 356 420 402" fill="none" stroke="#F2EFF4" stroke-width="3" opacity=".75"/>
+  <!-- three big craters, each a shadowed bowl with a lit far rim -->
   <g>
-    <ellipse cx="86"  cy="486" rx="54" ry="17" fill="#14131A" opacity=".8"/>
-    <ellipse cx="86"  cy="482" rx="54" ry="17" fill="none" stroke="#C9C6CE" stroke-width="2.6" opacity=".55"/>
-    <ellipse cx="300" cy="530" rx="72" ry="22" fill="#14131A" opacity=".75"/>
-    <ellipse cx="300" cy="525" rx="72" ry="22" fill="none" stroke="#C9C6CE" stroke-width="3" opacity=".5"/>
-    <ellipse cx="176" cy="590" rx="44" ry="14" fill="#101018" opacity=".7"/>
-    <ellipse cx="176" cy="586" rx="44" ry="14" fill="none" stroke="#B8B5BE" stroke-width="2.2" opacity=".45"/>
-    <ellipse cx="372" cy="452" rx="30" ry="10" fill="#15141C" opacity=".7"/>
-  </g>
-  <!-- scattered rocks with long shadows -->
-  <g>
-    <ellipse cx="52" cy="556" rx="17" ry="5" fill="#0B0B10" opacity=".85"/>
-    <path d="M40 556 q6 -16 16 -14 q12 2 8 14Z" fill="#8E8B97"/>
-    <ellipse cx="246" cy="470" rx="11" ry="3.4" fill="#0B0B10" opacity=".8"/>
-    <path d="M238 470 q4 -11 10 -9 q8 2 5 9Z" fill="#9C99A4"/>
+    <ellipse cx="74"  cy="468" rx="76" ry="23" fill="#121119"/>
+    <path d="M-2 468 a76 23 0 0 1 152 0" fill="none" stroke="#DFDCE4" stroke-width="3.4" opacity=".6"/>
+    <ellipse cx="74"  cy="464" rx="62" ry="17" fill="#26252F" opacity=".8"/>
+
+    <ellipse cx="316" cy="524" rx="96" ry="29" fill="#0F0E15"/>
+    <path d="M220 524 a96 29 0 0 1 192 0" fill="none" stroke="#E6E3EA" stroke-width="3.8" opacity=".55"/>
+    <ellipse cx="316" cy="519" rx="78" ry="21" fill="#232230" opacity=".8"/>
+
+    <ellipse cx="150" cy="586" rx="66" ry="20" fill="#0D0C12"/>
+    <path d="M84 586 a66 20 0 0 1 132 0" fill="none" stroke="#D6D3DB" stroke-width="3" opacity=".5"/>
   </g>
 </g>
 
-<!-- ── the lander, just above contact ── -->
-<g transform="translate(228 372) scale(1.08)">
-  <!-- descent plume onto the surface -->
-  <g transform="translate(0 62)">
-    <path d="M-30 0 C-22 44 -12 74 0 96 C12 74 22 44 30 0Z" fill="url(#plume)"/>
-    <path d="M-13 0 C-9 34 -4 56 0 72 C4 56 9 34 13 0Z" fill="#FFFFFF" opacity=".8"/>
-  </g>
-  <!-- blown dust -->
-  <g filter="url(#kdust)" opacity=".55">
-    <ellipse cx="0" cy="164" rx="106" ry="16" fill="#CFCCD6"/>
-    <ellipse cx="-44" cy="158" rx="48" ry="11" fill="#E4E1E9" opacity=".7"/>
-    <ellipse cx="48" cy="160" rx="44" ry="10" fill="#E4E1E9" opacity=".6"/>
+<!-- earthlight wash on the plain -->
+<ellipse cx="290" cy="430" rx="190" ry="60" fill="#4FC3FF" opacity=".07" filter="url(#ksoft)"/>
+
+<!-- ── the lander, large and centred ── -->
+<g transform="translate(196 340) scale(1.5)">
+  <!-- shadow cast left, away from the sun -->
+  <ellipse cx="-26" cy="98" rx="82" ry="13" fill="#08070D" opacity=".85"/>
+
+  <!-- dust skirt -->
+  <g filter="url(#kdust)" opacity=".45">
+    <ellipse cx="0" cy="100" rx="96" ry="12" fill="#D8D5DF"/>
   </g>
 
-  <!-- landing legs -->
-  <g stroke="#AEB5C4" stroke-width="4.4" stroke-linecap="round" fill="none">
-    <path d="M-20 30 L-58 92"/><path d="M20 30 L58 92"/>
-    <path d="M-10 34 L-28 94"/><path d="M10 34 L28 94"/>
-  </g>
-  <g fill="#D3D9E4">
-    <ellipse cx="-58" cy="95" rx="13" ry="4.6"/><ellipse cx="58" cy="95" rx="13" ry="4.6"/>
-    <ellipse cx="-28" cy="97" rx="11" ry="4"/>  <ellipse cx="28" cy="97" rx="11" ry="4"/>
+  <!-- descent plume, short: it has touched down -->
+  <g transform="translate(0 58)">
+    <path d="M-16 0 C-12 20 -6 32 0 40 C6 32 12 20 16 0Z" fill="url(#plume)"/>
   </g>
 
-  <!-- descent stage: gold foil drum -->
-  <path d="M-42 -4 L42 -4 L34 36 L-34 36Z" fill="url(#foil)"/>
-  <!-- crumple in the blanket -->
-  <g stroke="#4A3306" stroke-width="1.3" opacity=".5">
-    <path d="M-30 -4 L-24 36"/><path d="M-12 -4 L-9 36"/><path d="M8 -4 L6 36"/><path d="M26 -4 L21 36"/>
+  <!-- legs: four, splayed, with round pads -->
+  <g stroke="#B6BDCB" stroke-width="4.6" stroke-linecap="round" fill="none">
+    <path d="M-26 26 L-62 88"/><path d="M26 26 L62 88"/>
+    <path d="M-12 30 L-30 90"/><path d="M12 30 L30 90"/>
   </g>
-  <path d="M-42 -4 L42 -4 L40 2 L-40 2Z" fill="#FFF0B8" opacity=".55"/>
+  <!-- strut bracing -->
+  <g stroke="#8E96A6" stroke-width="2.4" fill="none" opacity=".85">
+    <path d="M-44 58 L-20 58"/><path d="M44 58 L20 58"/>
+  </g>
+  <g fill="#DCE2ED">
+    <ellipse cx="-62" cy="91" rx="14" ry="5"/><ellipse cx="62" cy="91" rx="14" ry="5"/>
+    <ellipse cx="-30" cy="93" rx="12" ry="4.4"/><ellipse cx="30" cy="93" rx="12" ry="4.4"/>
+  </g>
+
+  <!-- descent stage: broad gold-blanketed drum -->
+  <path d="M-50 -2 L50 -2 L40 40 L-40 40Z" fill="url(#foil)"/>
+  <path d="M-50 -2 L50 -2 L48 5 L-48 5Z" fill="#FFF2C4" opacity=".6"/>
+  <g stroke="#4A3306" stroke-width="1.4" opacity=".45">
+    <path d="M-34 -2 L-28 40"/><path d="M-14 -2 L-11 40"/><path d="M10 -2 L8 40"/><path d="M32 -2 L26 40"/>
+  </g>
   <!-- engine bell -->
-  <path d="M-14 36 L14 36 L9 60 L-9 60Z" fill="url(#metal)"/>
-  <ellipse cx="0" cy="60" rx="9" ry="3.4" fill="#0B0E16"/>
+  <path d="M-15 40 L15 40 L10 60 L-10 60Z" fill="url(#metal)"/>
+  <ellipse cx="0" cy="60" rx="10" ry="3.6" fill="#0A0D15"/>
 
-  <!-- ascent stage: pressurised cabin, canted, with a girdle of tankage -->
-  <circle cx="0" cy="-36" r="31" fill="url(#metal)"/>
-  <circle cx="0" cy="-36" r="31" fill="#0A0D14" opacity=".42" clip-path="inset(0 0 0 62%)"/>
-  <!-- panel seams, so it reads as built rather than as a ball -->
-  <g fill="none" stroke="#2B303C" stroke-width="1.5" opacity=".65">
-    <path d="M-31 -36 a31 31 0 0 0 62 0"/>
-    <path d="M-22 -58 a40 40 0 0 0 0 44"/>
-    <path d="M22 -58 a40 40 0 0 1 0 44"/>
+  <!-- ascent stage: cabin, clearly a machine -->
+  <circle cx="0" cy="-38" r="34" fill="url(#metal)"/>
+  <circle cx="0" cy="-38" r="34" fill="#0A0D14" opacity=".4" clip-path="inset(0 0 0 64%)"/>
+  <g fill="none" stroke="#2B303C" stroke-width="1.5" opacity=".6">
+    <path d="M-34 -38 a34 34 0 0 0 68 0"/><path d="M-24 -62 a44 44 0 0 0 0 48"/>
   </g>
   <!-- equipment girdle -->
-  <path d="M-31 -30 a31 31 0 0 0 62 0 l0 7 a31 31 0 0 1 -62 0Z" fill="#5A6274"/>
-  <path d="M-31 -30 a31 31 0 0 0 62 0" fill="none" stroke="#C7CEDB" stroke-width="1.6" opacity=".7"/>
-  <!-- small forward-canted viewport, low and off the centreline -->
-  <g transform="translate(-9 -46) rotate(-18)">
-    <rect x="-9" y="-6" width="18" height="12" rx="3" fill="#050A16"/>
-    <rect x="-9" y="-6" width="18" height="12" rx="3" fill="none" stroke="#C7CEDB" stroke-width="2.4"/>
-    <path d="M-7 -4 L1 -4" stroke="#8FD8FF" stroke-width="2" opacity=".8" stroke-linecap="round"/>
+  <path d="M-34 -32 a34 34 0 0 0 68 0 l0 8 a34 34 0 0 1 -68 0Z" fill="#626B7E"/>
+  <path d="M-34 -32 a34 34 0 0 0 68 0" fill="none" stroke="#D2D8E4" stroke-width="1.8" opacity=".75"/>
+  <!-- viewport -->
+  <g transform="translate(-10 -48) rotate(-16)">
+    <rect x="-10" y="-6.5" width="20" height="13" rx="3" fill="#04091A"/>
+    <rect x="-10" y="-6.5" width="20" height="13" rx="3" fill="none" stroke="#D2D8E4" stroke-width="2.6"/>
+    <path d="M-7.5 -4 L1 -4" stroke="#9FE2FF" stroke-width="2.2" opacity=".85" stroke-linecap="round"/>
   </g>
-  <!-- docking probe on top -->
-  <g stroke="#C7CEDB" stroke-width="3" stroke-linecap="round">
-    <path d="M0 -67 L0 -84"/>
-  </g>
-  <path d="M-9 -84 L9 -84 L4 -92 L-4 -92Z" fill="#9AA3B6"/>
-  <!-- red star, on the flank -->
-  <g transform="translate(14 -24) scale(.28)">
+  <!-- docking probe -->
+  <path d="M0 -72 L0 -88" stroke="#D2D8E4" stroke-width="3.2" stroke-linecap="round"/>
+  <path d="M-10 -88 L10 -88 L5 -97 L-5 -97Z" fill="#A3ABBC"/>
+  <!-- dish antenna -->
+  <path d="M24 -60 L38 -78" stroke="#D2D8E4" stroke-width="2.4" stroke-linecap="round"/>
+  <ellipse cx="40" cy="-81" rx="9" ry="5" fill="none" stroke="#D2D8E4" stroke-width="2.2" transform="rotate(-34 40 -81)"/>
+  <!-- red star -->
+  <g transform="translate(17 -24) scale(.3)">
     <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z" fill="#E01020"/>
   </g>
-  <!-- whip antenna -->
-  <g stroke="#C7CEDB" stroke-width="2.2" stroke-linecap="round">
-    <path d="M22 -58 L36 -78"/>
-  </g>
-  <circle cx="37" cy="-80" r="3.4" fill="none" stroke="#C7CEDB" stroke-width="2"/>
-  <!-- rim light from Earth, left side -->
-  <path d="M-32 -36 a32 32 0 0 1 14 -27" fill="none" stroke="#8FD8FF" stroke-width="3" opacity=".7" filter="url(#kglow)"/>
+  <!-- earthlight rim on the shadow side -->
+  <path d="M-34 -38 a34 34 0 0 1 15 -29" fill="none" stroke="#9FE2FF" stroke-width="3" opacity=".65" filter="url(#kglow)"/>
 </g>
 
-<!-- earthlight wash across the plain -->
-<ellipse cx="150" cy="470" rx="200" ry="70" fill="#4FC3FF" opacity=".07" filter="url(#ksoft)"/>
-
-<!-- printed grain -->
 <rect width="400" height="620" filter="url(#grain)" opacity=".05" style="mix-blend-mode:overlay"/>
 <rect x="3" y="3" width="394" height="614" fill="none" stroke="#E0A82A" stroke-width="2.5" opacity=".45"/>
 </svg>

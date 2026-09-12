@@ -163,11 +163,17 @@
     <path d="M-8 -64 L-8 -98"/><path d="M8 -64 L8 -84"/>
   </g>
   <circle cx="-8" cy="-100" r="3.4" fill="#FF3B30"/>
-  <!-- red star on the sail -->
-  <g transform="translate(0 -38) scale(.4)">
-    <path d="M0 -30 L8.8 -9.3 31.5 -9.3 13.2 3.6 20.1 25.2 0 12 -20.1 25.2 -13.2 3.6 -31.5 -9.3 -8.8 -9.3Z"
-          fill="#E01020" stroke="#FFD23F" stroke-width="2.5"/>
+  <!-- national band on the sail: blue / white / red / white / blue -->
+  <g transform="translate(0 -40)">
+    <rect x="-19" y="-13" width="38" height="4"   fill="#0E4A9C"/>
+    <rect x="-19" y="-9"  width="38" height="2.4" fill="#F2F4F8"/>
+    <rect x="-19" y="-6.6" width="38" height="11" fill="#D4152A"/>
+    <rect x="-19" y="4.4" width="38" height="2.4" fill="#F2F4F8"/>
+    <rect x="-19" y="6.8" width="38" height="4"   fill="#0E4A9C"/>
   </g>
+  <!-- hull number -->
+  <text x="-86" y="14" font-family="Helvetica,Arial,sans-serif" font-size="13" font-weight="700"
+        fill="#D6DCE8" opacity=".8" letter-spacing="1.5">815</text>
   <!-- open missile hatch, aft -->
   <ellipse cx="74" cy="2" rx="23" ry="8" fill="#04070E"/>
   <ellipse cx="74" cy="2" rx="23" ry="8" fill="none" stroke="#98A0B0" stroke-width="2.2"/>
