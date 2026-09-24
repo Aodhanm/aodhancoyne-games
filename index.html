@@ -203,6 +203,10 @@
   box-shadow:inset 0 0 44px rgba(0,0,0,.95), inset 0 0 90px -30px var(--hue);
  }
  .screen img{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;object-fit:cover}
+ /* in fullscreen the glass IS the display: drop the cabinet aspect and the
+    rounded corners, or the game sits in a 4:3 hole with bars beside it */
+ .screen:fullscreen{aspect-ratio:auto;width:100%;height:100%;border:0;border-radius:0;box-shadow:none}
+ .screen:-webkit-full-screen{aspect-ratio:auto;width:100%;height:100%;border:0;border-radius:0}
  /* the screen runs the real game from load; the prompt just takes focus */
  .cab.playing .coin{display:none}
  /* The games expect a desktop-sized viewport. Give the iframe a full logical
@@ -1058,11 +1062,25 @@
   if(!f) return;
   var r=screen.getBoundingClientRect();
   if(!r.width) return;
+
+  // FULLSCREEN: the glass is the whole display, so hand the game the real
+  // viewport at scale 1. Scaling a fixed 960x720 into it is what put black
+  // bars down both sides - "fullscreen" that was not full screen.
+  var fs = document.fullscreenElement || document.webkitFullscreenElement;
+  if (fs && (fs === screen || fs.contains(screen))) {
+   screen.style.setProperty('--vw', Math.round(r.width)+'px');
+   screen.style.setProperty('--vh', Math.round(r.height)+'px');
+   screen.style.setProperty('--fit', 1);
+   f.style.left = '0px'; f.style.top = '0px';
+   return;
+  }
+
+  // in the cabinet: a full logical resolution scaled down into the glass, so
+  // the game is never handed a viewport too small to lay itself out in
   var s=Math.min(r.width/VW, r.height/VH);
   screen.style.setProperty('--vw', VW+'px');
   screen.style.setProperty('--vh', VH+'px');
   screen.style.setProperty('--fit', s);
-  // centre the scaled frame inside the glass
   f.style.left = Math.round((r.width  - VW*s)/2) + 'px';
   f.style.top  = Math.round((r.height - VH*s)/2) + 'px';
  }
