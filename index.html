@@ -104,13 +104,18 @@
  /* ───────────────────────── cabinets ───────────────────────── */
  .hall{
   position:relative;z-index:3;
-  display:flex;justify-content:center;align-items:flex-end;gap:clamp(32px,11vw,190px);
-  flex-wrap:wrap; padding:34px 22px 92px; max-width:1560px; margin:0 auto;
+  display:flex;justify-content:center;align-items:flex-end;
+  /* THREE machines have to stand in ONE rank. The gap and the cabinet width
+     are both cut from the viewport so that 3W + 2G always fits: at 26vw and
+     4.5vw that is .87vw, which leaves room for the padding at any width worth
+     showing a rank at. They only break into rows on a phone. */
+  gap:clamp(12px,4.5vw,150px);
+  flex-wrap:nowrap; padding:34px 22px 92px; max-width:1560px; margin:0 auto;
  }
  .cab{
   --hue:var(--neon-c);
   --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
-  position:relative; width:min(262px,76vw); flex:0 1 262px;
+  position:relative; width:clamp(132px,26vw,262px); flex:0 0 auto;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
@@ -135,6 +140,11 @@
  .cab.lit::after{opacity:.42}
  @media(prefers-reduced-motion:reduce){ .cab{transition:none} .cab.lit.left,.cab.lit.right{transform:none} }
  @media(max-width:900px){ .cab.left,.cab.right{transform:none} }
+ /* below this a rank of three is too small to read, so let them stack */
+ @media(max-width:620px){
+  .hall{flex-wrap:wrap;gap:46px}
+  .cab{width:min(300px,84vw)}
+ }
 
  /* ── marquee: backlit plastic in a housing that overhangs the cabinet face ── */
  .marquee{
