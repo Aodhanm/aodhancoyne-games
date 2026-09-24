@@ -426,6 +426,8 @@
  .cab.dprk{--hue:#FFD23F; --tmold:#2A2F3C}
  .cab.kedr .art img{object-position:50% 46%}
  .cab.dprk .art img{object-position:50% 62%}
+ .cab.dogh{--hue:#E8A33D; --tmold:#C6CCD8}
+ .cab.dogh .art img{object-position:50% 47%}
 
  /* ───────────────────────── chrome ───────────────────────── */
  .rail{
@@ -602,7 +604,7 @@
 
  <main class="hall" id="hall">
 
-  <article class="cab kedr left">
+  <article class="cab kedr left" data-snd="snd-kedr">
    <div class="marquee"><div class="glass"><img src="assets/marquee-kedr.svg" alt="Kedr · Лунный корабль · Lunar Lander"></div></div>
    <div class="bezel">
     <div class="screen">
@@ -627,7 +629,7 @@
     <div class="kick"></div>
   </article>
 
-  <article class="cab dprk right">
+  <article class="cab dprk" data-snd="snd-dprk">
    <div class="marquee"><div class="glass"><img src="assets/marquee-missile.svg" alt="조선인민 미사일 자위 모의훈련 · Missile Self-Defence Simulator"></div></div>
    <div class="bezel">
     <div class="screen">
@@ -652,10 +654,35 @@
     <div class="kick"></div>
   </article>
 
+  <article class="cab dogh right">
+   <div class="marquee"><div class="glass"><img src="assets/marquee-doghole.svg" alt="Doghole · Barely room for a dog to turn around"></div></div>
+   <div class="bezel">
+    <div class="screen">
+     
+     <img class="still" src="assets/still-doghole.jpg" alt="" width="960" height="720" fetchpriority="low" decoding="async">
+     <button class="coin" data-src="https://aodhanm.github.io/doghole/" aria-label="Play Doghole">
+      
+     </button>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="lever"><span class="slot"></span><span class="arm"></span><span class="grip"></span><i>HELM</i></div>
+    <div class="sqbtns"><i class="rot"></i><i class="rot"></i><i class="abort"></i></div>
+    <div class="keys">&larr;&rarr; helm<br>&uarr; make sail<br>space pass a line</div>
+    <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
+   </div>
+   <div class="body">
+     <div class="art"><img src="assets/art-doghole.svg" alt="Cabinet art: a lumber schooner running in through the Golden Gate in fog, 1905"></div>
+     <div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div>
+    </div>
+   <div class="plate"><a class="go" href="https://aodhanm.github.io/doghole/" target="_blank" rel="noopener">Play full speed &#8599;</a><button type="button" data-share="https://aodhanm.github.io/doghole/" data-title="Doghole"><span>Share</span></button><a href="https://github.com/Aodhanm/doghole" target="_blank" rel="noopener">Source</a></div>
+    <div class="kick"></div>
+  </article>
+
  </main>
 
  <div class="rail">
-  <div>Play full speed: <a href="https://aodhanm.github.io/KDER/" target="_blank" rel="noopener">Kedr</a> &middot; <a href="https://aodhanm.github.io/nk-missile-game/" target="_blank" rel="noopener">Missile</a> &middot; source on <a href="https://github.com/Aodhanm">GitHub</a></div>
+  <div>Play full speed: <a href="https://aodhanm.github.io/KDER/" target="_blank" rel="noopener">Kedr</a> &middot; <a href="https://aodhanm.github.io/nk-missile-game/" target="_blank" rel="noopener">Missile</a> &middot; <a href="https://aodhanm.github.io/doghole/" target="_blank" rel="noopener">Doghole</a> &middot; source on <a href="https://github.com/Aodhanm">GitHub</a></div>
   <div>Built by Aodhan Coyne &middot; <a href="https://aodhancoyne.com/">aodhancoyne.com</a></div>
  </div>
 </div>
@@ -762,7 +789,7 @@
   spk.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
   if(muted){
    room.pause();
-   ['snd-kedr','snd-dprk'].forEach(function(id){
+   ['snd-kedr','snd-dprk','snd-dogh'].forEach(function(id){
     var a = document.getElementById(id); if(a){ a.pause(); a.currentTime = 0; }
    });
   } else {
@@ -777,7 +804,7 @@
   hush:    function(){ clearInterval(room._fade); room.pause(); },
   hushAll: function(){
    clearInterval(room._fade); room.pause();
-   ['snd-kedr','snd-dprk'].forEach(function(id){
+   ['snd-kedr','snd-dprk','snd-dogh'].forEach(function(id){
     var a = document.getElementById(id);
     if(a){ clearInterval(a._fade); a.pause(); a.currentTime = 0; }
    });
@@ -797,14 +824,15 @@
  var hall = document.getElementById('hall'), current = null;
 
  function sndFor(cab){
-  return cab ? document.getElementById(cab.classList.contains('kedr') ? 'snd-kedr' : 'snd-dprk') : null;
+  if(!cab) return null;
+  var id = cab.getAttribute('data-snd');            // a cabinet may have none
+  return id ? document.getElementById(id) : null;
  }
 
  // stop every hover track outright; used before starting anything else
  function hushTracks(){
-  ['snd-kedr','snd-dprk'].forEach(function(id){
-   var a = document.getElementById(id);
-   if(a){ clearInterval(a._fade); a.pause(); a.currentTime = 0; }
+  document.querySelectorAll('audio[id^="snd-"]').forEach(function(a){
+   clearInterval(a._fade); a.pause(); a.currentTime = 0;
   });
  }
 

@@ -1,0 +1,637 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 190" width="760" height="190" role="img"
+     aria-label="Marquee: Doghole. A two-masted lumber schooner moored under the chute at Fort Ross Cove in rain and fog, with the Russian stockade on the bluff above">
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#05080C"/><stop offset=".30" stop-color="#0E1821"/>
+    <stop offset=".58" stop-color="#1A2833"/><stop offset=".78" stop-color="#22323D"/>
+    <stop offset="1" stop-color="#0A121A"/>
+  </linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#26363F"/><stop offset=".45" stop-color="#1A2833"/>
+    <stop offset="1" stop-color="#0B141C"/>
+  </linearGradient>
+  <linearGradient id="cliff" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1B2831"/><stop offset=".55" stop-color="#121C24"/>
+    <stop offset="1" stop-color="#090F15"/>
+  </linearGradient>
+  <linearGradient id="hullG" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#2E3D4A"/><stop offset=".34" stop-color="#1B2733"/>
+    <stop offset=".72" stop-color="#0D141C"/><stop offset="1" stop-color="#05090E"/>
+  </linearGradient>
+  <linearGradient id="deckload" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F2A63C"/><stop offset=".5" stop-color="#C8781F"/>
+    <stop offset="1" stop-color="#8A5214"/>
+  </linearGradient>
+  <linearGradient id="title" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0"   stop-color="#FFE9B0"/>
+    <stop offset=".34" stop-color="#F2C263"/>
+    <stop offset=".62" stop-color="#C98A2E"/>
+    <stop offset=".84" stop-color="#9A5F1B"/>
+    <stop offset="1"   stop-color="#7A4712"/>
+  </linearGradient>
+  <radialGradient id="lamp" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#FFE6B4" stop-opacity=".95"/>
+    <stop offset=".35" stop-color="#FFD48A" stop-opacity=".5"/>
+    <stop offset="1" stop-color="#FFD48A" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="fogb" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#A7BAC8" stop-opacity=".34"/>
+    <stop offset="1" stop-color="#A7BAC8" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="glowsm" cx=".5" cy=".5" r=".5">
+    <stop offset="0" stop-color="#FFC978" stop-opacity=".8"/>
+    <stop offset="1" stop-color="#FFC978" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="planks" width="6" height="3" patternUnits="userSpaceOnUse">
+    <rect width="6" height="3" fill="#A35F18"/>
+    <rect width="6" height=".7" fill="#6B3D0E" opacity=".7"/>
+  </pattern>
+  <clipPath id="frame"><rect x="0" y="0" width="760" height="190" rx="8"/></clipPath>
+  <clipPath id="seaClip"><rect x="0" y="96" width="760" height="94"/></clipPath>
+</defs>
+
+<g clip-path="url(#frame)">
+  <rect width="760" height="190" fill="url(#sky)"/>
+
+  <!-- ================= THE BLUFF, and Fort Ross standing on it ========== -->
+  <g>
+    <path d="M760 110 L716 100 L676 92 L642 96 L610 88 L578 84 L546 88 L514 96 L484 92 L466 98
+             L466 78 L500 62 L540 54 L584 48 L634 50 L688 58 L732 68 L760 74 Z" fill="url(#cliff)"/>
+    <path d="M466 78 L500 62 L540 54 L584 48 L634 50 L688 58 L732 68 L760 74 L760 66
+             L700 50 L636 42 L580 40 L534 46 L494 56 L466 70 Z" fill="#1F2D37" opacity=".85"/>
+    <!-- strata in the cliff face -->
+    <g stroke="#26333D" stroke-width=".8" opacity=".5">
+      <path d="M470 100 L760 114"/><path d="M474 106 L760 120"/><path d="M482 112 L700 124"/>
+    </g>
+    <!-- gullies cut down it -->
+    <g stroke="#0A1017" stroke-width="1.2" opacity=".75">
+      <path d="M520 94 l-4 12"/><path d="M566 86 l3 14"/><path d="M614 90 l-3 13"/>
+      <path d="M664 92 l4 13"/><path d="M712 99 l-3 12"/>
+    </g>
+    <!-- talus at the foot -->
+    <g fill="#0D151C">
+      <path d="M486 106 l8-6 9 5 -4 6 z"/><path d="M540 100 l7-5 8 4 -3 6 z"/>
+      <path d="M598 104 l7-5 9 5 -4 6 z"/><path d="M676 105 l8-6 9 6 -4 6 z"/>
+    </g>
+    <!-- the timber coming down to the skyline -->
+    <g fill="#0F1A18">
+      <ellipse cx="486" cy="60" rx="10" ry="12"/><ellipse cx="502" cy="52" rx="8" ry="10"/>
+      <ellipse cx="700" cy="44" rx="12" ry="14"/><ellipse cx="722" cy="52" rx="10" ry="12"/>
+      <ellipse cx="742" cy="44" rx="11" ry="13"/><ellipse cx="674" cy="52" rx="9" ry="11"/>
+    </g>
+
+    <!-- ===================== FORT ROSS =================================
+         Drawn to what the place actually is, not a generic stockade:
+         a redwood palisade of about 300 by 250 feet, with TWO MULTI-SIDED
+         BLOCKHOUSES AT DIAGONALLY OPPOSITE CORNERS - a SEVEN-sided one and
+         an EIGHT-sided one, which is the thing that makes Fort Ross look
+         like Fort Ross - the CHAPEL with its two towers, a square open
+         BELFRY and a CUPOLA, each under an Orthodox cross; the Rotchev
+         house, the two-storey officials' quarters with their gallery, the
+         magazin, the flagpole, and the cemetery on the hill outside. -->
+    <g>
+      <!-- the compound floor -->
+      <path d="M498 92 L512 62 L664 58 L676 88 Z" fill="#1C2830"/>
+
+      <!-- the FAR wall first, so everything inside stands against it -->
+      <rect x="510" y="58" width="156" height="9" fill="#20303A" stroke="#3A4B55" stroke-width=".8"/>
+
+      <!-- ============ THE BUILDINGS, INSIDE THE COMPOUND =================
+           They are drawn HERE, before the seaward wall, so the palisade
+           passes IN FRONT of their lower storeys and only roofs and upper
+           walls show over it. That is what you see from the cove. -->
+
+      <!-- THE CHAPEL: body, a square open BELFRY at one end and a CUPOLA at
+           the other, each under a three-bar cross -->
+      <g>
+        <rect x="596" y="60" width="34" height="20" fill="#2A3A44"/>
+        <path d="M594 60 l19-8 19 8 z" fill="#35474F"/>
+        <g fill="#0D161D"><rect x="601" y="66" width="3.6" height="5"/><rect x="620" y="66" width="3.6" height="5"/></g>
+        <!-- the belfry, open arches under a pyramid roof -->
+        <rect x="598" y="48" width="11" height="13" fill="#2F4049"/>
+        <g fill="#0B1219"><rect x="600" y="51" width="3" height="6"/><rect x="604.6" y="51" width="3" height="6"/></g>
+        <path d="M596 48 l7.5-9 7.5 9 z" fill="#3A4C55"/>
+        <g stroke="#9FB2BF" stroke-width=".7" fill="none" stroke-linecap="round" opacity=".9">
+          <path d="M603.5 39 v-5.6"/><path d="M602 36.4 h3"/><path d="M601.4 34.8 h4.2"/>
+          <path d="M602 38.4 l3 -.9"/>
+        </g>
+        <!-- the cupola over the other end -->
+        <rect x="619" y="51" width="9" height="10" fill="#2F4049"/>
+        <path d="M618 51 q5.5 -10 11 0 z" fill="#3E5159"/>
+        <g stroke="#9FB2BF" stroke-width=".65" fill="none" stroke-linecap="round" opacity=".9">
+          <path d="M623.5 44 v-5"/><path d="M622.2 41.6 h2.6"/><path d="M621.7 40.2 h3.6"/>
+          <path d="M622.2 43.2 l2.6 -.8"/>
+        </g>
+      </g>
+
+      <!-- the Rotchev house: plain, gabled, shingled, the one that survives -->
+      <g>
+        <rect x="524" y="62" width="30" height="18" fill="#2A3A44"/>
+        <path d="M522 62 l17-7 17 7 z" fill="#35474F"/>
+        <g stroke="#1B2831" stroke-width=".5"><path d="M522 62 h34"/></g>
+        <g fill="#FFCE8C" opacity=".9">
+          <rect x="528" y="66" width="3.4" height="3.4"/><rect x="536" y="66" width="3.4" height="3.4"/>
+          <rect x="544" y="66" width="3.4" height="3.4"/>
+        </g>
+      </g>
+
+      <!-- the officials' quarters, two storeys with a gallery along the front -->
+      <g>
+        <rect x="558" y="59" width="32" height="21" fill="#26363F"/>
+        <path d="M556 59 l18-8 18 8 z" fill="#32444D"/>
+        <rect x="558" y="69" width="32" height="2" fill="#3C4E58"/>
+        <g stroke="#3C4E58" stroke-width=".8">
+          <path d="M561 71 v9"/><path d="M569 71 v9"/><path d="M577 71 v9"/><path d="M585 71 v9"/>
+        </g>
+        <g fill="#FFCE8C" opacity=".85">
+          <rect x="562" y="62" width="3" height="3"/><rect x="570" y="62" width="3" height="3"/>
+          <rect x="578" y="62" width="3" height="3"/>
+        </g>
+      </g>
+
+      <!-- the flagpole, over the compound -->
+      <path d="M640 80 v-26" stroke="#41535E" stroke-width="1"/>
+      <path d="M640 54 l7 3 -7 3 z" fill="#5E7280" opacity=".7"/>
+
+      <!-- ============ THE SEAWARD WALL, IN FRONT OF THEM ================= -->
+      <rect x="498" y="72" width="180" height="20" fill="#20303A" stroke="#3A4B55" stroke-width=".8"/>
+      <g stroke="#3A4A55" stroke-width=".55" opacity=".8">
+        <path d="M500 72 v20"/><path d="M508 72 v20"/><path d="M516 72 v20"/><path d="M524 72 v20"/><path d="M532 72 v20"/><path d="M540 72 v20"/><path d="M548 72 v20"/><path d="M556 72 v20"/><path d="M564 72 v20"/><path d="M572 72 v20"/><path d="M580 72 v20"/><path d="M588 72 v20"/><path d="M596 72 v20"/><path d="M604 72 v20"/><path d="M612 72 v20"/><path d="M620 72 v20"/><path d="M628 72 v20"/><path d="M636 72 v20"/><path d="M644 72 v20"/><path d="M652 72 v20"/><path d="M660 72 v20"/><path d="M668 72 v20"/><path d="M676 72 v20"/>
+      </g>
+      <!-- the pointed heads of the logs along the top of the seaward wall -->
+      <g fill="#2A3B46" opacity=".8">
+        <path d="M500 72 l2-3 2 3 z"/><path d="M516 72 l2-3 2 3 z"/><path d="M532 72 l2-3 2 3 z"/><path d="M548 72 l2-3 2 3 z"/><path d="M564 72 l2-3 2 3 z"/><path d="M580 72 l2-3 2 3 z"/><path d="M596 72 l2-3 2 3 z"/><path d="M612 72 l2-3 2 3 z"/><path d="M628 72 l2-3 2 3 z"/><path d="M644 72 l2-3 2 3 z"/><path d="M660 72 l2-3 2 3 z"/>
+      </g>
+      <!-- the seaward gate, standing open -->
+      <rect x="580" y="76" width="14" height="16" fill="#0E171E"/>
+
+      <!-- ===================== THE BASTIONS ==========================
+           Two storeys of squared redwood logs: a SQUARE lower storey, a
+           MULTI-SIDED upper storey overhanging it, and a TALL faceted roof
+           whose EAVES SIT EXACTLY ON THE WALL HEAD, overhanging it a
+           little on each side, as a roof does. They stand out from the
+           corners so they can rake the walls. -->
+
+      <!-- north-west bastion -->
+      <g>
+        <rect x="496" y="70" width="24" height="22" fill="#22323C"/>
+        <g stroke="#3B4E58" stroke-width=".55">
+          <path d="M496 74 h24"/><path d="M496 78 h24"/><path d="M496 82 h24"/><path d="M496 86 h24"/>
+        </g>
+        <g fill="#0B1219"><rect x="501" y="79" width="4" height="4"/><rect x="511" y="79" width="4" height="4"/></g>
+        <!-- the overhanging upper storey: flat head at y=58 -->
+        <path d="M491 70 L493 58 L519 58 L521 70 Z" fill="#2A3B45"
+              stroke="#465B66" stroke-width=".7"/>
+        <g stroke="#41555F" stroke-width=".6" opacity=".9">
+          <path d="M499 58 v12"/><path d="M513 58 v12"/>
+        </g>
+        <g stroke="#3B4E58" stroke-width=".5">
+          <path d="M492 66 h28"/><path d="M493 62 h26"/>
+        </g>
+        <g fill="#0B1219">
+          <rect x="494.5" y="62.5" width="3.4" height="3.4"/><rect x="504.3" y="62.5" width="3.4" height="3.4"/>
+          <rect x="514.1" y="62.5" width="3.4" height="3.4"/>
+        </g>
+        <!-- the roof: eaves ON the wall head, apex high -->
+        <path d="M488 58 L506 32 L500 58 Z" fill="#3B4E59"/>
+        <path d="M500 58 L506 32 L512 58 Z" fill="#33454F"/>
+        <path d="M512 58 L506 32 L524 58 Z" fill="#283840"/>
+        <path d="M488 58 h36" stroke="#4E626D" stroke-width=".8"/>
+        <path d="M505 32 l1 -7 1 7 z" fill="#5B707B"/>
+      </g>
+
+      <!-- south-east bastion -->
+      <g>
+        <rect x="652" y="74" width="26" height="20" fill="#22323C"/>
+        <g stroke="#3B4E58" stroke-width=".55">
+          <path d="M652 78 h26"/><path d="M652 82 h26"/><path d="M652 86 h26"/><path d="M652 90 h26"/>
+        </g>
+        <g fill="#0B1219"><rect x="657" y="82" width="4" height="4"/><rect x="668" y="82" width="4" height="4"/></g>
+        <path d="M647 74 L649 62 L681 62 L683 74 Z" fill="#2A3B45"
+              stroke="#465B66" stroke-width=".7"/>
+        <g stroke="#41555F" stroke-width=".6" opacity=".9">
+          <path d="M657 62 v12"/><path d="M673 62 v12"/>
+        </g>
+        <g stroke="#3B4E58" stroke-width=".5">
+          <path d="M648 70 h34"/><path d="M649 66 h32"/>
+        </g>
+        <g fill="#0B1219">
+          <rect x="651" y="66.5" width="3.4" height="3.4"/><rect x="663.3" y="66.5" width="3.4" height="3.4"/>
+          <rect x="675.6" y="66.5" width="3.4" height="3.4"/>
+        </g>
+        <path d="M644 62 L665 35 L657 62 Z" fill="#3B4E59"/>
+        <path d="M657 62 L665 35 L673 62 Z" fill="#33454F"/>
+        <path d="M673 62 L665 35 L686 62 Z" fill="#283840"/>
+        <path d="M644 62 h42" stroke="#4E626D" stroke-width=".8"/>
+        <path d="M664 35 l1 -7 1 7 z" fill="#5B707B"/>
+      </g>
+
+      <ellipse cx="588" cy="72" rx="48" ry="20" fill="url(#glowsm)" opacity=".28"/>
+    </g>
+
+    <!-- the fence along the bluff edge, posts and rails both -->
+    <g stroke="#485864" stroke-width=".8" opacity=".75">
+      <path d="M472 96 L760 108"/><path d="M472 92 L760 104"/>
+      <path d="M480 89 v9"/><path d="M508 90 v9"/><path d="M536 91 v9"/><path d="M564 92 v9"/>
+      <path d="M592 93 v9"/><path d="M620 95 v9"/><path d="M648 96 v9"/><path d="M676 98 v9"/>
+      <path d="M704 99 v9"/><path d="M732 101 v9"/>
+    </g>
+
+    <!-- the yard at the chute head: stacked cordwood, the tender's hut,
+         the winch house, and a wagon -->
+    <g>
+      <g fill="url(#deckload)">
+        <rect x="490" y="92" width="16" height="5"/><rect x="510" y="93" width="16" height="5"/>
+        <rect x="490" y="86" width="14" height="5"/><rect x="512" y="87" width="14" height="5"/>
+      </g>
+      <g stroke="#6B3D0E" stroke-width=".5">
+        <path d="M490 94.5 h16"/><path d="M510 95.5 h16"/>
+      </g>
+      <rect x="532" y="84" width="14" height="10" fill="#3C4A54"/>
+      <path d="M532 84 l7-4 7 4 z" fill="#4A5A64"/>
+      <rect x="536" y="88" width="3.4" height="3.4" fill="#FFCE8C" opacity=".9"/>
+      <rect x="552" y="86" width="11" height="8" fill="#33414B"/>
+      <g stroke="#1A232B" stroke-width=".8" fill="none">
+        <circle cx="555.5" cy="90" r="2"/><circle cx="560" cy="90" r="2"/>
+      </g>
+      <g stroke="#2E3E48" stroke-width="1" fill="none">
+        <circle cx="574" cy="93" r="2.6"/><circle cx="584" cy="93" r="2.6"/>
+        <path d="M572 90 h14 v3 h-14 z" fill="#2A3843" stroke="none"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- the western point of the cove, across the water, and the open sea
+       beyond it: without this the left half is a flat horizon -->
+  <g opacity=".7">
+    <path d="M0 96 L28 86 L64 80 L96 85 L124 78 L156 83 L184 90 L206 96 Z" fill="#33434E"/>
+    <path d="M0 88 L28 80 L64 74 L96 79 L124 72 L156 77 L184 84 L206 92 L206 96 L0 96 Z"
+          fill="#3C4C58" opacity=".85"/>
+    <g fill="#26372E" opacity=".95">
+      <ellipse cx="34" cy="76" rx="7" ry="8"/><ellipse cx="72" cy="72" rx="6" ry="7"/>
+      <ellipse cx="130" cy="70" rx="7" ry="8"/><ellipse cx="166" cy="74" rx="6" ry="7"/>
+    </g>
+    <g stroke="#8CA0AE" stroke-width=".8" opacity=".35">
+      <path d="M0 95 q30 3 60 1 t60 1 t86 2"/>
+    </g>
+  </g>
+
+  <!-- a vessel standing off, waiting her turn at the chute -->
+  <g opacity=".72" transform="translate(172,126) scale(.48)">
+    <path d="M-80 0 q5 -11 24 -13 H58 q18 2 24 11 q-7 10 -24 11 H-58 q-20 -2 -26 -9 z" fill="#0B1119"/>
+    <g stroke="#2A2118" stroke-width="3"><path d="M-26 -12 v-50"/><path d="M28 -14 v-58"/></g>
+    <path d="M-24 -56 L-4 -50 L-2 -12 L-24 -12 Z" fill="#9DA8B4" opacity=".7"/>
+    <path d="M30 -64 L52 -56 L54 -12 L30 -12 Z" fill="#9DA8B4" opacity=".7"/>
+  </g>
+
+  <!-- ===================== THE SEA ===================================== -->
+  <rect x="0" y="96" width="760" height="94" fill="url(#sea)"/>
+  <g clip-path="url(#seaClip)">
+    <g stroke="#8AA1B2" stroke-width="1" opacity=".13">
+      <path d="M-20 108 q90 -5 180 0 t180 0 t180 0 t200 0"/>
+      <path d="M-20 122 q90 6 180 0 t180 0 t180 0 t200 0"/>
+      <path d="M-20 138 q90 -6 180 0 t180 0 t180 0 t200 0"/>
+      <path d="M-20 156 q90 6 180 0 t180 0 t180 0 t200 0"/>
+      <path d="M-20 174 q90 -6 180 0 t180 0 t180 0 t200 0"/>
+    </g>
+    <!-- the lamp's reflection, broken up by the swell -->
+    <g fill="#FFD48A" opacity=".35">
+      <rect x="636" y="112" width="9" height="2" rx="1"/>
+      <rect x="633" y="120" width="14" height="2" rx="1"/>
+      <rect x="637" y="128" width="8" height="1.6" rx=".8"/>
+      <rect x="631" y="136" width="16" height="2" rx="1"/>
+      <rect x="636" y="146" width="9" height="1.6" rx=".8"/>
+    </g>
+  </g>
+
+  <!-- ================== THE CHUTE, in its detail ======================== -->
+  <!-- head on the cliff at (632,104), out and down to the apron's end at
+       (398,150): the trough on three A-frames, then the swing apron, nearly
+       level, with the clapper at its end -->
+  <g>
+    <g stroke="#9FB1BF" stroke-width=".6" opacity=".4">
+      <path d="M632 96 L556 112"/><path d="M632 96 L480 134"/><path d="M632 96 L436 143"/>
+    </g>
+    <path d="M632 104 L470 138" stroke="#241C14" stroke-width="7.5" stroke-linecap="round"/>
+    <path d="M632 104 L470 138" stroke="url(#planks)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M470 138 L398 150" stroke="#241C14" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M470 138 L398 150" stroke="#C8781F" stroke-width="4.2" stroke-linecap="round"/>
+    <rect x="392" y="146" width="6" height="8" rx="1" fill="#8A5214"/>
+
+    <!-- the A-frames: legs from under the trough down onto the rock -->
+    <g stroke="#241C14" stroke-width="2.4" fill="none">
+      <path d="M591 113 l-7 17"/><path d="M591 113 l8 17"/>
+      <path d="M551 121 l-7 19"/><path d="M551 121 l8 19"/>
+      <path d="M510 130 l-6 20"/><path d="M510 130 l7 20"/>
+    </g>
+    <g stroke="#6B7C88" stroke-width=".7" opacity=".65">
+      <path d="M584 130 h15"/><path d="M544 140 h15"/><path d="M504 150 h13"/>
+    </g>
+    <!-- their feet, seated in cut-outs in the rock -->
+    <g fill="#1A242C">
+      <ellipse cx="591" cy="132" rx="12" ry="4"/><ellipse cx="551" cy="142" rx="12" ry="4"/>
+      <ellipse cx="510" cy="152" rx="11" ry="4"/>
+    </g>
+
+    <!-- a bundle running down the trough -->
+    <g transform="translate(540,124) rotate(-12)">
+      <rect x="-9" y="-2.6" width="18" height="5" rx="1.2" fill="#F2A63C"/>
+      <path d="M-4 -2.6 v5 M4 -2.6 v5" stroke="#6B3D0E" stroke-width=".7"/>
+    </g>
+
+    <!-- the lamp at the chute head, and the tender under it -->
+    <ellipse cx="636" cy="100" rx="46" ry="30" fill="url(#lamp)"/>
+    <circle cx="636" cy="100" r="2.6" fill="#FFF0CE"/>
+    <rect x="626" y="94" width="2.4" height="7" rx="1" fill="#05090E"/>
+  </g>
+
+  <!-- ================ THE SCHOONER ======================================
+       She reads as a ship or she does not read at all, and what makes a
+       hull read is DEPTH. A lumber schooner is about seven of her own
+       depths long, with a sweeping SHEER that dips amidships and lifts to
+       bow and stern, a raking stem, a square transom, and a deckload that
+       sits ON her, not instead of her. -->
+  <g transform="translate(330,158)">
+    <!-- her reflection, first, so everything sits on it -->
+    <g opacity=".12" transform="scale(1,-0.5) translate(0,-46)">
+      <path d="M-112 -6 q10 -18 34 -21 h120 q26 3 34 19 q-10 15 -34 17 h-120 q-26 -3 -34 -15 z" fill="#0B1119"/>
+      <rect x="-70" y="-34" width="132" height="22" fill="#C8781F"/>
+      <g stroke="#2A2118" stroke-width="3"><path d="M-36 -34 v-48"/><path d="M38 -34 v-56"/></g>
+    </g>
+
+    <!-- the water behind her, lit by the chute lamp, so she has a ground -->
+    <ellipse cx="6" cy="0" rx="136" ry="28" fill="#3B4E5C" opacity=".32"/>
+    <ellipse cx="10" cy="4" rx="114" ry="16" fill="#4A6070" opacity=".22"/>
+
+    <!-- ===== THE HULL: deep, with a real sheer ========================= -->
+    <path id="hullPath" d="
+        M-112 -26
+        C-98 -21, -74 -19, -44 -19
+        C-16 -19, 12 -20, 40 -22
+        C66 -24, 88 -27, 104 -32
+        L110 -34
+        C114 -28, 114 -18, 110 -9
+        C96 0, 68 6, 40 7
+        L-40 7
+        C-74 6, -100 2, -112 -4 Z" fill="#070C12"/>
+    <!-- the outline follows only what is ABOVE water. Tracing her bottom as
+         well was drawing a second pale hull under the real one. -->
+
+    <!-- the sheer strake, the brightest line on her, stem to transom -->
+    <path d="M-111 -27 C-97 -22, -73 -20, -44 -20
+             C-16 -20, 12 -21, 40 -23
+             C66 -25, 88 -28, 104 -33 L109 -35"
+          fill="none" stroke="#D3E0EA" stroke-width="2" opacity=".95"/>
+    <!-- the plank below it, then the covering board, then the boot topping -->
+    <path d="M-110 -21 C-96 -16, -72 -14, -44 -14
+             C-14 -14, 14 -15, 42 -17 C68 -19, 90 -22, 106 -27"
+          fill="none" stroke="#4A6071" stroke-width="1.2" opacity=".85"/>
+    <path d="M-111 -13 C-95 -8, -70 -6, -42 -6
+             C-12 -6, 16 -7, 44 -9 C70 -11, 92 -15, 108 -20"
+          fill="none" stroke="#31434F" stroke-width="1" opacity=".75"/>
+    <path d="M-110 -5 C-96 0, -70 4, -40 5 L40 5 C70 4, 94 0, 108 -8"
+          fill="none" stroke="#6E8B9E" stroke-width="1.6" opacity=".38"/>
+
+    <!-- the transom, raked and only just caught by the light, and the stem
+         carried on into the bowsprit instead of stopping in a plate -->
+    <path d="M-112 -26 L-119 -27 L-119 -7 L-112 -4 Z" fill="#0A1119"/>
+    <path d="M-112 -26 L-119 -27 L-119 -7" fill="none" stroke="#7E95A6"
+          stroke-width="1.1" opacity=".75"/>
+    <path d="M110 -34 C117 -33, 121 -30, 122 -26 C119 -24, 115 -23, 112 -22 Z"
+          fill="#0A1119"/>
+    <path d="M110 -34 C117 -33, 121 -30, 122 -26" fill="none" stroke="#8FA6B6"
+          stroke-width="1.1" opacity=".8"/>
+
+    <!-- the broken water at her stem and under her counter -->
+    <path d="M106 -10 q16 5 25 2 q-14 7 -27 6" fill="#E2ECF3" opacity=".35"/>
+    <path d="M-112 -2 q-15 5 -24 3 q13 6 26 3" fill="#E2ECF3" opacity=".25"/>
+
+    <!-- bulwark stanchions and the chainplates with their deadeyes -->
+    <g stroke="#2B3742" stroke-width=".9" opacity=".9">
+      <path d="M-92 -24 v6"/><path d="M-70 -21 v6"/><path d="M-48 -20 v6"/><path d="M-26 -20 v6"/>
+      <path d="M-4 -20 v6"/><path d="M18 -21 v6"/><path d="M40 -23 v6"/><path d="M62 -25 v6"/>
+      <path d="M84 -28 v6"/>
+    </g>
+    <g fill="none" stroke="#5F7484" stroke-width=".8" opacity=".8">
+      <circle cx="-58" cy="-17" r="1.7"/><circle cx="-52" cy="-17" r="1.7"/>
+      <circle cx="10" cy="-18" r="1.7"/><circle cx="16" cy="-18" r="1.7"/>
+      <circle cx="54" cy="-21" r="1.7"/><circle cx="60" cy="-22" r="1.7"/>
+    </g>
+
+    <!-- her boat, towing astern, which is the thing that gives her scale -->
+    <g transform="translate(-144,0) rotate(-4)">
+      <path d="M-12 0 q3 -5 10 -5 h9 q5 1 8 4 q-4 4 -9 4 h-9 q-6 -1 -9 -3 z"
+            fill="#101922" stroke="#97AEBE" stroke-width=".9" opacity=".95"/>
+      <path d="M-7 -2 h15" stroke="#7E93A4" stroke-width=".7"/>
+    </g>
+    <path d="M-122 -10 q-10 4 -18 7" stroke="#D6CEBA" stroke-width=".9" opacity=".6" fill="none"/>
+
+    <!-- ===== the deckload: stowed on her, not instead of her ============ -->
+    <g>
+      <g fill="url(#deckload)">
+        <rect x="-68" y="-31" width="128" height="6" rx="1"/>
+        <rect x="-58" y="-38" width="110" height="6" rx="1"/>
+        <rect x="-46" y="-45" width="86" height="6" rx="1"/>
+      </g>
+      <g stroke="#7A4712" stroke-width=".55" opacity=".85">
+        <path d="M-68 -28 h128"/><path d="M-58 -35 h110"/><path d="M-46 -42 h86"/>
+      </g>
+      <!-- the ends of the boards, catching the chute lamp -->
+      <g fill="#FFC978" opacity=".9">
+        <rect x="55" y="-30" width="5" height="4"/><rect x="47" y="-37" width="5" height="4"/>
+        <rect x="35" y="-44" width="5" height="4"/>
+      </g>
+      <!-- the lashings over the stack -->
+      <g stroke="#0A0F16" stroke-width="1.1" opacity=".85">
+        <path d="M-50 -46 l4 24"/><path d="M-8 -46 l3 25"/><path d="M30 -45 l3 24"/>
+      </g>
+    </g>
+
+    <!-- deckhouse aft, companion, wheel, windlass forward -->
+    <rect x="-100" y="-33" width="22" height="10" rx="1" fill="#212C36"/>
+    <path d="M-100 -33 l11 -5 11 5 z" fill="#2B3843"/>
+    <rect x="-96" y="-30" width="4.5" height="5" fill="#FFCE8C" opacity=".95"/>
+    <rect x="-87" y="-30" width="4.5" height="5" fill="#FFCE8C" opacity=".7"/>
+    <circle cx="-106" cy="-24" r="2" fill="none" stroke="#3A2C1D" stroke-width=".9"/>
+    <rect x="78" y="-34" width="14" height="5" rx="1.5" fill="#26313B"/>
+    <g fill="#05090E">
+      <rect x="-66" y="-30" width="2.4" height="7" rx="1.2"/>
+      <rect x="2" y="-31" width="2.4" height="7" rx="1.2"/>
+    </g>
+
+    <!-- ===== the rig ==================================================== -->
+    <!-- bowsprit and jibboom -->
+    <path d="M113 -27 L148 -37" stroke="#2A2118" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M118 -31 L146 -40" stroke="#3E3225" stroke-width="1" opacity=".8"/>
+    <path d="M118 -27 L120 -20" stroke="#2A2118" stroke-width="1.2"/>
+    <!-- masts and topmasts -->
+    <g stroke="#2A2118" stroke-width="3.6" stroke-linecap="round">
+      <path d="M-30 -32 v-66"/><path d="M34 -35 v-76"/>
+    </g>
+    <g stroke="#2A2118" stroke-width="2" stroke-linecap="round">
+      <path d="M-30 -98 v-15"/><path d="M34 -111 v-16"/>
+    </g>
+    <!-- gaffs and booms -->
+    <g stroke="#2A2118" stroke-width="2.2" stroke-linecap="round">
+      <path d="M-30 -93 L2 -83"/><path d="M-30 -32 L6 -29"/>
+      <path d="M34 -106 L72 -95"/><path d="M34 -35 L76 -31"/>
+    </g>
+    <!-- the sails, canvas that actually shows against the fog -->
+    <path d="M-30 -92 C-19 -89, -8 -86, 0 -83 C1 -64, 3 -46, 5 -30
+             C-7 -30, -19 -31, -30 -32 Z" fill="#B7C3CE" opacity=".46"/>
+    <path d="M-30 -92 C-20 -82, -25 -54, -30 -32" fill="none" stroke="#DCE6EE" stroke-width=".7" opacity=".55"/>
+    <path d="M34 -105 C48 -101, 61 -98, 71 -94 C73 -71, 74 -50, 75 -32
+             C61 -32, 47 -34, 34 -35 Z" fill="#B7C3CE" opacity=".46"/>
+    <path d="M34 -105 C46 -92, 40 -58, 34 -35" fill="none" stroke="#DCE6EE" stroke-width=".7" opacity=".55"/>
+    <!-- jib and staysail on the bowsprit -->
+    <path d="M34 -110 L146 -36 L114 -29 Z" fill="#AEBAC5" opacity=".30"/>
+    <path d="M34 -94 L114 -30 L95 -27 Z" fill="#AEBAC5" opacity=".25"/>
+    <!-- shrouds with ratlines, and the headstays -->
+    <g stroke="#C4D2DE" stroke-width=".75" opacity=".42">
+      <path d="M-30 -94 L-60 -18"/><path d="M-30 -94 L-50 -18"/>
+      <path d="M34 -107 L8 -19"/><path d="M34 -107 L16 -19"/>
+      <path d="M34 -107 L56 -21"/><path d="M34 -107 L62 -22"/>
+      <path d="M-30 -113 L34 -127"/><path d="M34 -127 L148 -37"/>
+    </g>
+    <g stroke="#C4D2DE" stroke-width=".5" opacity=".30">
+      <path d="M-58 -30 h19"/><path d="M-55 -44 h16"/><path d="M-52 -58 h14"/><path d="M-49 -72 h12"/>
+      <path d="M12 -34 h42"/><path d="M16 -50 h36"/><path d="M20 -66 h30"/><path d="M24 -82 h24"/>
+    </g>
+  </g>
+
+
+  <!-- ============ HER MOORINGS: six lines, to buoys and to iron ========= -->
+  <g stroke="#D6CEBA" stroke-width=".9" opacity=".55">
+    <path d="M404 148 q40 6 66 14"/><path d="M400 152 q52 10 86 20"/>
+    <path d="M196 150 q-52 8 -84 18"/><path d="M200 154 q-40 10 -66 22"/>
+    <path d="M300 172 q0 10 -4 16"/><path d="M336 170 q14 10 28 14"/>
+  </g>
+  <g>
+    <g transform="translate(106,170) rotate(-10)">
+      <ellipse cx="0" cy="3" rx="18" ry="4" fill="#CFDAE2" opacity=".22"/>
+      <rect x="-15" y="-3" width="30" height="6" rx="3" fill="#3A2C1D"/>
+      <rect x="-12" y="-2" width="24" height="1.6" fill="#F2A63C" opacity=".55"/>
+    </g>
+    <g transform="translate(488,166) rotate(8)">
+      <ellipse cx="0" cy="3" rx="16" ry="4" fill="#CFDAE2" opacity=".22"/>
+      <rect x="-13" y="-3" width="26" height="6" rx="3" fill="#3A2C1D"/>
+      <rect x="-10" y="-2" width="20" height="1.6" fill="#F2A63C" opacity=".55"/>
+    </g>
+  </g>
+
+  <!-- ==================== ROCKS, and the surf on them =================== -->
+  <g>
+    <ellipse cx="120" cy="178" rx="58" ry="17" fill="#CFDAE2" opacity=".17"/>
+    <path d="M94 184 l10-12 8-9 18-3 14 9 6 11 -8 9 -28 3 z" fill="#2B3742" stroke="#080D13" stroke-width="1.2"/>
+    <path d="M100 175 l12-11 16-2 -6 8 -14 3 z" fill="#3D4B56" opacity=".8"/>
+    <g stroke="#E2ECF3" stroke-width="1" opacity=".5">
+      <path d="M86 180 q14 -8 30 -7"/><path d="M144 182 q12 -4 20 2"/>
+    </g>
+    <ellipse cx="236" cy="188" rx="42" ry="12" fill="#CFDAE2" opacity=".14"/>
+    <path d="M216 192 l8-10 16-3 12 8 4 8 -10 6 -24 1 z" fill="#232E38" stroke="#080D13" stroke-width="1"/>
+    <path d="M222 186 l9-8 12-2 -5 6 z" fill="#36434E" opacity=".8"/>
+    <ellipse cx="596" cy="172" rx="50" ry="14" fill="#CFDAE2" opacity=".16"/>
+    <path d="M572 178 l10-12 18-4 16 9 4 10 -12 7 -28 1 z" fill="#28343F" stroke="#080D13" stroke-width="1.1"/>
+    <path d="M578 170 l11-9 14-2 -6 7 z" fill="#3A4853" opacity=".8"/>
+    <g stroke="#E2ECF3" stroke-width="1" opacity=".45">
+      <path d="M566 176 q14 -8 28 -6"/>
+    </g>
+    <ellipse cx="686" cy="186" rx="44" ry="12" fill="#CFDAE2" opacity=".13"/>
+    <path d="M666 190 l9-11 16-3 14 8 3 9 -11 6 z" fill="#242F39" stroke="#080D13" stroke-width="1"/>
+  </g>
+
+  <!-- bull kelp on the inshore rocks: a float and blades streaming downtide -->
+  <g stroke="#3E5038" stroke-width="1.1" opacity=".55" fill="none">
+    <path d="M172 184 q14 4 26 2"/><path d="M176 188 q16 3 28 0"/>
+    <path d="M262 190 q16 3 28 -1"/>
+    <path d="M552 178 q-14 4 -26 3"/>
+  </g>
+  <g fill="#38472F" opacity=".7">
+    <ellipse cx="170" cy="184" rx="2.6" ry="2"/><ellipse cx="174" cy="188" rx="2.2" ry="1.7"/>
+    <ellipse cx="260" cy="190" rx="2.4" ry="1.8"/><ellipse cx="554" cy="178" rx="2.4" ry="1.8"/>
+  </g>
+
+  <!-- ===================== WEATHER ====================================== -->
+  <g>
+    <ellipse cx="140" cy="132" rx="240" ry="46" fill="url(#fogb)"/>
+    <ellipse cx="452" cy="102" rx="210" ry="44" fill="url(#fogb)"/>
+    <ellipse cx="690" cy="128" rx="180" ry="42" fill="url(#fogb)"/>
+    <ellipse cx="330" cy="176" rx="280" ry="34" fill="url(#fogb)"/>
+    <ellipse cx="560" cy="60" rx="200" ry="34" fill="url(#fogb)" opacity=".7"/>
+  </g>
+  <!-- rain, fine and slanting -->
+  <g stroke="#C6D6E2" stroke-width=".7" opacity=".26">
+    <path d="M40 8 l-6 20"/><path d="M96 0 l-6 22"/><path d="M150 16 l-6 20"/>
+    <path d="M214 4 l-6 22"/><path d="M262 30 l-6 20"/><path d="M330 12 l-6 22"/>
+    <path d="M392 40 l-6 20"/><path d="M448 6 l-6 22"/><path d="M506 34 l-6 20"/>
+    <path d="M568 12 l-6 22"/><path d="M628 44 l-6 20"/><path d="M690 16 l-6 22"/>
+    <path d="M736 52 l-6 20"/><path d="M70 96 l-6 20"/><path d="M186 120 l-6 20"/>
+    <path d="M286 104 l-6 20"/><path d="M416 128 l-6 20"/><path d="M540 112 l-6 20"/>
+    <path d="M664 136 l-6 20"/><path d="M724 108 l-6 20"/>
+  </g>
+  <!-- two gulls, because there always are -->
+  <g stroke="#B9C9D6" stroke-width="1.1" fill="none" opacity=".5">
+    <path d="M418 44 q5 -4 10 0 q5 -4 10 0"/>
+    <path d="M452 58 q4 -3 8 0 q4 -3 8 0"/>
+  </g>
+
+  <!-- ======================== THE TITLE ================================= -->
+  <g>
+    <!-- the name, in OUTLINE PATHS. Trattatello is a macOS system font, so
+         set as live text it would fall back to a plain serif on every other
+         machine and the whole look would go. These are its letterforms,
+         carried by the file itself. -->
+    <g fill="#05080C" opacity=".55" transform="translate(2,3)">
+<path transform="translate(34.000,86.000) scale(0.076000,-0.076000)" d="M386 553Q438 553 487.0 536.0Q536 519 574.5 487.5Q613 456 636.0 410.5Q659 365 659 309L651 261V195Q651 188 645.0 176.0Q639 164 639 156Q633 143 628 130Q623 119 617.0 106.5Q611 94 603 83Q599 75 589.5 65.0Q580 55 567.5 46.0Q555 37 542.0 31.0Q529 25 517 25H498Q487 25 476.0 22.0Q465 19 454.5 15.5Q444 12 436.0 9.0Q428 6 425 6H398Q381 6 368.5 1.5Q356 -3 347 -3H311H225H208Q202 -6 197 -9Q187 -14 178 -14L150 -3H122L95 -14Q88 -14 76.5 -7.5Q65 -1 58 6Q54 6 46.0 6.5Q38 7 30.5 9.5Q23 12 17.0 17.5Q11 23 11 33Q11 41 18.0 48.0Q25 55 34 60Q45 66 58 72H86L133 83Q141 80 148 77Q161 72 170 72Q180 72 185.5 78.5Q191 85 193.5 94.0Q196 103 196.5 112.5Q197 122 197 128V147V189Q197 193 193 201Q191 205 189 208V270Q189 278 193.0 290.0Q197 302 197 317V356V403Q197 430 188.0 448.5Q179 467 150 467Q144 467 140.0 465.5Q136 464 132.5 462.5Q129 461 125.0 460.0Q121 459 114 459L86 467H67Q60 467 49.5 473.5Q39 480 39 486Q39 501 55.5 512.0Q72 523 93.0 530.5Q114 538 134.0 541.5Q154 545 161 545H178Q186 545 193.0 539.5Q200 534 208 534Q216 536 223 539Q229 541 235.5 543.0Q242 545 247 545H284H303Q323 547 340 549Q354 551 367.5 552.0Q381 553 386 553ZM339 456Q336 456 327.0 452.0Q318 448 308.5 441.0Q299 434 291.5 426.0Q284 418 284 411Q286 409 288 406Q292 400 292 392V364V309V186V139Q296 131 297.0 122.0Q298 113 299.5 105.0Q301 97 305.0 91.0Q309 85 320 83H331Q334 83 341.5 84.0Q349 85 357.5 86.0Q366 87 374.0 88.0Q382 89 386 89Q429 90 458.5 108.5Q488 127 507.0 155.0Q526 183 535.0 215.0Q544 247 545 275Q546 297 535.0 328.0Q524 359 508.0 385.5Q492 412 475.0 426.5Q458 441 448 431Q442 435 437 439Q432 442 427.5 445.0Q423 448 420 448H411Z"/>
+<path transform="translate(85.984,86.000) scale(0.076000,-0.076000)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(110.912,86.000) scale(0.076000,-0.076000)" d="M211 467Q229 467 241.5 458.0Q254 449 262.5 436.0Q271 423 274.5 408.5Q278 394 278 384V375V347Q278 336 272.0 307.5Q266 279 258.5 248.5Q251 218 245.0 191.5Q239 165 239 158V139Q239 133 231.5 120.5Q224 108 215.5 89.5Q207 71 199.5 46.0Q192 21 192 -11V-39V-67Q200 -81 202.5 -97.0Q205 -113 220 -133Q228 -148 230.5 -167.0Q233 -186 239 -200Q242 -218 243.5 -228.0Q245 -238 246.0 -246.0Q247 -254 247.0 -262.0Q247 -270 247 -284V-322Q244 -337 236.0 -347.5Q228 -358 218.5 -367.0Q209 -376 199.0 -383.5Q189 -391 183 -398Q169 -412 151.5 -424.0Q134 -436 128 -436L100 -445H81Q72 -445 56.0 -449.0Q40 -453 33 -453H-25Q-39 -453 -50.0 -447.0Q-61 -441 -70.0 -432.5Q-79 -424 -86.5 -414.5Q-94 -405 -100 -398Q-106 -395 -113.0 -387.5Q-120 -380 -126.0 -371.5Q-132 -363 -135.5 -354.0Q-139 -345 -139 -339V-311Q-139 -294 -134.5 -282.0Q-130 -270 -122 -253Q-118 -240 -104.0 -221.5Q-90 -203 -83 -189Q-79 -184 -72.0 -180.5Q-65 -177 -58.0 -173.0Q-51 -169 -44.0 -164.5Q-37 -160 -33 -153Q-19 -145 -10.0 -138.0Q-1 -131 14 -125Q21 -125 28.5 -120.5Q36 -116 43.0 -109.5Q50 -103 56.5 -96.5Q63 -90 69 -86Q78 -80 83.5 -77.5Q89 -75 89 -67Q97 -60 108.5 -53.5Q120 -47 128 -39Q133 -21 137 -4Q141 10 144.0 24.5Q147 39 147 47Q147 60 135.0 62.0Q123 64 108 64H100Q96 64 86.5 70.0Q77 76 67.0 84.5Q57 93 49.5 100.5Q42 108 42 111V131Q42 151 37.5 161.5Q33 172 33 186Q33 207 43.5 238.5Q54 270 67.5 301.0Q81 332 93.0 358.0Q105 384 108 395Q115 401 125.5 404.5Q136 408 136 423Q151 435 170.5 451.0Q190 467 211 467ZM170 331Q159 331 151.5 319.5Q144 308 138.5 293.0Q133 278 130.5 264.0Q128 250 128 245V200Q133 184 137 172Q141 161 146.0 153.0Q151 145 156 145L170 158Q178 186 185 210Q190 230 195.0 249.5Q200 269 200 275Q200 280 199.5 289.5Q199 299 196.0 308.0Q193 317 187.0 324.0Q181 331 170 331ZM108 -133Q94 -133 82.0 -141.5Q70 -150 56 -164Q56 -168 44.5 -178.5Q33 -189 19.5 -205.5Q6 -222 -5.5 -245.0Q-17 -268 -17 -297Q-17 -308 -3.5 -317.0Q10 -326 27.0 -333.0Q44 -340 60.5 -344.0Q77 -348 83 -348Q93 -348 105.5 -340.5Q118 -333 128.5 -321.0Q139 -309 146.0 -295.0Q153 -281 153 -267V-228Q153 -224 151.5 -208.5Q150 -193 145.0 -176.5Q140 -160 131.5 -146.5Q123 -133 108 -133Z"/>
+<path transform="translate(132.040,86.000) scale(0.076000,-0.076000)" d="M334 903Q355 903 369.0 892.0Q383 881 392.0 866.0Q401 851 405.0 835.0Q409 819 409 809Q409 801 397.0 787.0Q385 773 371 759Q354 742 334 723Q327 716 319.0 715.0Q311 714 303 714Q292 714 283.5 712.5Q275 711 267 703Q246 691 234.0 673.0Q222 655 214 634Q214 630 211.5 620.0Q209 610 205.5 599.0Q202 588 199.5 578.0Q197 568 197 564L186 520Q185 517 180.5 498.0Q176 479 171.0 455.0Q166 431 162.0 408.0Q158 385 158 375Q158 371 159 367Q161 359 167 359Q179 359 196.0 374.0Q213 389 234 403Q240 409 251.0 419.0Q262 429 274.0 438.5Q286 448 297.5 454.5Q309 461 317 461H334Q353 461 363.0 444.0Q373 427 377.5 406.0Q382 385 383.0 366.5Q384 348 384 345L381 311Q381 305 382.5 286.0Q384 267 384 253Q384 250 382.5 245.5Q381 241 379 236Q377 231 375 225V206Q375 193 372.5 188.5Q370 184 370 170Q365 154 359 147Q352 141 348.5 132.0Q345 123 339 117Q335 102 326.0 82.0Q317 62 303 47Q296 40 290.0 27.5Q284 15 277.5 2.5Q271 -10 261.5 -19.0Q252 -28 239 -28H228H192Q189 -28 181.0 -27.5Q173 -27 165.0 -24.5Q157 -22 151.0 -16.5Q145 -11 145 0Q145 7 150.5 17.0Q156 27 162.5 36.5Q169 46 176.0 54.5Q183 63 186 67Q201 79 214.0 92.0Q227 105 234 111Q254 126 258.5 140.5Q263 155 270 170Q284 197 292.0 214.5Q300 232 300 253V292Q300 296 298.0 304.0Q296 312 291.0 319.5Q286 327 278.5 333.0Q271 339 261 339Q255 339 251.5 333.5Q248 328 234 320Q198 293 177.0 261.5Q156 230 139 195Q133 174 129.0 150.5Q125 127 121.0 103.5Q117 80 113.0 58.0Q109 36 103 17Q95 4 83.5 -3.5Q72 -11 64 -11Q49 -11 41.5 -3.0Q34 5 30.0 16.0Q26 27 25.5 38.5Q25 50 25 56V150Q25 154 31.0 177.0Q37 200 44.5 228.5Q52 257 58.0 284.0Q64 311 64 325Q67 333 68.5 340.0Q70 347 72 353Q74 360 75 367V395Q75 399 75.5 401.5Q76 404 81 406Q81 408 82.0 410.0Q83 412 83 414V434Q83 437 86.0 447.5Q89 458 93.0 471.0Q97 484 100.0 497.0Q103 510 103 517V578Q103 607 110.5 630.0Q118 653 122 667L125 695Q126 702 132.5 716.5Q139 731 147.0 746.0Q155 761 163.0 774.0Q171 787 175 790Q181 793 183.5 801.0Q186 809 188.5 818.0Q191 827 195.5 835.5Q200 844 211 848Q213 848 217.0 848.5Q221 849 225 851Q227 853 231.0 853.0Q235 853 239 853Q247 861 262.5 870.0Q278 879 294 887Q312 896 334 903Z"/>
+<path transform="translate(160.540,86.000) scale(0.076000,-0.076000)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(185.468,86.000) scale(0.076000,-0.076000)" d="M395 876Q424 876 431.5 858.0Q439 840 439 817V798Q439 784 430.0 768.0Q421 752 408.0 738.5Q395 725 380.5 715.5Q366 706 356 706Q343 706 334.0 710.0Q325 714 317 714Q296 714 273.5 701.0Q251 688 245 659Q237 644 237.5 632.5Q238 621 234 609Q225 588 215.5 554.5Q206 521 206 492Q206 489 204.5 482.0Q203 475 201 467Q199 458 197 448V417L183 336Q185 322 182.5 303.5Q180 285 175.0 261.0Q170 237 165.0 209.0Q160 181 158 150Q158 144 160.5 130.5Q163 117 170 117Q179 117 189.5 123.0Q200 129 210.0 138.0Q220 147 230.5 157.0Q241 167 250 175Q269 194 289.0 209.5Q309 225 328 225L334 217Q334 206 328.0 191.5Q322 177 313.0 162.0Q304 147 293.0 134.0Q282 121 272 114Q252 100 239.5 80.0Q227 60 206 39Q199 24 184.5 14.5Q170 5 156 -3Q141 -9 119.5 -18.5Q98 -28 83 -28Q72 -28 67.5 -24.5Q63 -21 62.0 -14.0Q61 -7 62.5 4.0Q64 15 64 31V95Q64 109 69.5 123.0Q75 137 75 150V170Q75 162 77.0 177.5Q79 193 82.0 223.5Q85 254 87.0 296.0Q89 338 89 384Q89 390 94.5 401.5Q100 413 100 420V456Q106 485 109.0 513.0Q112 541 115.0 568.0Q118 595 123.0 622.5Q128 650 139 678Q147 705 165.0 730.0Q183 755 197 784Q204 797 212.5 808.0Q221 819 234 826Q248 849 272.5 862.5Q297 876 320 876Z"/>
+<path transform="translate(208.268,86.000) scale(0.076000,-0.076000)" d="M242 475Q263 475 277.5 467.5Q292 460 301.0 447.0Q310 434 314.0 417.0Q318 400 317 381Q317 354 297.0 337.5Q277 321 256 309Q237 296 215.5 286.0Q194 276 175.5 264.0Q157 252 144.5 236.0Q132 220 131 195V153Q129 136 138.0 119.5Q147 103 161 103Q162 102 169.0 106.0Q176 110 184.5 115.5Q193 121 201.5 127.0Q210 133 214 136Q229 143 237.5 147.5Q246 152 250 150Q257 150 262.0 148.0Q267 146 267 133Q265 111 248.0 90.5Q231 70 211.0 52.5Q191 35 172.0 22.0Q153 9 147 3Q130 -12 115.5 -13.0Q101 -14 86 -14Q77 -13 67.5 -6.0Q58 1 50.5 10.5Q43 20 39.0 30.0Q35 40 36 47V64Q36 71 32 79Q30 83 28 86L31 106V122Q31 126 33.0 143.5Q35 161 38.0 181.5Q41 202 43.5 220.5Q46 239 47 245Q51 248 51.0 251.0Q51 254 50.0 257.0Q49 260 49.0 264.5Q49 269 53 275Q53 287 58 300Q61 307 64 314L78 347Q80 369 99.0 392.5Q118 416 143.5 435.0Q169 454 196.0 465.5Q223 477 242 475ZM197 400Q192 400 187.0 392.5Q182 385 177 376Q172 365 167 353Q166 348 164.0 341.5Q162 335 161.0 329.5Q160 324 162.0 320.5Q164 317 170 317Q175 316 185.0 319.0Q195 322 205.5 328.0Q216 334 224.5 342.5Q233 351 234 361V378Q234 383 231.0 387.0Q228 391 224 393Q220 396 214 398Z"/>
+    </g>
+    <g fill="url(#title)">
+<path transform="translate(34.000,86.000) scale(0.076000,-0.076000)" d="M386 553Q438 553 487.0 536.0Q536 519 574.5 487.5Q613 456 636.0 410.5Q659 365 659 309L651 261V195Q651 188 645.0 176.0Q639 164 639 156Q633 143 628 130Q623 119 617.0 106.5Q611 94 603 83Q599 75 589.5 65.0Q580 55 567.5 46.0Q555 37 542.0 31.0Q529 25 517 25H498Q487 25 476.0 22.0Q465 19 454.5 15.5Q444 12 436.0 9.0Q428 6 425 6H398Q381 6 368.5 1.5Q356 -3 347 -3H311H225H208Q202 -6 197 -9Q187 -14 178 -14L150 -3H122L95 -14Q88 -14 76.5 -7.5Q65 -1 58 6Q54 6 46.0 6.5Q38 7 30.5 9.5Q23 12 17.0 17.5Q11 23 11 33Q11 41 18.0 48.0Q25 55 34 60Q45 66 58 72H86L133 83Q141 80 148 77Q161 72 170 72Q180 72 185.5 78.5Q191 85 193.5 94.0Q196 103 196.5 112.5Q197 122 197 128V147V189Q197 193 193 201Q191 205 189 208V270Q189 278 193.0 290.0Q197 302 197 317V356V403Q197 430 188.0 448.5Q179 467 150 467Q144 467 140.0 465.5Q136 464 132.5 462.5Q129 461 125.0 460.0Q121 459 114 459L86 467H67Q60 467 49.5 473.5Q39 480 39 486Q39 501 55.5 512.0Q72 523 93.0 530.5Q114 538 134.0 541.5Q154 545 161 545H178Q186 545 193.0 539.5Q200 534 208 534Q216 536 223 539Q229 541 235.5 543.0Q242 545 247 545H284H303Q323 547 340 549Q354 551 367.5 552.0Q381 553 386 553ZM339 456Q336 456 327.0 452.0Q318 448 308.5 441.0Q299 434 291.5 426.0Q284 418 284 411Q286 409 288 406Q292 400 292 392V364V309V186V139Q296 131 297.0 122.0Q298 113 299.5 105.0Q301 97 305.0 91.0Q309 85 320 83H331Q334 83 341.5 84.0Q349 85 357.5 86.0Q366 87 374.0 88.0Q382 89 386 89Q429 90 458.5 108.5Q488 127 507.0 155.0Q526 183 535.0 215.0Q544 247 545 275Q546 297 535.0 328.0Q524 359 508.0 385.5Q492 412 475.0 426.5Q458 441 448 431Q442 435 437 439Q432 442 427.5 445.0Q423 448 420 448H411Z"/>
+<path transform="translate(85.984,86.000) scale(0.076000,-0.076000)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(110.912,86.000) scale(0.076000,-0.076000)" d="M211 467Q229 467 241.5 458.0Q254 449 262.5 436.0Q271 423 274.5 408.5Q278 394 278 384V375V347Q278 336 272.0 307.5Q266 279 258.5 248.5Q251 218 245.0 191.5Q239 165 239 158V139Q239 133 231.5 120.5Q224 108 215.5 89.5Q207 71 199.5 46.0Q192 21 192 -11V-39V-67Q200 -81 202.5 -97.0Q205 -113 220 -133Q228 -148 230.5 -167.0Q233 -186 239 -200Q242 -218 243.5 -228.0Q245 -238 246.0 -246.0Q247 -254 247.0 -262.0Q247 -270 247 -284V-322Q244 -337 236.0 -347.5Q228 -358 218.5 -367.0Q209 -376 199.0 -383.5Q189 -391 183 -398Q169 -412 151.5 -424.0Q134 -436 128 -436L100 -445H81Q72 -445 56.0 -449.0Q40 -453 33 -453H-25Q-39 -453 -50.0 -447.0Q-61 -441 -70.0 -432.5Q-79 -424 -86.5 -414.5Q-94 -405 -100 -398Q-106 -395 -113.0 -387.5Q-120 -380 -126.0 -371.5Q-132 -363 -135.5 -354.0Q-139 -345 -139 -339V-311Q-139 -294 -134.5 -282.0Q-130 -270 -122 -253Q-118 -240 -104.0 -221.5Q-90 -203 -83 -189Q-79 -184 -72.0 -180.5Q-65 -177 -58.0 -173.0Q-51 -169 -44.0 -164.5Q-37 -160 -33 -153Q-19 -145 -10.0 -138.0Q-1 -131 14 -125Q21 -125 28.5 -120.5Q36 -116 43.0 -109.5Q50 -103 56.5 -96.5Q63 -90 69 -86Q78 -80 83.5 -77.5Q89 -75 89 -67Q97 -60 108.5 -53.5Q120 -47 128 -39Q133 -21 137 -4Q141 10 144.0 24.5Q147 39 147 47Q147 60 135.0 62.0Q123 64 108 64H100Q96 64 86.5 70.0Q77 76 67.0 84.5Q57 93 49.5 100.5Q42 108 42 111V131Q42 151 37.5 161.5Q33 172 33 186Q33 207 43.5 238.5Q54 270 67.5 301.0Q81 332 93.0 358.0Q105 384 108 395Q115 401 125.5 404.5Q136 408 136 423Q151 435 170.5 451.0Q190 467 211 467ZM170 331Q159 331 151.5 319.5Q144 308 138.5 293.0Q133 278 130.5 264.0Q128 250 128 245V200Q133 184 137 172Q141 161 146.0 153.0Q151 145 156 145L170 158Q178 186 185 210Q190 230 195.0 249.5Q200 269 200 275Q200 280 199.5 289.5Q199 299 196.0 308.0Q193 317 187.0 324.0Q181 331 170 331ZM108 -133Q94 -133 82.0 -141.5Q70 -150 56 -164Q56 -168 44.5 -178.5Q33 -189 19.5 -205.5Q6 -222 -5.5 -245.0Q-17 -268 -17 -297Q-17 -308 -3.5 -317.0Q10 -326 27.0 -333.0Q44 -340 60.5 -344.0Q77 -348 83 -348Q93 -348 105.5 -340.5Q118 -333 128.5 -321.0Q139 -309 146.0 -295.0Q153 -281 153 -267V-228Q153 -224 151.5 -208.5Q150 -193 145.0 -176.5Q140 -160 131.5 -146.5Q123 -133 108 -133Z"/>
+<path transform="translate(132.040,86.000) scale(0.076000,-0.076000)" d="M334 903Q355 903 369.0 892.0Q383 881 392.0 866.0Q401 851 405.0 835.0Q409 819 409 809Q409 801 397.0 787.0Q385 773 371 759Q354 742 334 723Q327 716 319.0 715.0Q311 714 303 714Q292 714 283.5 712.5Q275 711 267 703Q246 691 234.0 673.0Q222 655 214 634Q214 630 211.5 620.0Q209 610 205.5 599.0Q202 588 199.5 578.0Q197 568 197 564L186 520Q185 517 180.5 498.0Q176 479 171.0 455.0Q166 431 162.0 408.0Q158 385 158 375Q158 371 159 367Q161 359 167 359Q179 359 196.0 374.0Q213 389 234 403Q240 409 251.0 419.0Q262 429 274.0 438.5Q286 448 297.5 454.5Q309 461 317 461H334Q353 461 363.0 444.0Q373 427 377.5 406.0Q382 385 383.0 366.5Q384 348 384 345L381 311Q381 305 382.5 286.0Q384 267 384 253Q384 250 382.5 245.5Q381 241 379 236Q377 231 375 225V206Q375 193 372.5 188.5Q370 184 370 170Q365 154 359 147Q352 141 348.5 132.0Q345 123 339 117Q335 102 326.0 82.0Q317 62 303 47Q296 40 290.0 27.5Q284 15 277.5 2.5Q271 -10 261.5 -19.0Q252 -28 239 -28H228H192Q189 -28 181.0 -27.5Q173 -27 165.0 -24.5Q157 -22 151.0 -16.5Q145 -11 145 0Q145 7 150.5 17.0Q156 27 162.5 36.5Q169 46 176.0 54.5Q183 63 186 67Q201 79 214.0 92.0Q227 105 234 111Q254 126 258.5 140.5Q263 155 270 170Q284 197 292.0 214.5Q300 232 300 253V292Q300 296 298.0 304.0Q296 312 291.0 319.5Q286 327 278.5 333.0Q271 339 261 339Q255 339 251.5 333.5Q248 328 234 320Q198 293 177.0 261.5Q156 230 139 195Q133 174 129.0 150.5Q125 127 121.0 103.5Q117 80 113.0 58.0Q109 36 103 17Q95 4 83.5 -3.5Q72 -11 64 -11Q49 -11 41.5 -3.0Q34 5 30.0 16.0Q26 27 25.5 38.5Q25 50 25 56V150Q25 154 31.0 177.0Q37 200 44.5 228.5Q52 257 58.0 284.0Q64 311 64 325Q67 333 68.5 340.0Q70 347 72 353Q74 360 75 367V395Q75 399 75.5 401.5Q76 404 81 406Q81 408 82.0 410.0Q83 412 83 414V434Q83 437 86.0 447.5Q89 458 93.0 471.0Q97 484 100.0 497.0Q103 510 103 517V578Q103 607 110.5 630.0Q118 653 122 667L125 695Q126 702 132.5 716.5Q139 731 147.0 746.0Q155 761 163.0 774.0Q171 787 175 790Q181 793 183.5 801.0Q186 809 188.5 818.0Q191 827 195.5 835.5Q200 844 211 848Q213 848 217.0 848.5Q221 849 225 851Q227 853 231.0 853.0Q235 853 239 853Q247 861 262.5 870.0Q278 879 294 887Q312 896 334 903Z"/>
+<path transform="translate(160.540,86.000) scale(0.076000,-0.076000)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(185.468,86.000) scale(0.076000,-0.076000)" d="M395 876Q424 876 431.5 858.0Q439 840 439 817V798Q439 784 430.0 768.0Q421 752 408.0 738.5Q395 725 380.5 715.5Q366 706 356 706Q343 706 334.0 710.0Q325 714 317 714Q296 714 273.5 701.0Q251 688 245 659Q237 644 237.5 632.5Q238 621 234 609Q225 588 215.5 554.5Q206 521 206 492Q206 489 204.5 482.0Q203 475 201 467Q199 458 197 448V417L183 336Q185 322 182.5 303.5Q180 285 175.0 261.0Q170 237 165.0 209.0Q160 181 158 150Q158 144 160.5 130.5Q163 117 170 117Q179 117 189.5 123.0Q200 129 210.0 138.0Q220 147 230.5 157.0Q241 167 250 175Q269 194 289.0 209.5Q309 225 328 225L334 217Q334 206 328.0 191.5Q322 177 313.0 162.0Q304 147 293.0 134.0Q282 121 272 114Q252 100 239.5 80.0Q227 60 206 39Q199 24 184.5 14.5Q170 5 156 -3Q141 -9 119.5 -18.5Q98 -28 83 -28Q72 -28 67.5 -24.5Q63 -21 62.0 -14.0Q61 -7 62.5 4.0Q64 15 64 31V95Q64 109 69.5 123.0Q75 137 75 150V170Q75 162 77.0 177.5Q79 193 82.0 223.5Q85 254 87.0 296.0Q89 338 89 384Q89 390 94.5 401.5Q100 413 100 420V456Q106 485 109.0 513.0Q112 541 115.0 568.0Q118 595 123.0 622.5Q128 650 139 678Q147 705 165.0 730.0Q183 755 197 784Q204 797 212.5 808.0Q221 819 234 826Q248 849 272.5 862.5Q297 876 320 876Z"/>
+<path transform="translate(208.268,86.000) scale(0.076000,-0.076000)" d="M242 475Q263 475 277.5 467.5Q292 460 301.0 447.0Q310 434 314.0 417.0Q318 400 317 381Q317 354 297.0 337.5Q277 321 256 309Q237 296 215.5 286.0Q194 276 175.5 264.0Q157 252 144.5 236.0Q132 220 131 195V153Q129 136 138.0 119.5Q147 103 161 103Q162 102 169.0 106.0Q176 110 184.5 115.5Q193 121 201.5 127.0Q210 133 214 136Q229 143 237.5 147.5Q246 152 250 150Q257 150 262.0 148.0Q267 146 267 133Q265 111 248.0 90.5Q231 70 211.0 52.5Q191 35 172.0 22.0Q153 9 147 3Q130 -12 115.5 -13.0Q101 -14 86 -14Q77 -13 67.5 -6.0Q58 1 50.5 10.5Q43 20 39.0 30.0Q35 40 36 47V64Q36 71 32 79Q30 83 28 86L31 106V122Q31 126 33.0 143.5Q35 161 38.0 181.5Q41 202 43.5 220.5Q46 239 47 245Q51 248 51.0 251.0Q51 254 50.0 257.0Q49 260 49.0 264.5Q49 269 53 275Q53 287 58 300Q61 307 64 314L78 347Q80 369 99.0 392.5Q118 416 143.5 435.0Q169 454 196.0 465.5Q223 477 242 475ZM197 400Q192 400 187.0 392.5Q182 385 177 376Q172 365 167 353Q166 348 164.0 341.5Q162 335 161.0 329.5Q160 324 162.0 320.5Q164 317 170 317Q175 316 185.0 319.0Q195 322 205.5 328.0Q216 334 224.5 342.5Q233 351 234 361V378Q234 383 231.0 387.0Q228 391 224 393Q220 396 214 398Z"/>
+    </g>
+    <g fill="#E8A33D" opacity=".92">
+<path transform="translate(36.000,126.000) scale(0.013500,-0.013500)" d="M167 562H175H183H211Q216 555 224.0 554.0Q232 553 236 553H247H253Q280 553 306.0 547.5Q332 542 355.5 528.5Q379 515 398.0 493.0Q417 471 431 439V386Q431 369 422.0 354.5Q413 340 402.5 327.5Q392 315 383.5 305.0Q375 295 375 289Q375 286 379.5 281.5Q384 277 389 272Q395 267 403 261Q413 261 422.5 251.5Q432 242 438.5 228.5Q445 215 449.0 200.0Q453 185 453 175V147Q449 128 449.5 113.5Q450 99 439 78Q432 72 429.5 65.5Q427 59 424.5 53.5Q422 48 417.5 43.5Q413 39 403 36Q371 15 337.0 2.0Q303 -11 261 -11H195H167H139H133L106 0L96 -6Q88 -11 81 -11H61Q63 -9 61.0 -7.5Q59 -6 55.0 -4.5Q51 -3 45.5 -2.0Q40 -1 36 0Q22 0 16.5 5.0Q11 10 11 17Q11 31 16.5 46.0Q22 61 36 61H53Q59 61 75.0 65.0Q91 69 97 69Q103 69 105.5 72.0Q108 75 108.0 79.5Q108 84 107.0 89.0Q106 94 106 97Q111 102 109 109Q108 112 106 114V139Q112 153 113.0 165.0Q114 177 114 183V211Q116 222 119 233Q121 241 123.0 249.5Q125 258 125 261Q125 268 123.5 268.0Q122 268 121.0 270.0Q120 272 120.5 281.5Q121 291 125 317V334V350Q125 357 129.0 367.5Q133 378 133 386Q133 412 124.0 428.5Q115 445 101.5 456.0Q88 467 72.0 473.5Q56 480 42.5 486.0Q29 492 20.0 499.0Q11 506 11 517Q11 526 18.0 533.0Q25 540 34.0 544.5Q43 549 53.0 551.0Q63 553 69 553H89L133 562ZM253 464Q247 464 238.5 457.0Q230 450 223.0 440.0Q216 430 212.0 419.5Q208 409 211 403V386V367V342Q213 328 215.0 318.5Q217 309 221.0 302.0Q225 295 232.0 292.0Q239 289 253 289Q260 289 272.0 294.0Q284 299 296.0 306.5Q308 314 316.5 323.5Q325 333 325 342V367V395Q325 404 319.0 416.0Q313 428 302.5 438.5Q292 449 279.0 456.5Q266 464 253 464ZM247 236Q233 236 224.5 226.0Q216 216 211.5 203.0Q207 190 205.0 177.0Q203 164 203 158V122V97Q203 94 205.5 88.0Q208 82 212.5 76.0Q217 70 223.0 65.5Q229 61 236 61Q249 61 256.5 64.0Q264 67 272 69Q285 72 299.5 79.5Q314 87 326.0 97.5Q338 108 345.0 120.5Q352 133 350 147Q349 160 349.0 167.5Q349 175 350.0 179.0Q351 183 351.0 185.5Q351 188 350 192Q349 205 340.0 214.0Q331 223 318.0 227.5Q305 232 289.5 234.0Q274 236 261 236H253Z"/>
+<path transform="translate(42.413,126.000) scale(0.013500,-0.013500)" d="M336 484Q357 484 366.0 472.0Q375 460 375 439Q375 435 372.0 421.5Q369 408 364.5 391.5Q360 375 355.0 358.0Q350 341 347 331Q347 323 346.0 314.5Q345 306 339 292Q331 286 331.0 272.5Q331 259 331 253L328 200V161Q328 158 328.5 150.5Q329 143 330.5 135.5Q332 128 336.0 122.5Q340 117 347 117L361 139Q367 144 375.0 151.5Q383 159 391 166Q400 174 409 183Q415 183 419.0 178.0Q423 173 423 167L419 159Q415 151 411 147Q404 127 393.0 112.5Q382 98 369.0 84.5Q356 71 342.5 57.0Q329 43 317 25L295 -6Q295 -15 289.5 -24.5Q284 -34 276.5 -39.5Q269 -45 260.5 -44.5Q252 -44 247 -33Q241 -15 241.0 2.5Q241 20 244.0 36.5Q247 53 250.0 68.0Q253 83 253 97V133V153Q253 158 246 160Q242 161 239 161Q236 161 224.0 143.5Q212 126 196.5 103.5Q181 81 165.0 58.0Q149 35 139 25Q136 21 129.5 13.5Q123 6 115.5 -1.0Q108 -8 99.0 -13.5Q90 -19 83 -19Q69 -19 60.0 -9.0Q51 1 46.0 14.5Q41 28 38.5 41.5Q36 55 36 61L33 133L47 250Q47 253 50.0 264.0Q53 275 58.0 288.0Q63 301 69.5 313.5Q76 326 83 334Q112 361 139 400Q152 418 164.0 426.0Q176 434 188.0 438.5Q200 443 212.0 445.5Q224 448 239 456Q245 456 254.5 462.5Q264 469 272 475H300H317ZM208 373Q190 358 174.0 338.5Q158 319 146.0 299.0Q134 279 127.0 261.5Q120 244 120 234Q120 229 119.0 215.5Q118 202 120.0 187.5Q122 173 127.5 161.5Q133 150 147 150Q160 150 177.5 173.0Q195 196 210.5 225.0Q226 254 236.5 279.0Q247 304 247 309Q247 313 248.0 328.5Q249 344 246.5 358.5Q244 373 235.5 379.5Q227 386 208 373Z"/>
+<path transform="translate(47.556,126.000) scale(0.013500,-0.013500)" d="M189 481Q200 483 203.5 478.0Q207 473 220 467Q231 461 239.0 453.0Q247 445 247 434Q246 429 245 423Q243 410 247 398Q247 389 243.5 376.5Q240 364 242 356Q244 352 248 348Q251 345 254.5 342.5Q258 340 261 342Q271 344 282.5 361.0Q294 378 305.0 399.0Q316 420 327.0 440.0Q338 460 347 467L378 475Q384 477 391.5 476.0Q399 475 403 475Q422 464 427.0 444.5Q432 425 434 414Q435 400 424.5 377.0Q414 354 398 339Q391 335 385.0 332.5Q379 330 373 328Q368 328 365.5 328.5Q363 329 359 331Q354 333 349.5 333.5Q345 334 339 334Q326 334 314.5 324.0Q303 314 292 303Q275 282 265.5 255.5Q256 229 256 206Q249 199 239.5 188.5Q230 178 225 164Q219 150 219.5 135.0Q220 120 214 106Q215 94 214.0 78.5Q213 63 210.5 46.0Q208 29 204.0 13.5Q200 -2 195 -14Q188 -19 178.0 -23.0Q168 -27 157 -29Q145 -32 131 -33Q126 -33 118 -25Q114 -21 111 -17L97 11Q96 18 99.0 35.0Q102 52 106.0 69.5Q110 87 113.5 101.0Q117 115 117 117Q139 150 146.0 186.5Q153 223 161 259L153 325Q148 338 140.5 338.0Q133 338 125 336Q109 333 102.0 327.5Q95 322 90.0 316.0Q85 310 79.0 304.5Q73 299 58 297Q50 297 48.0 307.0Q46 317 44 325Q42 334 47.0 342.5Q52 351 60.5 358.5Q69 366 80.0 373.5Q91 381 100 389Q112 402 121.0 417.5Q130 433 139.0 446.5Q148 460 159.5 469.5Q171 479 189 481Z"/>
+<path transform="translate(52.403,126.000) scale(0.013500,-0.013500)" d="M242 475Q263 475 277.5 467.5Q292 460 301.0 447.0Q310 434 314.0 417.0Q318 400 317 381Q317 354 297.0 337.5Q277 321 256 309Q237 296 215.5 286.0Q194 276 175.5 264.0Q157 252 144.5 236.0Q132 220 131 195V153Q129 136 138.0 119.5Q147 103 161 103Q162 102 169.0 106.0Q176 110 184.5 115.5Q193 121 201.5 127.0Q210 133 214 136Q229 143 237.5 147.5Q246 152 250 150Q257 150 262.0 148.0Q267 146 267 133Q265 111 248.0 90.5Q231 70 211.0 52.5Q191 35 172.0 22.0Q153 9 147 3Q130 -12 115.5 -13.0Q101 -14 86 -14Q77 -13 67.5 -6.0Q58 1 50.5 10.5Q43 20 39.0 30.0Q35 40 36 47V64Q36 71 32 79Q30 83 28 86L31 106V122Q31 126 33.0 143.5Q35 161 38.0 181.5Q41 202 43.5 220.5Q46 239 47 245Q51 248 51.0 251.0Q51 254 50.0 257.0Q49 260 49.0 264.5Q49 269 53 275Q53 287 58 300Q61 307 64 314L78 347Q80 369 99.0 392.5Q118 416 143.5 435.0Q169 454 196.0 465.5Q223 477 242 475ZM197 400Q192 400 187.0 392.5Q182 385 177 376Q172 365 167 353Q166 348 164.0 341.5Q162 335 161.0 329.5Q160 324 162.0 320.5Q164 317 170 317Q175 316 185.0 319.0Q195 322 205.5 328.0Q216 334 224.5 342.5Q233 351 234 361V378Q234 383 231.0 387.0Q228 391 224 393Q220 396 214 398Z"/>
+<path transform="translate(56.236,126.000) scale(0.013500,-0.013500)" d="M395 876Q424 876 431.5 858.0Q439 840 439 817V798Q439 784 430.0 768.0Q421 752 408.0 738.5Q395 725 380.5 715.5Q366 706 356 706Q343 706 334.0 710.0Q325 714 317 714Q296 714 273.5 701.0Q251 688 245 659Q237 644 237.5 632.5Q238 621 234 609Q225 588 215.5 554.5Q206 521 206 492Q206 489 204.5 482.0Q203 475 201 467Q199 458 197 448V417L183 336Q185 322 182.5 303.5Q180 285 175.0 261.0Q170 237 165.0 209.0Q160 181 158 150Q158 144 160.5 130.5Q163 117 170 117Q179 117 189.5 123.0Q200 129 210.0 138.0Q220 147 230.5 157.0Q241 167 250 175Q269 194 289.0 209.5Q309 225 328 225L334 217Q334 206 328.0 191.5Q322 177 313.0 162.0Q304 147 293.0 134.0Q282 121 272 114Q252 100 239.5 80.0Q227 60 206 39Q199 24 184.5 14.5Q170 5 156 -3Q141 -9 119.5 -18.5Q98 -28 83 -28Q72 -28 67.5 -24.5Q63 -21 62.0 -14.0Q61 -7 62.5 4.0Q64 15 64 31V95Q64 109 69.5 123.0Q75 137 75 150V170Q75 162 77.0 177.5Q79 193 82.0 223.5Q85 254 87.0 296.0Q89 338 89 384Q89 390 94.5 401.5Q100 413 100 420V456Q106 485 109.0 513.0Q112 541 115.0 568.0Q118 595 123.0 622.5Q128 650 139 678Q147 705 165.0 730.0Q183 755 197 784Q204 797 212.5 808.0Q221 819 234 826Q248 849 272.5 862.5Q297 876 320 876Z"/>
+<path transform="translate(60.287,126.000) scale(0.013500,-0.013500)" d="M459 453Q479 453 488.5 441.0Q498 429 498 414L486 347V331Q486 320 484.0 308.5Q482 297 476.0 287.0Q470 277 459.5 270.5Q449 264 431 264Q423 264 421 258Q420 255 420 253Q406 239 399.5 225.5Q393 212 388.5 198.5Q384 185 379.5 172.0Q375 159 367 147Q361 141 355.5 133.5Q350 126 350 111Q344 101 340 92Q335 84 331.0 77.0Q327 70 325 67Q321 55 317.0 48.5Q313 42 308.5 35.0Q304 28 299.0 20.0Q294 12 289 -3Q285 -14 281.5 -20.0Q278 -26 275.5 -31.0Q273 -36 271.0 -41.0Q269 -46 267 -53L259 -75Q254 -83 252.0 -87.5Q250 -92 239 -103Q228 -117 219.5 -129.0Q211 -141 211 -147Q195 -187 153 -234Q134 -259 118.5 -281.0Q103 -303 89 -311Q19 -353 -22 -398Q-29 -400 -42.5 -407.0Q-56 -414 -70 -422Q-87 -431 -106 -442H-117Q-123 -442 -135.0 -447.5Q-147 -453 -153 -453H-183Q-188 -453 -200.5 -447.5Q-213 -442 -220 -442Q-223 -442 -229.5 -444.0Q-236 -446 -243 -448Q-251 -451 -259 -453Q-271 -453 -280.5 -445.5Q-290 -438 -303 -425Q-311 -425 -323.5 -418.0Q-336 -411 -342 -403Q-342 -401 -343.5 -394.0Q-345 -387 -346.5 -378.0Q-348 -369 -349.0 -360.5Q-350 -352 -350 -348Q-350 -334 -341.0 -321.0Q-332 -308 -319.0 -297.5Q-306 -287 -292.0 -281.0Q-278 -275 -267 -275Q-256 -275 -242.5 -281.0Q-229 -287 -214 -295Q-195 -303 -179.5 -311.5Q-164 -320 -153 -320L-120 -325Q-110 -318 -97.5 -316.0Q-85 -314 -72.5 -312.0Q-60 -310 -48.0 -306.5Q-36 -303 -25 -292Q-4 -286 17.0 -271.5Q38 -257 58 -236Q65 -230 75.0 -216.5Q85 -203 92 -189Q106 -175 119.5 -156.0Q133 -137 139 -122Q149 -112 159.5 -97.0Q170 -82 177.5 -65.5Q185 -49 190.0 -32.0Q195 -15 195 0V17V39Q197 49 199 58Q201 66 202.0 73.5Q203 81 203 86Q203 93 199.0 96.5Q195 100 195 114V122Q192 125 190 129Q186 137 186 142V150Q186 168 179.0 188.5Q172 209 161.0 228.5Q150 248 134.5 264.5Q119 281 103 292Q95 300 92.5 296.0Q90 292 83 292H75H53L36 284Q28 284 17.0 290.5Q6 297 6 311Q6 314 18.0 329.0Q30 344 45.5 361.5Q61 379 75.0 394.5Q89 410 92 414Q100 422 112.5 428.0Q125 434 139 434Q160 434 170.0 420.5Q180 407 195 386Q209 357 218.0 335.0Q227 313 234 292Q237 275 241.0 263.5Q245 252 248.5 242.0Q252 232 253.5 222.0Q255 212 253 197Q251 190 253.5 181.0Q256 172 260.5 164.0Q265 156 271.0 150.5Q277 145 281 145Q287 145 293.5 158.0Q300 171 306.0 187.5Q312 204 317.0 220.5Q322 237 325 245Q333 256 339.0 265.5Q345 275 351.0 283.5Q357 292 364.5 300.5Q372 309 384 320Q392 331 395.5 344.0Q399 357 403 370Q405 382 409.0 394.0Q413 406 420 414Q428 429 436.0 441.0Q444 453 459 453Z"/>
+<path transform="translate(70.034,126.000) scale(0.013500,-0.013500)" d="M189 481Q200 483 203.5 478.0Q207 473 220 467Q231 461 239.0 453.0Q247 445 247 434Q246 429 245 423Q243 410 247 398Q247 389 243.5 376.5Q240 364 242 356Q244 352 248 348Q251 345 254.5 342.5Q258 340 261 342Q271 344 282.5 361.0Q294 378 305.0 399.0Q316 420 327.0 440.0Q338 460 347 467L378 475Q384 477 391.5 476.0Q399 475 403 475Q422 464 427.0 444.5Q432 425 434 414Q435 400 424.5 377.0Q414 354 398 339Q391 335 385.0 332.5Q379 330 373 328Q368 328 365.5 328.5Q363 329 359 331Q354 333 349.5 333.5Q345 334 339 334Q326 334 314.5 324.0Q303 314 292 303Q275 282 265.5 255.5Q256 229 256 206Q249 199 239.5 188.5Q230 178 225 164Q219 150 219.5 135.0Q220 120 214 106Q215 94 214.0 78.5Q213 63 210.5 46.0Q208 29 204.0 13.5Q200 -2 195 -14Q188 -19 178.0 -23.0Q168 -27 157 -29Q145 -32 131 -33Q126 -33 118 -25Q114 -21 111 -17L97 11Q96 18 99.0 35.0Q102 52 106.0 69.5Q110 87 113.5 101.0Q117 115 117 117Q139 150 146.0 186.5Q153 223 161 259L153 325Q148 338 140.5 338.0Q133 338 125 336Q109 333 102.0 327.5Q95 322 90.0 316.0Q85 310 79.0 304.5Q73 299 58 297Q50 297 48.0 307.0Q46 317 44 325Q42 334 47.0 342.5Q52 351 60.5 358.5Q69 366 80.0 373.5Q91 381 100 389Q112 402 121.0 417.5Q130 433 139.0 446.5Q148 460 159.5 469.5Q171 479 189 481Z"/>
+<path transform="translate(74.880,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(79.308,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(83.736,126.000) scale(0.013500,-0.013500)" d="M200 464Q215 464 218.5 453.5Q222 443 220.5 428.5Q219 414 216.0 399.0Q213 384 214 375V347Q214 344 215.0 336.5Q216 329 220.0 323.5Q224 318 231.5 317.0Q239 316 253 325Q258 329 268.0 341.5Q278 354 289.5 369.5Q301 385 313.5 402.5Q326 420 337.0 434.0Q348 448 357.0 457.5Q366 467 370 467Q385 467 396.5 459.5Q408 452 416.5 441.0Q425 430 429.5 418.5Q434 407 434 400L428 375Q428 372 427.0 364.0Q426 356 427.5 349.5Q429 343 433.0 341.0Q437 339 448 347Q454 352 469.0 370.0Q484 388 502.0 407.0Q520 426 539.0 441.0Q558 456 573 456Q593 456 602.5 443.5Q612 431 612 417Q612 414 610.0 405.5Q608 397 605.0 387.5Q602 378 600.0 369.0Q598 360 598 356V336Q598 321 589.0 293.5Q580 266 569.5 235.0Q559 204 550.5 175.0Q542 146 542 128Q542 123 541.0 115.5Q540 108 541.0 102.5Q542 97 547.0 96.0Q552 95 564 103Q569 106 580.0 114.0Q591 122 602.0 127.5Q613 133 621.0 132.5Q629 132 628 117Q610 95 594 77Q580 61 566.0 45.5Q552 30 545 22Q530 11 521.0 1.0Q512 -9 504.5 -17.5Q497 -26 488.0 -31.0Q479 -36 464 -36Q453 -36 446.0 -29.5Q439 -23 434.0 -15.0Q429 -7 427.0 1.5Q425 10 425 14Q425 42 432.5 67.5Q440 93 450.0 116.0Q460 139 469.0 161.5Q478 184 481 206Q481 210 482.0 216.0Q483 222 485 228Q487 235 489 242Q489 249 488.0 261.0Q487 273 483.5 283.5Q480 294 474.0 300.5Q468 307 459 303Q439 296 424.0 269.5Q409 243 396.0 207.5Q383 172 372.0 132.5Q361 93 350.0 60.0Q339 27 327.5 5.0Q316 -17 303 -17Q296 -17 286.5 -14.0Q277 -11 268.0 -6.5Q259 -2 253.0 3.0Q247 8 247 11Q246 36 253.0 60.0Q260 84 268.5 105.0Q277 126 284.5 143.5Q292 161 292 175V183Q292 202 306 236Q310 249 316.0 261.0Q322 273 320 281Q320 293 309.0 300.5Q298 308 292 303Q275 298 261.0 282.5Q247 267 236.5 249.5Q226 232 218.5 216.5Q211 201 208 195Q194 174 187.0 154.0Q180 134 172 117Q172 115 167.0 94.0Q162 73 152.0 49.0Q142 25 126.5 5.5Q111 -14 89 -14Q83 -14 77.5 -9.5Q72 -5 68.5 1.5Q65 8 63.0 14.5Q61 21 61 25Q61 31 56.5 39.5Q52 48 58 61Q62 69 72.0 99.0Q82 129 92.5 164.5Q103 200 110.5 233.0Q118 266 117 281Q117 287 121.0 293.0Q125 299 125 306Q125 320 122.5 328.0Q120 336 106 336Q100 336 94.5 332.0Q89 328 83.0 322.5Q77 317 69.5 313.0Q62 309 50 309Q43 309 37 313Q34 315 33 317Q33 331 41.5 343.5Q50 356 61 356Q74 370 88.0 383.5Q102 397 117 403Q120 406 130.5 416.0Q141 426 154.0 436.5Q167 447 180.0 455.5Q193 464 200 464Z"/>
+<path transform="translate(95.778,126.000) scale(0.013500,-0.013500)" d="M356 884Q371 888 385.0 882.5Q399 877 410.0 866.5Q421 856 427.5 842.5Q434 829 434 817Q434 811 430.5 800.0Q427 789 421.5 777.5Q416 766 411.0 756.5Q406 747 403 745Q396 738 388.5 735.5Q381 733 374.0 732.5Q367 732 360.0 731.0Q353 730 347 726Q339 723 327.0 720.5Q315 718 303.0 713.5Q291 709 279.5 701.0Q268 693 261 678Q258 667 251.0 637.0Q244 607 237 575Q229 537 220 492Q220 481 225.5 475.0Q231 469 239.0 465.0Q247 461 256.0 460.0Q265 459 272 459H303Q306 459 310.5 457.0Q315 455 320 453Q325 450 331 448V428Q331 425 326.5 417.5Q322 410 315.5 402.5Q309 395 302.5 389.5Q296 384 292 384H245Q216 384 206.5 375.0Q197 366 197 345Q195 339 193 334Q191 329 190.0 324.5Q189 320 189 317Q189 282 185.0 251.5Q181 221 181 208Q181 204 178.5 188.5Q176 173 172.5 154.5Q169 136 166.5 119.0Q164 102 164 95L161 47Q161 44 159.5 36.0Q158 28 156.5 19.0Q155 10 154.0 1.5Q153 -7 153 -11Q153 -28 151.5 -37.5Q150 -47 147.5 -53.0Q145 -59 143.5 -63.5Q142 -68 142 -75Q142 -79 138.5 -92.5Q135 -106 130.5 -122.0Q126 -138 120.5 -153.0Q115 -168 111 -175Q99 -190 91.0 -201.5Q83 -213 75 -236Q69 -239 54.5 -252.5Q40 -266 23.0 -281.0Q6 -296 -10.5 -308.0Q-27 -320 -39 -320Q-50 -320 -56.5 -321.5Q-63 -323 -69.0 -325.5Q-75 -328 -80.5 -329.5Q-86 -331 -95 -331H-103Q-109 -331 -113.5 -330.0Q-118 -329 -120 -331Q-124 -333 -128.5 -333.5Q-133 -334 -139 -334Q-144 -334 -154.0 -333.0Q-164 -332 -174.5 -331.0Q-185 -330 -194.0 -329.0Q-203 -328 -206 -328Q-210 -328 -222.0 -325.5Q-234 -323 -246.5 -317.5Q-259 -312 -268.5 -304.5Q-278 -297 -278 -286Q-278 -283 -273.5 -274.5Q-269 -266 -263.0 -256.0Q-257 -246 -251.0 -237.0Q-245 -228 -242 -225Q-242 -221 -233.5 -212.5Q-225 -204 -213.0 -196.0Q-201 -188 -188.0 -181.5Q-175 -175 -167 -175H-150Q-148 -177 -144 -180Q-142 -182 -138.5 -184.5Q-135 -187 -133 -189L-108 -197Q-101 -199 -95 -200Q-90 -202 -84.0 -202.5Q-78 -203 -75 -203H-53Q-32 -203 -16.5 -193.5Q-1 -184 14 -167Q19 -166 25.0 -149.0Q31 -132 38.0 -108.0Q45 -84 51.5 -55.5Q58 -27 63.5 -1.5Q69 24 72.0 43.0Q75 62 75 67V86Q75 88 77.0 103.0Q79 118 82.5 139.5Q86 161 90.5 187.0Q95 213 99.0 238.0Q103 263 107.0 284.0Q111 305 114 317Q114 324 115.0 332.5Q116 341 118 348Q120 356 122 364Q122 377 110.5 383.0Q99 389 84.5 392.0Q70 395 58.5 399.0Q47 403 47 414Q47 421 48.5 428.5Q50 436 58 442Q64 449 75.0 451.5Q86 454 97.0 455.5Q108 457 117.5 461.0Q127 465 131 475Q135 480 139.0 494.0Q143 508 146.0 527.0Q149 546 152.0 568.0Q155 590 157.0 609.5Q159 629 160.0 644.5Q161 660 161 667Q166 675 172.0 688.5Q178 702 178 714Q178 726 184.0 738.5Q190 751 198.5 763.0Q207 775 216.5 785.0Q226 795 234 801Q248 815 257.0 827.0Q266 839 281 853Q288 856 294.0 861.5Q300 867 306.5 872.0Q313 877 320.5 880.5Q328 884 339 884Z"/>
+<path transform="translate(99.382,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(103.811,126.000) scale(0.013500,-0.013500)" d="M189 481Q200 483 203.5 478.0Q207 473 220 467Q231 461 239.0 453.0Q247 445 247 434Q246 429 245 423Q243 410 247 398Q247 389 243.5 376.5Q240 364 242 356Q244 352 248 348Q251 345 254.5 342.5Q258 340 261 342Q271 344 282.5 361.0Q294 378 305.0 399.0Q316 420 327.0 440.0Q338 460 347 467L378 475Q384 477 391.5 476.0Q399 475 403 475Q422 464 427.0 444.5Q432 425 434 414Q435 400 424.5 377.0Q414 354 398 339Q391 335 385.0 332.5Q379 330 373 328Q368 328 365.5 328.5Q363 329 359 331Q354 333 349.5 333.5Q345 334 339 334Q326 334 314.5 324.0Q303 314 292 303Q275 282 265.5 255.5Q256 229 256 206Q249 199 239.5 188.5Q230 178 225 164Q219 150 219.5 135.0Q220 120 214 106Q215 94 214.0 78.5Q213 63 210.5 46.0Q208 29 204.0 13.5Q200 -2 195 -14Q188 -19 178.0 -23.0Q168 -27 157 -29Q145 -32 131 -33Q126 -33 118 -25Q114 -21 111 -17L97 11Q96 18 99.0 35.0Q102 52 106.0 69.5Q110 87 113.5 101.0Q117 115 117 117Q139 150 146.0 186.5Q153 223 161 259L153 325Q148 338 140.5 338.0Q133 338 125 336Q109 333 102.0 327.5Q95 322 90.0 316.0Q85 310 79.0 304.5Q73 299 58 297Q50 297 48.0 307.0Q46 317 44 325Q42 334 47.0 342.5Q52 351 60.5 358.5Q69 366 80.0 373.5Q91 381 100 389Q112 402 121.0 417.5Q130 433 139.0 446.5Q148 460 159.5 469.5Q171 479 189 481Z"/>
+<path transform="translate(112.329,126.000) scale(0.013500,-0.013500)" d="M336 484Q357 484 366.0 472.0Q375 460 375 439Q375 435 372.0 421.5Q369 408 364.5 391.5Q360 375 355.0 358.0Q350 341 347 331Q347 323 346.0 314.5Q345 306 339 292Q331 286 331.0 272.5Q331 259 331 253L328 200V161Q328 158 328.5 150.5Q329 143 330.5 135.5Q332 128 336.0 122.5Q340 117 347 117L361 139Q367 144 375.0 151.5Q383 159 391 166Q400 174 409 183Q415 183 419.0 178.0Q423 173 423 167L419 159Q415 151 411 147Q404 127 393.0 112.5Q382 98 369.0 84.5Q356 71 342.5 57.0Q329 43 317 25L295 -6Q295 -15 289.5 -24.5Q284 -34 276.5 -39.5Q269 -45 260.5 -44.5Q252 -44 247 -33Q241 -15 241.0 2.5Q241 20 244.0 36.5Q247 53 250.0 68.0Q253 83 253 97V133V153Q253 158 246 160Q242 161 239 161Q236 161 224.0 143.5Q212 126 196.5 103.5Q181 81 165.0 58.0Q149 35 139 25Q136 21 129.5 13.5Q123 6 115.5 -1.0Q108 -8 99.0 -13.5Q90 -19 83 -19Q69 -19 60.0 -9.0Q51 1 46.0 14.5Q41 28 38.5 41.5Q36 55 36 61L33 133L47 250Q47 253 50.0 264.0Q53 275 58.0 288.0Q63 301 69.5 313.5Q76 326 83 334Q112 361 139 400Q152 418 164.0 426.0Q176 434 188.0 438.5Q200 443 212.0 445.5Q224 448 239 456Q245 456 254.5 462.5Q264 469 272 475H300H317ZM208 373Q190 358 174.0 338.5Q158 319 146.0 299.0Q134 279 127.0 261.5Q120 244 120 234Q120 229 119.0 215.5Q118 202 120.0 187.5Q122 173 127.5 161.5Q133 150 147 150Q160 150 177.5 173.0Q195 196 210.5 225.0Q226 254 236.5 279.0Q247 304 247 309Q247 313 248.0 328.5Q249 344 246.5 358.5Q244 373 235.5 379.5Q227 386 208 373Z"/>
+<path transform="translate(121.144,126.000) scale(0.013500,-0.013500)" d="M528 876H556Q560 876 564.0 870.0Q568 864 570 856Q573 847 575 837V809Q575 774 551.0 750.0Q527 726 489 726Q487 728 484 730Q478 734 473 734Q466 734 459.0 732.0Q452 730 448 726Q442 720 434.5 704.0Q427 688 420.5 670.5Q414 653 409.0 637.5Q404 622 403 617L398 592Q392 575 385.5 562.0Q379 549 374.5 535.0Q370 521 367.0 505.0Q364 489 364 467Q360 460 354.5 438.5Q349 417 344.5 393.5Q340 370 337.0 350.5Q334 331 334 328V309Q334 304 332.5 293.0Q331 282 329.5 270.0Q328 258 326.5 247.5Q325 237 325 234Q322 223 321.5 214.0Q321 205 322 199Q323 191 325 186Q325 183 323.5 175.0Q322 167 322.0 158.0Q322 149 324.0 142.5Q326 136 334 136Q347 136 360.5 145.0Q374 154 385.0 165.5Q396 177 404.5 186.0Q413 195 417 195Q423 195 428.5 189.0Q434 183 434 175Q424 164 417 153Q410 143 405.0 132.5Q400 122 400 111Q396 100 388.0 89.5Q380 79 370.0 67.0Q360 55 350.5 42.5Q341 30 334 17Q334 14 329.5 9.5Q325 5 319.0 1.0Q313 -3 306.5 -6.5Q300 -10 297 -11Q274 -28 258.0 -36.0Q242 -44 242 -33Q232 -38 228.0 -30.5Q224 -23 222.5 -8.5Q221 6 222.0 24.5Q223 43 223.5 59.0Q224 75 223.0 86.0Q222 97 217 97Q209 97 196.5 86.5Q184 76 170 61Q161 53 149.0 38.0Q137 23 124.5 8.5Q112 -6 100.5 -17.0Q89 -28 83 -28Q73 -28 63.0 -22.5Q53 -17 45.5 -9.0Q38 -1 33.0 9.5Q28 20 28 31V47V92Q28 95 30.0 106.5Q32 118 35 132Q38 148 42 167Q42 171 43.5 178.0Q45 185 47 191Q50 198 53 206V214Q55 224 57 234Q59 242 60.0 250.0Q61 258 61 261Q67 276 69.5 289.0Q72 302 81 317Q84 339 96.5 355.0Q109 371 126.0 384.0Q143 397 160.5 408.5Q178 420 192 434Q198 434 203 435Q213 437 220 445Q238 448 248.5 450.0Q259 452 265.5 456.5Q272 461 274.5 468.0Q277 475 278 489L286 517L295 578L303 617Q303 620 305.0 631.0Q307 642 310.0 654.0Q313 666 316.0 676.5Q319 687 320 689Q322 694 322.0 697.0Q322 700 322 706Q322 710 325.0 718.0Q328 726 332.0 736.0Q336 746 341.0 755.5Q346 765 350 773Q360 786 372.0 803.0Q384 820 397.0 835.0Q410 850 424.0 861.5Q438 873 453 876H461Q476 876 479.5 880.0Q483 884 489 884ZM236 364Q216 364 197.0 351.0Q178 338 163.5 319.0Q149 300 140.0 280.0Q131 260 131 245Q131 241 128.5 223.5Q126 206 127.5 188.5Q129 171 138.0 159.0Q147 147 170 153Q189 158 206.5 178.0Q224 198 236.5 225.0Q249 252 255.5 281.5Q262 311 261 336Q261 344 258 350Q256 355 250.5 359.5Q245 364 236 364Z"/>
+<path transform="translate(126.517,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(130.945,126.000) scale(0.013500,-0.013500)" d="M211 467Q229 467 241.5 458.0Q254 449 262.5 436.0Q271 423 274.5 408.5Q278 394 278 384V375V347Q278 336 272.0 307.5Q266 279 258.5 248.5Q251 218 245.0 191.5Q239 165 239 158V139Q239 133 231.5 120.5Q224 108 215.5 89.5Q207 71 199.5 46.0Q192 21 192 -11V-39V-67Q200 -81 202.5 -97.0Q205 -113 220 -133Q228 -148 230.5 -167.0Q233 -186 239 -200Q242 -218 243.5 -228.0Q245 -238 246.0 -246.0Q247 -254 247.0 -262.0Q247 -270 247 -284V-322Q244 -337 236.0 -347.5Q228 -358 218.5 -367.0Q209 -376 199.0 -383.5Q189 -391 183 -398Q169 -412 151.5 -424.0Q134 -436 128 -436L100 -445H81Q72 -445 56.0 -449.0Q40 -453 33 -453H-25Q-39 -453 -50.0 -447.0Q-61 -441 -70.0 -432.5Q-79 -424 -86.5 -414.5Q-94 -405 -100 -398Q-106 -395 -113.0 -387.5Q-120 -380 -126.0 -371.5Q-132 -363 -135.5 -354.0Q-139 -345 -139 -339V-311Q-139 -294 -134.5 -282.0Q-130 -270 -122 -253Q-118 -240 -104.0 -221.5Q-90 -203 -83 -189Q-79 -184 -72.0 -180.5Q-65 -177 -58.0 -173.0Q-51 -169 -44.0 -164.5Q-37 -160 -33 -153Q-19 -145 -10.0 -138.0Q-1 -131 14 -125Q21 -125 28.5 -120.5Q36 -116 43.0 -109.5Q50 -103 56.5 -96.5Q63 -90 69 -86Q78 -80 83.5 -77.5Q89 -75 89 -67Q97 -60 108.5 -53.5Q120 -47 128 -39Q133 -21 137 -4Q141 10 144.0 24.5Q147 39 147 47Q147 60 135.0 62.0Q123 64 108 64H100Q96 64 86.5 70.0Q77 76 67.0 84.5Q57 93 49.5 100.5Q42 108 42 111V131Q42 151 37.5 161.5Q33 172 33 186Q33 207 43.5 238.5Q54 270 67.5 301.0Q81 332 93.0 358.0Q105 384 108 395Q115 401 125.5 404.5Q136 408 136 423Q151 435 170.5 451.0Q190 467 211 467ZM170 331Q159 331 151.5 319.5Q144 308 138.5 293.0Q133 278 130.5 264.0Q128 250 128 245V200Q133 184 137 172Q141 161 146.0 153.0Q151 145 156 145L170 158Q178 186 185 210Q190 230 195.0 249.5Q200 269 200 275Q200 280 199.5 289.5Q199 299 196.0 308.0Q193 317 187.0 324.0Q181 331 170 331ZM108 -133Q94 -133 82.0 -141.5Q70 -150 56 -164Q56 -168 44.5 -178.5Q33 -189 19.5 -205.5Q6 -222 -5.5 -245.0Q-17 -268 -17 -297Q-17 -308 -3.5 -317.0Q10 -326 27.0 -333.0Q44 -340 60.5 -344.0Q77 -348 83 -348Q93 -348 105.5 -340.5Q118 -333 128.5 -321.0Q139 -309 146.0 -295.0Q153 -281 153 -267V-228Q153 -224 151.5 -208.5Q150 -193 145.0 -176.5Q140 -160 131.5 -146.5Q123 -133 108 -133Z"/>
+<path transform="translate(138.370,126.000) scale(0.013500,-0.013500)" d="M261 625Q270 625 278.5 624.5Q287 624 294.5 621.5Q302 619 306.5 613.5Q311 608 311 598Q311 592 297.0 575.5Q283 559 266.5 539.5Q250 520 236.0 501.5Q222 483 222 473Q222 465 226.5 461.0Q231 457 237.0 455.5Q243 454 249.5 453.5Q256 453 259 453H292Q294 455 298 458Q306 464 311 464Q326 464 332.5 452.0Q339 440 339 425V417V398Q339 387 327.0 381.0Q315 375 300.5 372.0Q286 369 272.5 368.0Q259 367 256 367Q241 367 239.0 368.5Q237 370 231 370H211Q205 370 194.0 364.0Q183 358 183 350Q183 339 182.0 330.5Q181 322 180 316Q179 309 178 303Q175 297 172 292Q167 282 167 275V264Q167 247 162.0 227.0Q157 207 153 203Q148 198 145.0 193.5Q142 189 142 170V150Q142 144 144.0 135.5Q146 127 151.0 120.0Q156 113 163.0 108.0Q170 103 181 103Q194 103 203 110Q207 113 211 117Q219 117 223.5 112.5Q228 108 232 103Q236 97 239 89Q239 81 232.5 68.0Q226 55 217.0 42.5Q208 30 198.0 20.5Q188 11 181 11Q174 11 167.5 -0.5Q161 -12 161 -17Q158 -17 150.0 -19.0Q142 -21 134 -23Q124 -26 114 -28Q101 -28 93.5 -26.5Q86 -25 86 -17Q83 -15 77.0 -2.5Q71 10 65.0 25.0Q59 40 54.5 54.5Q50 69 50 75V122Q50 126 52.5 140.5Q55 155 58.5 172.5Q62 190 64.5 207.5Q67 225 67 236V253Q75 276 82 294Q87 310 92.0 323.5Q97 337 97 339V370Q97 383 89 386Q83 391 76.0 396.0Q69 401 69 409Q69 415 73.5 421.5Q78 428 84.5 435.0Q91 442 97.5 449.5Q104 457 108 464Q115 479 121.5 482.5Q128 486 136 492Q149 507 164.0 517.0Q179 527 192 548Q200 562 204.0 576.0Q208 590 222 598Q235 602 245.0 613.5Q255 625 261 625Z"/>
+<path transform="translate(141.745,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(149.846,126.000) scale(0.013500,-0.013500)" d="M261 625Q270 625 278.5 624.5Q287 624 294.5 621.5Q302 619 306.5 613.5Q311 608 311 598Q311 592 297.0 575.5Q283 559 266.5 539.5Q250 520 236.0 501.5Q222 483 222 473Q222 465 226.5 461.0Q231 457 237.0 455.5Q243 454 249.5 453.5Q256 453 259 453H292Q294 455 298 458Q306 464 311 464Q326 464 332.5 452.0Q339 440 339 425V417V398Q339 387 327.0 381.0Q315 375 300.5 372.0Q286 369 272.5 368.0Q259 367 256 367Q241 367 239.0 368.5Q237 370 231 370H211Q205 370 194.0 364.0Q183 358 183 350Q183 339 182.0 330.5Q181 322 180 316Q179 309 178 303Q175 297 172 292Q167 282 167 275V264Q167 247 162.0 227.0Q157 207 153 203Q148 198 145.0 193.5Q142 189 142 170V150Q142 144 144.0 135.5Q146 127 151.0 120.0Q156 113 163.0 108.0Q170 103 181 103Q194 103 203 110Q207 113 211 117Q219 117 223.5 112.5Q228 108 232 103Q236 97 239 89Q239 81 232.5 68.0Q226 55 217.0 42.5Q208 30 198.0 20.5Q188 11 181 11Q174 11 167.5 -0.5Q161 -12 161 -17Q158 -17 150.0 -19.0Q142 -21 134 -23Q124 -26 114 -28Q101 -28 93.5 -26.5Q86 -25 86 -17Q83 -15 77.0 -2.5Q71 10 65.0 25.0Q59 40 54.5 54.5Q50 69 50 75V122Q50 126 52.5 140.5Q55 155 58.5 172.5Q62 190 64.5 207.5Q67 225 67 236V253Q75 276 82 294Q87 310 92.0 323.5Q97 337 97 339V370Q97 383 89 386Q83 391 76.0 396.0Q69 401 69 409Q69 415 73.5 421.5Q78 428 84.5 435.0Q91 442 97.5 449.5Q104 457 108 464Q115 479 121.5 482.5Q128 486 136 492Q149 507 164.0 517.0Q179 527 192 548Q200 562 204.0 576.0Q208 590 222 598Q235 602 245.0 613.5Q255 625 261 625Z"/>
+<path transform="translate(153.221,126.000) scale(0.013500,-0.013500)" d="M222 470Q231 470 235.0 460.0Q239 450 239 442Q221 379 207 327Q201 305 195.0 283.5Q189 262 184.5 244.0Q180 226 177.5 213.5Q175 201 175 197Q175 190 172.5 174.0Q170 158 172.5 144.5Q175 131 185.5 126.5Q196 122 222 139Q224 144 235.0 152.0Q246 160 259 172Q267 180 269.0 188.5Q271 197 275 197Q275 205 282.0 212.0Q289 219 289 225Q291 232 300.0 251.0Q309 270 320 297Q329 316 337.0 338.0Q345 360 351.0 381.0Q357 402 360.5 419.5Q364 437 364 448Q364 459 369.0 465.0Q374 471 381.5 474.0Q389 477 397.0 477.5Q405 478 411 478H434Q446 478 453.5 466.0Q461 454 461 439Q461 436 458.5 420.5Q456 405 452.5 385.0Q449 365 444.0 344.0Q439 323 434 309Q413 264 393.0 219.5Q373 175 373 133Q373 128 377 122Q379 119 381 117Q394 117 407.5 125.0Q421 133 431.5 142.0Q442 151 450.0 159.0Q458 167 461 167Q464 167 467.5 164.0Q471 161 474 158Q478 154 481 150Q481 146 471.5 130.5Q462 115 449.5 97.5Q437 80 425.5 65.0Q414 50 411 47Q401 40 393.5 34.5Q386 29 380.0 23.5Q374 18 367.5 10.5Q361 3 353 -8Q340 -21 326.0 -26.0Q312 -31 297 -31Q290 -31 283.5 -26.5Q277 -22 272.0 -15.5Q267 -9 264.0 -1.5Q261 6 261 11V28V39Q265 51 269 63Q272 73 275.0 84.0Q278 95 278 103Q278 109 276.5 115.5Q275 122 267 122Q261 122 253.0 114.5Q245 107 237.0 97.5Q229 88 222.0 79.0Q215 70 211 67Q205 59 189.0 42.5Q173 26 155.0 9.5Q137 -7 120.5 -20.0Q104 -33 97 -33Q91 -33 85.0 -27.5Q79 -22 74.5 -14.5Q70 -7 67.0 0.5Q64 8 64 11V39Q64 47 65 55Q66 62 66.5 69.0Q67 76 67 81Q67 87 69.5 97.5Q72 108 72 122Q72 135 75.5 149.0Q79 163 81 170L89 208Q91 215 99.5 232.0Q108 249 108 278Q108 292 109.0 297.5Q110 303 97 303Q91 303 84.5 301.0Q78 299 67 295Q59 290 51.0 287.0Q43 284 39 284Q33 284 26.0 291.5Q19 299 19 311Q19 323 25.0 329.5Q31 336 39.5 340.5Q48 345 56.0 349.5Q64 354 67 361Q80 371 98.0 389.5Q116 408 135.0 426.0Q154 444 171.5 457.0Q189 470 203 470Z"/>
+<path transform="translate(159.376,126.000) scale(0.013500,-0.013500)" d="M189 481Q200 483 203.5 478.0Q207 473 220 467Q231 461 239.0 453.0Q247 445 247 434Q246 429 245 423Q243 410 247 398Q247 389 243.5 376.5Q240 364 242 356Q244 352 248 348Q251 345 254.5 342.5Q258 340 261 342Q271 344 282.5 361.0Q294 378 305.0 399.0Q316 420 327.0 440.0Q338 460 347 467L378 475Q384 477 391.5 476.0Q399 475 403 475Q422 464 427.0 444.5Q432 425 434 414Q435 400 424.5 377.0Q414 354 398 339Q391 335 385.0 332.5Q379 330 373 328Q368 328 365.5 328.5Q363 329 359 331Q354 333 349.5 333.5Q345 334 339 334Q326 334 314.5 324.0Q303 314 292 303Q275 282 265.5 255.5Q256 229 256 206Q249 199 239.5 188.5Q230 178 225 164Q219 150 219.5 135.0Q220 120 214 106Q215 94 214.0 78.5Q213 63 210.5 46.0Q208 29 204.0 13.5Q200 -2 195 -14Q188 -19 178.0 -23.0Q168 -27 157 -29Q145 -32 131 -33Q126 -33 118 -25Q114 -21 111 -17L97 11Q96 18 99.0 35.0Q102 52 106.0 69.5Q110 87 113.5 101.0Q117 115 117 117Q139 150 146.0 186.5Q153 223 161 259L153 325Q148 338 140.5 338.0Q133 338 125 336Q109 333 102.0 327.5Q95 322 90.0 316.0Q85 310 79.0 304.5Q73 299 58 297Q50 297 48.0 307.0Q46 317 44 325Q42 334 47.0 342.5Q52 351 60.5 358.5Q69 366 80.0 373.5Q91 381 100 389Q112 402 121.0 417.5Q130 433 139.0 446.5Q148 460 159.5 469.5Q171 479 189 481Z"/>
+<path transform="translate(164.223,126.000) scale(0.013500,-0.013500)" d="M189 464Q200 464 206.0 457.0Q212 450 217 442Q220 435 219.0 423.0Q218 411 215.5 399.0Q213 387 210.5 376.0Q208 365 208 361L211 345L222 325Q226 325 237.5 336.5Q249 348 264.5 365.0Q280 382 297.0 401.5Q314 421 330.0 438.0Q346 455 359.0 466.5Q372 478 378 478Q386 478 391.5 468.0Q397 458 402 447Q407 434 411 417Q412 403 409.0 378.0Q406 353 399.5 323.5Q393 294 385.5 263.5Q378 233 371.5 207.5Q365 182 360.5 165.0Q356 148 356 147Q356 143 355.0 137.5Q354 132 354.0 127.5Q354 123 356.5 120.0Q359 117 367 117Q373 121 379 125Q384 129 390.0 133.0Q396 137 403 142Q420 153 434.5 162.5Q449 172 453 172Q459 172 466.0 165.5Q473 159 473 153Q473 151 466.5 142.0Q460 133 451.0 123.0Q442 113 433.0 105.0Q424 97 420 97Q420 89 414.5 82.0Q409 75 403 75Q387 58 376.0 42.0Q365 26 354.0 12.5Q343 -1 330.0 -9.0Q317 -17 297 -17Q290 -17 282.5 -12.0Q275 -7 269.0 0.5Q263 8 259.5 16.5Q256 25 256 31L253 67Q259 94 268.5 125.0Q278 156 286 183Q294 206 299.0 227.0Q304 248 306 267V278Q302 306 286 306Q262 306 248.0 295.5Q234 285 225.0 268.5Q216 252 209.5 233.0Q203 214 195 197Q190 191 188.5 185.5Q187 180 189 172Q187 160 184.5 148.0Q182 136 178 125Q167 93 157.0 61.5Q147 30 139 3Q144 -5 137.5 -6.5Q131 -8 125 -8Q119 -8 108.0 -7.5Q97 -7 86.5 -4.0Q76 -1 67.5 5.0Q59 11 58 22Q56 39 62.0 57.5Q68 76 75.5 92.0Q83 108 90.0 120.0Q97 132 97 136V153V172L92 189Q92 195 96.0 204.5Q100 214 104.5 223.5Q109 233 113.0 241.0Q117 249 117 253V267L114 306Q114 312 112.5 318.5Q111 325 103 325Q97 325 89.5 322.0Q82 319 74.5 315.5Q67 312 60.5 309.0Q54 306 50 306H42Q35 310 38.5 321.5Q42 333 42 339Q67 374 90.5 400.5Q114 427 147 448Q154 452 166.0 458.0Q178 464 189 464Z"/>
+<path transform="translate(173.903,126.000) scale(0.013500,-0.013500)" d="M336 484Q357 484 366.0 472.0Q375 460 375 439Q375 435 372.0 421.5Q369 408 364.5 391.5Q360 375 355.0 358.0Q350 341 347 331Q347 323 346.0 314.5Q345 306 339 292Q331 286 331.0 272.5Q331 259 331 253L328 200V161Q328 158 328.5 150.5Q329 143 330.5 135.5Q332 128 336.0 122.5Q340 117 347 117L361 139Q367 144 375.0 151.5Q383 159 391 166Q400 174 409 183Q415 183 419.0 178.0Q423 173 423 167L419 159Q415 151 411 147Q404 127 393.0 112.5Q382 98 369.0 84.5Q356 71 342.5 57.0Q329 43 317 25L295 -6Q295 -15 289.5 -24.5Q284 -34 276.5 -39.5Q269 -45 260.5 -44.5Q252 -44 247 -33Q241 -15 241.0 2.5Q241 20 244.0 36.5Q247 53 250.0 68.0Q253 83 253 97V133V153Q253 158 246 160Q242 161 239 161Q236 161 224.0 143.5Q212 126 196.5 103.5Q181 81 165.0 58.0Q149 35 139 25Q136 21 129.5 13.5Q123 6 115.5 -1.0Q108 -8 99.0 -13.5Q90 -19 83 -19Q69 -19 60.0 -9.0Q51 1 46.0 14.5Q41 28 38.5 41.5Q36 55 36 61L33 133L47 250Q47 253 50.0 264.0Q53 275 58.0 288.0Q63 301 69.5 313.5Q76 326 83 334Q112 361 139 400Q152 418 164.0 426.0Q176 434 188.0 438.5Q200 443 212.0 445.5Q224 448 239 456Q245 456 254.5 462.5Q264 469 272 475H300H317ZM208 373Q190 358 174.0 338.5Q158 319 146.0 299.0Q134 279 127.0 261.5Q120 244 120 234Q120 229 119.0 215.5Q118 202 120.0 187.5Q122 173 127.5 161.5Q133 150 147 150Q160 150 177.5 173.0Q195 196 210.5 225.0Q226 254 236.5 279.0Q247 304 247 309Q247 313 248.0 328.5Q249 344 246.5 358.5Q244 373 235.5 379.5Q227 386 208 373Z"/>
+<path transform="translate(179.046,126.000) scale(0.013500,-0.013500)" d="M189 481Q200 483 203.5 478.0Q207 473 220 467Q231 461 239.0 453.0Q247 445 247 434Q246 429 245 423Q243 410 247 398Q247 389 243.5 376.5Q240 364 242 356Q244 352 248 348Q251 345 254.5 342.5Q258 340 261 342Q271 344 282.5 361.0Q294 378 305.0 399.0Q316 420 327.0 440.0Q338 460 347 467L378 475Q384 477 391.5 476.0Q399 475 403 475Q422 464 427.0 444.5Q432 425 434 414Q435 400 424.5 377.0Q414 354 398 339Q391 335 385.0 332.5Q379 330 373 328Q368 328 365.5 328.5Q363 329 359 331Q354 333 349.5 333.5Q345 334 339 334Q326 334 314.5 324.0Q303 314 292 303Q275 282 265.5 255.5Q256 229 256 206Q249 199 239.5 188.5Q230 178 225 164Q219 150 219.5 135.0Q220 120 214 106Q215 94 214.0 78.5Q213 63 210.5 46.0Q208 29 204.0 13.5Q200 -2 195 -14Q188 -19 178.0 -23.0Q168 -27 157 -29Q145 -32 131 -33Q126 -33 118 -25Q114 -21 111 -17L97 11Q96 18 99.0 35.0Q102 52 106.0 69.5Q110 87 113.5 101.0Q117 115 117 117Q139 150 146.0 186.5Q153 223 161 259L153 325Q148 338 140.5 338.0Q133 338 125 336Q109 333 102.0 327.5Q95 322 90.0 316.0Q85 310 79.0 304.5Q73 299 58 297Q50 297 48.0 307.0Q46 317 44 325Q42 334 47.0 342.5Q52 351 60.5 358.5Q69 366 80.0 373.5Q91 381 100 389Q112 402 121.0 417.5Q130 433 139.0 446.5Q148 460 159.5 469.5Q171 479 189 481Z"/>
+<path transform="translate(183.893,126.000) scale(0.013500,-0.013500)" d="M220 475Q234 475 254.5 474.0Q275 473 289 467Q304 467 308.5 455.0Q313 443 320 428Q324 424 329.5 417.0Q335 410 339.5 402.5Q344 395 347.0 387.0Q350 379 350 373L342 284Q342 256 330.0 222.0Q318 188 295 161Q287 153 283.5 143.5Q280 134 276.5 124.0Q273 114 268.5 103.5Q264 93 256 83Q250 76 242.5 66.0Q235 56 226.5 45.5Q218 35 208.5 26.5Q199 18 189 14Q174 6 164.0 0.0Q154 -6 146.0 -10.0Q138 -14 129.5 -15.5Q121 -17 111 -17Q96 -17 83.0 -10.0Q70 -3 60.5 8.5Q51 20 45.0 34.5Q39 49 39 64V131Q39 137 35.0 142.0Q31 147 31 170Q30 199 45.0 240.0Q60 281 80.5 320.5Q101 360 121.5 390.5Q142 421 153 428Q164 435 171.5 443.5Q179 452 186.0 459.0Q193 466 200.5 470.5Q208 475 220 475ZM225 361Q209 361 192.5 347.5Q176 334 162.0 316.5Q148 299 137.0 281.5Q126 264 122 256L112 218Q108 204 105.5 191.0Q103 178 103 175V156Q107 153 110.0 144.0Q113 135 117.5 126.0Q122 117 128.0 110.0Q134 103 145 103Q165 112 182 121Q196 129 209.5 138.0Q223 147 228 156Q234 170 241.5 189.0Q249 208 256 225Q254 233 260.5 241.0Q267 249 267 256V284Q267 289 264.5 301.5Q262 314 256.5 327.5Q251 341 243.0 351.0Q235 361 225 361Z"/>
+<path transform="translate(188.321,126.000) scale(0.013500,-0.013500)" d="M222 470Q231 470 235.0 460.0Q239 450 239 442Q221 379 207 327Q201 305 195.0 283.5Q189 262 184.5 244.0Q180 226 177.5 213.5Q175 201 175 197Q175 190 172.5 174.0Q170 158 172.5 144.5Q175 131 185.5 126.5Q196 122 222 139Q224 144 235.0 152.0Q246 160 259 172Q267 180 269.0 188.5Q271 197 275 197Q275 205 282.0 212.0Q289 219 289 225Q291 232 300.0 251.0Q309 270 320 297Q329 316 337.0 338.0Q345 360 351.0 381.0Q357 402 360.5 419.5Q364 437 364 448Q364 459 369.0 465.0Q374 471 381.5 474.0Q389 477 397.0 477.5Q405 478 411 478H434Q446 478 453.5 466.0Q461 454 461 439Q461 436 458.5 420.5Q456 405 452.5 385.0Q449 365 444.0 344.0Q439 323 434 309Q413 264 393.0 219.5Q373 175 373 133Q373 128 377 122Q379 119 381 117Q394 117 407.5 125.0Q421 133 431.5 142.0Q442 151 450.0 159.0Q458 167 461 167Q464 167 467.5 164.0Q471 161 474 158Q478 154 481 150Q481 146 471.5 130.5Q462 115 449.5 97.5Q437 80 425.5 65.0Q414 50 411 47Q401 40 393.5 34.5Q386 29 380.0 23.5Q374 18 367.5 10.5Q361 3 353 -8Q340 -21 326.0 -26.0Q312 -31 297 -31Q290 -31 283.5 -26.5Q277 -22 272.0 -15.5Q267 -9 264.0 -1.5Q261 6 261 11V28V39Q265 51 269 63Q272 73 275.0 84.0Q278 95 278 103Q278 109 276.5 115.5Q275 122 267 122Q261 122 253.0 114.5Q245 107 237.0 97.5Q229 88 222.0 79.0Q215 70 211 67Q205 59 189.0 42.5Q173 26 155.0 9.5Q137 -7 120.5 -20.0Q104 -33 97 -33Q91 -33 85.0 -27.5Q79 -22 74.5 -14.5Q70 -7 67.0 0.5Q64 8 64 11V39Q64 47 65 55Q66 62 66.5 69.0Q67 76 67 81Q67 87 69.5 97.5Q72 108 72 122Q72 135 75.5 149.0Q79 163 81 170L89 208Q91 215 99.5 232.0Q108 249 108 278Q108 292 109.0 297.5Q110 303 97 303Q91 303 84.5 301.0Q78 299 67 295Q59 290 51.0 287.0Q43 284 39 284Q33 284 26.0 291.5Q19 299 19 311Q19 323 25.0 329.5Q31 336 39.5 340.5Q48 345 56.0 349.5Q64 354 67 361Q80 371 98.0 389.5Q116 408 135.0 426.0Q154 444 171.5 457.0Q189 470 203 470Z"/>
+<path transform="translate(194.476,126.000) scale(0.013500,-0.013500)" d="M189 464Q200 464 206.0 457.0Q212 450 217 442Q220 435 219.0 423.0Q218 411 215.5 399.0Q213 387 210.5 376.0Q208 365 208 361L211 345L222 325Q226 325 237.5 336.5Q249 348 264.5 365.0Q280 382 297.0 401.5Q314 421 330.0 438.0Q346 455 359.0 466.5Q372 478 378 478Q386 478 391.5 468.0Q397 458 402 447Q407 434 411 417Q412 403 409.0 378.0Q406 353 399.5 323.5Q393 294 385.5 263.5Q378 233 371.5 207.5Q365 182 360.5 165.0Q356 148 356 147Q356 143 355.0 137.5Q354 132 354.0 127.5Q354 123 356.5 120.0Q359 117 367 117Q373 121 379 125Q384 129 390.0 133.0Q396 137 403 142Q420 153 434.5 162.5Q449 172 453 172Q459 172 466.0 165.5Q473 159 473 153Q473 151 466.5 142.0Q460 133 451.0 123.0Q442 113 433.0 105.0Q424 97 420 97Q420 89 414.5 82.0Q409 75 403 75Q387 58 376.0 42.0Q365 26 354.0 12.5Q343 -1 330.0 -9.0Q317 -17 297 -17Q290 -17 282.5 -12.0Q275 -7 269.0 0.5Q263 8 259.5 16.5Q256 25 256 31L253 67Q259 94 268.5 125.0Q278 156 286 183Q294 206 299.0 227.0Q304 248 306 267V278Q302 306 286 306Q262 306 248.0 295.5Q234 285 225.0 268.5Q216 252 209.5 233.0Q203 214 195 197Q190 191 188.5 185.5Q187 180 189 172Q187 160 184.5 148.0Q182 136 178 125Q167 93 157.0 61.5Q147 30 139 3Q144 -5 137.5 -6.5Q131 -8 125 -8Q119 -8 108.0 -7.5Q97 -7 86.5 -4.0Q76 -1 67.5 5.0Q59 11 58 22Q56 39 62.0 57.5Q68 76 75.5 92.0Q83 108 90.0 120.0Q97 132 97 136V153V172L92 189Q92 195 96.0 204.5Q100 214 104.5 223.5Q109 233 113.0 241.0Q117 249 117 253V267L114 306Q114 312 112.5 318.5Q111 325 103 325Q97 325 89.5 322.0Q82 319 74.5 315.5Q67 312 60.5 309.0Q54 306 50 306H42Q35 310 38.5 321.5Q42 333 42 339Q67 374 90.5 400.5Q114 427 147 448Q154 452 166.0 458.0Q178 464 189 464Z"/>
+<path transform="translate(200.484,126.000) scale(0.013500,-0.013500)" d="M528 876H556Q560 876 564.0 870.0Q568 864 570 856Q573 847 575 837V809Q575 774 551.0 750.0Q527 726 489 726Q487 728 484 730Q478 734 473 734Q466 734 459.0 732.0Q452 730 448 726Q442 720 434.5 704.0Q427 688 420.5 670.5Q414 653 409.0 637.5Q404 622 403 617L398 592Q392 575 385.5 562.0Q379 549 374.5 535.0Q370 521 367.0 505.0Q364 489 364 467Q360 460 354.5 438.5Q349 417 344.5 393.5Q340 370 337.0 350.5Q334 331 334 328V309Q334 304 332.5 293.0Q331 282 329.5 270.0Q328 258 326.5 247.5Q325 237 325 234Q322 223 321.5 214.0Q321 205 322 199Q323 191 325 186Q325 183 323.5 175.0Q322 167 322.0 158.0Q322 149 324.0 142.5Q326 136 334 136Q347 136 360.5 145.0Q374 154 385.0 165.5Q396 177 404.5 186.0Q413 195 417 195Q423 195 428.5 189.0Q434 183 434 175Q424 164 417 153Q410 143 405.0 132.5Q400 122 400 111Q396 100 388.0 89.5Q380 79 370.0 67.0Q360 55 350.5 42.5Q341 30 334 17Q334 14 329.5 9.5Q325 5 319.0 1.0Q313 -3 306.5 -6.5Q300 -10 297 -11Q274 -28 258.0 -36.0Q242 -44 242 -33Q232 -38 228.0 -30.5Q224 -23 222.5 -8.5Q221 6 222.0 24.5Q223 43 223.5 59.0Q224 75 223.0 86.0Q222 97 217 97Q209 97 196.5 86.5Q184 76 170 61Q161 53 149.0 38.0Q137 23 124.5 8.5Q112 -6 100.5 -17.0Q89 -28 83 -28Q73 -28 63.0 -22.5Q53 -17 45.5 -9.0Q38 -1 33.0 9.5Q28 20 28 31V47V92Q28 95 30.0 106.5Q32 118 35 132Q38 148 42 167Q42 171 43.5 178.0Q45 185 47 191Q50 198 53 206V214Q55 224 57 234Q59 242 60.0 250.0Q61 258 61 261Q67 276 69.5 289.0Q72 302 81 317Q84 339 96.5 355.0Q109 371 126.0 384.0Q143 397 160.5 408.5Q178 420 192 434Q198 434 203 435Q213 437 220 445Q238 448 248.5 450.0Q259 452 265.5 456.5Q272 461 274.5 468.0Q277 475 278 489L286 517L295 578L303 617Q303 620 305.0 631.0Q307 642 310.0 654.0Q313 666 316.0 676.5Q319 687 320 689Q322 694 322.0 697.0Q322 700 322 706Q322 710 325.0 718.0Q328 726 332.0 736.0Q336 746 341.0 755.5Q346 765 350 773Q360 786 372.0 803.0Q384 820 397.0 835.0Q410 850 424.0 861.5Q438 873 453 876H461Q476 876 479.5 880.0Q483 884 489 884ZM236 364Q216 364 197.0 351.0Q178 338 163.5 319.0Q149 300 140.0 280.0Q131 260 131 245Q131 241 128.5 223.5Q126 206 127.5 188.5Q129 171 138.0 159.0Q147 147 170 153Q189 158 206.5 178.0Q224 198 236.5 225.0Q249 252 255.5 281.5Q262 311 261 336Q261 344 258 350Q256 355 250.5 359.5Q245 364 236 364Z"/>
+    </g>
+  </g>
+
+  <rect x="1" y="1" width="758" height="188" rx="8" fill="none" stroke="#F2A63C" stroke-opacity=".45" stroke-width="2"/>
+</g>
+</svg>
