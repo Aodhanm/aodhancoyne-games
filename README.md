@@ -1,7 +1,8 @@
 # games.aodhancoyne.com
 
 An arcade. Dark room, neon carpet in perspective, one cabinet per game, and the
-games run live inside the cabinet screens.
+games run live inside the cabinet screens. **Four machines** stand in one rank:
+Kedr, Missile, Doghole, Pacific Galleon.
 
 Static HTML, no build step, no external requests, no tracking. Served by GitHub
 Pages at `games.aodhancoyne.com` (see `CNAME`).
@@ -27,6 +28,14 @@ Copy an `<article class="cab">` block and set:
 - `.coin[data-src]` — the game URL
 - `.screen img[src]` — an attract still in `assets/`
 - a hue: add a rule like `.cab.yourgame{--hue:#RRGGBB}` and the class on the article
+- `.cab.yourgame .art img{object-position:50% NN%}` to pick which band of the
+  front panel art the cabinet shows
+
+⚠ **The rank is sized to fit, so a fifth machine is not free.** `.hall` and
+`.cab` both cut their width from the viewport so that `4W + 3G` fits (21vw and
+3.2vw). Adding one means re-cutting both, and `.keys` has to shrink with them
+or the longest control legend clips: that is why its font is
+`clamp(6px,.70vw,8px)` rather than a fixed size.
 
 ## Audio — not wired up yet
 
@@ -52,4 +61,10 @@ off on load. The coin sound only plays if the room tone is already on.
 ## Assets
 
 `attract-kedr.jpg` and `attract-missile.jpg` are title-screen captures taken from
-the live games on 2026-09-11.
+the live games on 2026-09-11. `still-pacific-galleon.jpg` likewise, 2026-10-07.
+
+The Pacific Galleon marquee and front panel are generated, not hand-written:
+see `~/pacific-galleon-cabinet-art/` (`build_marquee.py`, `build_art.py`). Both
+set their lettering as OUTLINE PATHS via `text_to_paths.py`, because Trattatello
+is a macOS system font and live `<text>` falls back to a plain serif everywhere
+else. Edit the builders and re-run them, not the SVGs.

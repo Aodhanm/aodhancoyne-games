@@ -105,17 +105,18 @@
  .hall{
   position:relative;z-index:3;
   display:flex;justify-content:center;align-items:flex-end;
-  /* THREE machines have to stand in ONE rank. The gap and the cabinet width
-     are both cut from the viewport so that 3W + 2G always fits: at 26vw and
-     4.5vw that is .87vw, which leaves room for the padding at any width worth
-     showing a rank at. They only break into rows on a phone. */
-  gap:clamp(12px,4.5vw,150px);
+  /* FOUR machines have to stand in ONE rank (it was three until Pacific
+     Galleon joined them on 2026-10-07). The gap and the cabinet width are
+     both cut from the viewport so that 4W + 3G always fits: at 21vw and
+     3.2vw that is 93.6vw, which still leaves room for the padding at any
+     width worth showing a rank at. They only break into rows on a phone. */
+  gap:clamp(10px,3.2vw,110px);
   flex-wrap:nowrap; padding:34px 22px 92px; max-width:1560px; margin:0 auto;
  }
  .cab{
   --hue:var(--neon-c);
   --tmold:#E6E9F2;               /* the plastic trim colour, per cabinet */
-  position:relative; width:clamp(132px,26vw,262px); flex:0 0 auto;
+  position:relative; width:clamp(118px,21vw,244px); flex:0 0 auto;
   display:flex; flex-direction:column; align-items:stretch;
   filter:drop-shadow(0 34px 34px rgba(0,0,0,.72));
  }
@@ -359,7 +360,7 @@
  .btns i:nth-child(1){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-y) 45%,#8A6A00 100%);color:var(--neon-y)}
  .btns i:nth-child(2){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-g) 45%,#0B6B34 100%);color:var(--neon-g)}
  .btns i:nth-child(3){background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--neon-c) 45%,#065C6B 100%);color:var(--neon-c)}
- .keys{font-size:8px;letter-spacing:.09em;white-space:nowrap;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.7}
+ .keys{font-size:clamp(6px,.70vw,8px);letter-spacing:.055em;white-space:nowrap;text-transform:uppercase;color:var(--faint);text-align:right;line-height:1.7}
  /* shown only once a cabinet is playing: the escape hatches */
  .acts{display:none;gap:8px;flex-wrap:wrap;justify-content:center;flex:1}
  .cab.playing .acts{display:flex}
@@ -441,7 +442,9 @@
  .cab.kedr .art img{object-position:50% 46%}
  .cab.dprk .art img{object-position:50% 62%}
  .cab.dogh{--hue:#E8A33D; --tmold:#C6CCD8}
+ .cab.pgal{--hue:#30B5C9; --tmold:#C9B79C}
  .cab.dogh .art img{object-position:50% 47%}
+ .cab.pgal .art img{object-position:50% 46%}
 
  /* ───────────────────────── chrome ───────────────────────── */
  .rail{
@@ -668,7 +671,7 @@
     <div class="kick"></div>
   </article>
 
-  <article class="cab dogh right" data-snd="snd-dogh">
+  <article class="cab dogh" data-snd="snd-dogh">
    <div class="marquee"><div class="glass"><img src="assets/marquee-doghole.svg" alt="Doghole · Barely room for a dog to turn around"></div></div>
    <div class="bezel">
     <div class="screen">
@@ -693,10 +696,36 @@
     <div class="kick"></div>
   </article>
 
+
+<article class="cab pgal right" data-snd="snd-pgal">
+   <div class="marquee"><div class="glass"><img src="assets/marquee-pacific-galleon.svg" alt="Doghole · Barely room for a dog to turn around"></div></div>
+   <div class="bezel">
+    <div class="screen">
+     
+     <img class="still" src="assets/still-pacific-galleon.jpg" alt="" width="960" height="720" fetchpriority="low" decoding="async">
+     <button class="coin" data-src="https://aodhanm.github.io/pacific-galleon/" aria-label="Play Pacific Galleon">
+      
+     </button>
+    </div>
+   </div>
+   <div class="panel">
+    <div class="lever"><span class="slot"></span><span class="arm"></span><span class="grip"></span><i>HELM</i></div>
+    <div class="sqbtns"><i class="rot"></i><i class="rot"></i><i class="abort"></i></div>
+    <div class="keys">&larr;&rarr; helm<br>&uarr; make sail<br>space broadside<br>G board her</div>
+    <div class="acts"><button type="button" data-act="full">&#9974; Fullscreen</button><a data-act="tab" href="#" target="_blank" rel="noopener">&#8599; New tab</a><button type="button" data-act="stop">&#9632; Stop</button></div>
+   </div>
+   <div class="body">
+     <div class="art"><img src="assets/art-pacific-galleon.svg" alt="Cabinet art: the Manila galleon running for Cabo San Lucas at sunset, an English private ship on her quarter with a broadside away, the arch at Land&#39;s End beyond, and an opened chest of treasure on the rail"></div>
+     <div class="door"><span class="slot"></span><em>Insert Coin</em><span class="slot"></span></div>
+    </div>
+   <div class="plate"><a class="go" href="https://aodhanm.github.io/pacific-galleon/" target="_blank" rel="noopener">Play full speed &#8599;</a><button type="button" data-share="https://aodhanm.github.io/pacific-galleon/" data-title="Doghole"><span>Share</span></button><a href="https://github.com/Aodhanm/pacific-galleon" target="_blank" rel="noopener">Source</a></div>
+    <div class="kick"></div>
+  </article>
+
  </main>
 
  <div class="rail">
-  <div>Play full speed: <a href="https://aodhanm.github.io/KDER/" target="_blank" rel="noopener">Kedr</a> &middot; <a href="https://aodhanm.github.io/nk-missile-game/" target="_blank" rel="noopener">Missile</a> &middot; <a href="https://aodhanm.github.io/doghole/" target="_blank" rel="noopener">Doghole</a> &middot; source on <a href="https://github.com/Aodhanm">GitHub</a></div>
+  <div>Play full speed: <a href="https://aodhanm.github.io/KDER/" target="_blank" rel="noopener">Kedr</a> &middot; <a href="https://aodhanm.github.io/nk-missile-game/" target="_blank" rel="noopener">Missile</a> &middot; <a href="https://aodhanm.github.io/doghole/" target="_blank" rel="noopener">Doghole</a> &middot; <a href="https://aodhanm.github.io/pacific-galleon/" target="_blank" rel="noopener">Pacific Galleon</a> &middot; source on <a href="https://github.com/Aodhanm">GitHub</a></div>
   <div>Built by Aodhan Coyne &middot; <a href="https://aodhancoyne.com/">aodhancoyne.com</a></div>
  </div>
 </div>
@@ -717,7 +746,8 @@
 <!-- each game's own title-screen track, lifted from its repo -->
 <audio id="snd-kedr" loop preload="none" src="assets/hover-kedr.m4a"></audio>
 <audio id="snd-dprk" loop preload="none" src="assets/hover-dprk.m4a"></audio>
-<audio id="snd-dogh" loop preload="none" src="assets/hover-doghole.m4a"></audio>
+<audio id="snd-dogh" loop preload="none" src="assets/hover-doghole.m4a">
+<audio id="snd-pgal" loop preload="none" src="assets/hover-pacific-galleon.m4a"></audio>
 
 <script>
 (function(){
