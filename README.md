@@ -64,7 +64,8 @@ off on load. The coin sound only plays if the room tone is already on.
 the live games on 2026-09-11. `still-pacific-galleon.jpg` likewise, 2026-10-07.
 
 The Pacific Galleon marquee and front panel are generated, not hand-written:
-see `~/pacific-galleon-cabinet-art/` (`build_marquee.py`, `build_art.py`). Both
+see `~/pacific-galleon/cabinet-art/` (`build_marquee.py`, `build_art.py`), which
+is versioned in the game repo. Both
 set their lettering as OUTLINE PATHS via `text_to_paths.py`, because Trattatello
 is a macOS system font and live `<text>` falls back to a plain serif everywhere
 else. Edit the builders and re-run them, not the SVGs.
